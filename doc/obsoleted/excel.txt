@@ -1,0 +1,11 @@
+有兩個 module 檔案:
+Module1.bas
+Module2.bas
+
+Module1 是主程式.
+
+建立空白的巨集後, 匯入這兩個檔案.
+
+(或直接開啟 module.xls, 內含巨集)
+
+執行後會產生 *.txt, 然後使用 putall.txt 整理成一個檔案.

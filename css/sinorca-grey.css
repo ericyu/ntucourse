@@ -1,0 +1,422 @@
+/******************************************************************
+ * TITLE: Grey Boxes Stylesheet for Sinorca                       * 
+ * URI  : http://www.oswd.org/design/???/sinorca/sinorca-grey.css *
+ * MODIF: 2003-01-13 1237 +0800                                   *
+ ******************************************************************/
+
+
+/* ###### Body Text ###### */
+
+body {
+	behavior:url('css/csshover.htc'); /* for IE */
+	background-color: #f0f0f0;
+	font-family: verdana, tahoma, helvetica, arial, sans-serif;
+	font-size: 82%;
+	margin: 0;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+}
+
+h1, h2, h3 {
+	color: white;
+	background-color: #6487dc;
+	padding-left: 1ex;
+	padding-right: 1ex;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 100%;
+	padding-top: 0.2ex;
+	padding-bottom: 0.2ex;
+	margin-top: 2ex;
+}
+
+img {
+  border: none;
+}
+
+em {
+    font-style: normal;
+    color: red;
+    font-weight: bold;
+}
+
+q {
+  font-family: tahoma, verdana, helvetica, arial, sans-serif;
+  text-align: left;
+  width: 9em;
+  margin: 0 1em 1ex 1em;
+  padding: 0.5ex 0.5ex 0.5ex 1ex;
+  border-style: solid;
+  border-width: 1px;
+  float: right;
+}
+
+acronym {
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+  cursor: help;
+}
+
+code {
+  font-family: "lucida console", "courier new", courier, monospace;
+}
+
+dt {
+  font-weight: bold;
+  padding-left: 1ex;
+  padding-right: 1ex;
+}
+
+dd {
+  padding-left: 1ex;
+  padding-right: 1ex;
+  padding-bottom: 1.5em;
+}
+
+#bodyText {
+	background-color: white;
+	/* text-align: justify; */
+	line-height: 1.5em;
+	padding: 5mm 5mm 2mm 5mm;
+}
+
+#bodyText p {
+  padding-left: 1ex;
+  padding-right: 1ex;
+  padding-bottom: 2ex;
+}
+
+#bodyText a {
+  text-decoration: none;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+#bodyText a:hover {
+  border-bottom: none;
+}
+
+#bodyText .topOfPage {
+  color: white;
+  font-weight: bold;
+  font-variant: small-caps;
+  border: 0;
+  padding: 0.25ex 1ex;
+  float: right;
+}
+
+#bodyText [class~="topOfPage"] {
+  padding: 1.5ex 1ex;
+}
+
+.smallCaps {
+  font-variant: small-caps;
+}
+
+
+/* ###### Header ###### */
+
+#upperMenuBar {
+  height: 2.1em;
+}
+
+#upperMenuBar a {
+  font-size: 90%;
+  text-decoration: none;
+  padding-left: 0.8ex;
+  padding-right: 1.6ex;
+}
+
+#upperMenuBar a:hover {
+  text-decoration: underline;
+}
+
+.LHS {
+  position: absolute;
+  left: 1.7mm;
+  top: 1ex;
+}
+
+.RHS {
+  position: absolute;
+  right: 0.6mm;
+  top: 0.9ex;
+}
+
+#header {
+	font-size: 335%;
+	height: 1.45em;
+	padding-left: 4mm;
+}
+
+#headerSearch {
+  position: absolute;
+  right: 2mm;
+  top: 3.6em;
+}
+
+#headerSearch .text {
+  font-family: "lucida console", "courier new", courier, monospace;
+  font-size: 97%;
+  font-size-adjust: 0.55;
+  width: 9em;
+  height: 2ex;
+  padding: 1mm;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#headerSearch [class~="text"] {  /* This rule only rendered by CSS2-fully compliant browsers */
+  height: 3.75ex;
+}
+
+#headerSearch .submit {
+  font-size: 100%;
+  font-weight: bold;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  position: relative;
+  top: -0.25ex;
+}
+
+#lowerMenuBar {
+	padding-left: 1.3mm;
+	padding-top: 0.7ex;
+	padding-bottom: 0.7ex;
+}
+
+#lowerMenuBar a {
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 0.3ex;
+	padding-right: 1.0ex;
+	white-space: pre;
+}
+
+#lowerMenuBar a:hover {
+  text-decoration: underline;
+}
+
+#upperMenuBar .highlight, #lowerMenuBar .highlight {
+  /* See: color-scheme.css */
+}
+
+/* ###### Footer ###### */
+
+#footer {
+  font-size: 90%;
+  padding: 1.9ex 2.6mm 2.4ex 2.6mm;
+  clear: left;
+}
+
+#footer div {
+  text-align: right;
+  line-height: 1.45em;
+}
+
+#footer a {
+  text-decoration: none;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
+#footer a:hover {
+  border-bottom: none;
+}
+
+.footerLHS {
+  float: left;
+  clear: left;
+}
+
+/* piaip */
+table.time { 
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+table.time th { 
+    text-align: center; 
+    background: #cef; 
+    padding: 2px; 
+}
+table.time td { 
+    text-align: center; 
+    background: #dff; 
+    padding: 2px; 
+}
+
+table.time th.h { 
+    background: #bde; 
+}
+
+/* moz.org hr */
+hr {
+    padding: 0;
+    height: 4px;
+    border: 0;
+    background: url(hr.gif) repeat;
+    margin: 0.7em 0;
+}
+
+/* tree menu support */
+li.treeFolder {
+  list-style: url(/images/plus.gif) none;
+}
+
+.treeItem {
+  display: none;
+  margin-left: 1em;
+  padding: 0px;
+}
+
+.treeItem li {
+  list-style: url(/images/square.gif) none;
+}
+
+a.actuator {
+  background-color: transparent;
+  color: #000;
+  text-decoration: none;
+}
+
+a.actuator:hover {
+  text-decoration: underline;
+}
+
+.menu li a {
+  background-color: transparent;
+  color: #000;
+  text-decoration: none;
+}
+
+.menu li a:hover {
+  border-bottom: 1px dashed #000;
+}
+
+/****** Custom Settings ******/
+
+.GetFirefox {
+	float: right;
+	position: relative;
+	right: 10px;
+	top: 10px;
+	font-weight: bold;
+	padding-left: 2.5mm;
+	padding-bottom: 1ex;
+}
+
+span.info {
+	position: relative; /*this is the key*/
+	cursor: help;
+	text-decoration: none;
+	border-bottom: 2px solid #00cccc;
+}
+
+span.info:hover { z-index: 1; background-color:#e96; }
+
+span.info span.tooltip { display: none; }
+
+span.info:hover span.tooltip { /*the span will display just on :hover state*/
+	display: block;
+	position: absolute;
+	top: -1em; left: 10em; width: 15em;
+	border: 1px solid #0cf;
+	background-color: #f5deb3;
+	color: #000000;
+	font-size: 100%;
+	text-align: center;
+}
+
+span.smallnote {
+	font-size: 90%;
+}
+
+#tco_chg, #tdptname, #tcou_code, #tclass, #tyear, #tcredit, #tforth, #tsel_code, #ttea_cname, #t_co_gmark {
+	text-align: center;
+}
+
+#tser_no, #tco_chg, #tclass, #tcredit, #tforth, #tsel_code, #ttea_cname, td.tdCheckbox {
+	white-space: nowrap;
+}
+
+.tooltiptitle {
+	color: #ffffff;
+	text-decoration: none;
+	cursor: Default;
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+.tooltipcontent {
+	color: #000000;
+	text-decoration: none;
+	cursor: Default;
+	font-size: 9pt;
+}
+
+#dek {
+	position: absolute;
+	visibility: hidden;
+	z-index: 200;
+}
+
+table.map {
+    border: 0px;
+}
+
+table.map TH {
+    background: #cec;
+    text-align: left;
+    padding: 7px;
+    padding-left: 10px;
+	padding-right: 10px;
+}
+
+table.map TR.bh TH {
+    text-align: center;
+    background: #bdb;
+}
+
+table.map TD {
+    padding: 2px;
+    background: #efe;
+}
+
+.rhsodd {
+	background-color: #bbddbb;
+	padding: 0.1em 0.1em 0.1em 0.1em;
+}
+
+.rhseven {
+	padding: 0.1em 0.1em 0.1em 0.1em;
+}
+
+.drag {
+	position: relative;
+	cursor: hand;
+}
+
+legend {
+	font-weight: bold;
+}
+
+fieldset {
+	padding: 0.1em 0.1em 0.1em 0.1em;
+}
+
+input.button, input.submit {
+	background-color: #cec;
+	border: 1px solid #696;
+}
+
+input.selectButton {
+	background-color: #cec;
+	border: 1px solid #696;
+	font-size: 80%;
+}
+
+tr.highlightrow td { background-color: #ddeeff; }

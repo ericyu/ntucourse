@@ -1,0 +1,31 @@
+*** 學期交替時, 此目錄下需更動這些檔案:
+fetchdata.pl update,sql diff.pl putall.pl
+(為了辨識學期方便所以學期資料檔名如此命名)
+
+而學年更迭時, dpt 下的資料需更新, 包括 prev.php 中的 $available
+embed 及 $year.xml (及 .html)
+
+
+====
+此目錄資料說明
+
+fetchdata.pl	自動抓回 ftp://ftp.ntu.edu.tw/NTU/course/ 的檔案,
+				然後使用 ssconvert (ports/math/gnumeric2) 轉換
+				gnumeric 版本:
+					< 1.2.8 有問題
+					  1.2.9 正常
+
+CSV.pm			用在 fetchdata.pl 的 perl module
+
+update.sql		刪除資料庫內容, 重新放入本學期新檔
+diff.pl			產生更動記錄的 perl script
+
+sql-table.txt	課程資料表格的 schema
+
+====
+OBSOLETED		已廢棄檔案
+excel.txt		說明如何使用 EXCEL 轉檔模組
+putall.pl		將 EXCEL 轉出的 *.txt 修正後合併
+module.xls		內含模組 (以下兩個檔案) 的 EXCEL 檔案
+Module1.bas
+Module2.bas

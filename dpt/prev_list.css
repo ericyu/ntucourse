@@ -1,0 +1,8 @@
+body { behavior:url('../css/csshover.htc'); /* for IE */ }
+li li { font-size: 12pt; }
+li li:hover { border-left: red dotted 1px; }
+.id { font-family: Tahoma; }
+
+ul.makeMenu ul {
+	display: run-in;
+}
