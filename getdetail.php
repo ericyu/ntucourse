@@ -3,9 +3,9 @@ require_once('HTTP/Request.php');
 $INFO = array('http://investea.aca.ntu.edu.tw/course/course_asp/ConQuery.asp',
 'http://couweb3.aca.ntu.edu.tw/course/course_asp/ConQuery.asp');
 $host = 'localhost';
-$user = 'ericyu';
-$password = 'CouRRs';
-$db = 'course';
+$user = 'ntucourseupdate';
+$password = 'courseupdate';
+$db = 'ntucourse';
 $dbh = mysql_pconnect($host, $user, $password) or die("The database system is not ready.");
 mysql_select_db($db);
 
