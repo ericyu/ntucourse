@@ -279,12 +279,16 @@ formSelect('order', array(''=>'', 'asc'=>'小到大', 'desc'=>'大到小'));
 <input type="submit" class="submit" name="SubmitType" value="儲存查詢">
 <input type="submit" class="submit" name="SubmitType" value="取回儲存">
 <input type="submit" class="submit" name="SubmitType" value="清除儲存">
+<input type="hidden" name="qid" value="<?= (empty($var['qid'])) ? md5(uniqid(rand(),1)) : $var['qid']; ?>">
 </td></tr></table>
 </form>
 
 <p>
 <?
-if(!empty($_POST['send'])) {				// 程式開始, 有送出時才處理
+if(!empty($_POST['send'])) {			// 程式開始, 有送出時才處理
+
+// log 到資料庫
+mysql_query("INSERT INTO querylog (ipaddr,sid,qid,query) VALUES ('".getIP()."','".session_id()."','$var[qid]','".serialize($var)."')", $dbh);
 
 // 這裡是處理使用者輸入條件的部份, see query.inc.php
 condDpt();
@@ -298,15 +302,16 @@ condOthers();
 $from = $var['start'] - 1;
 if(preg_match('/drop|delete/i', $condition))
 	$condition = '';
-$query='select SQL_CALC_FOUND_ROWS ' . implode(',', $sel_column) .
+
+$query = 'SELECT SQL_CALC_FOUND_ROWS ' . implode(',', $sel_column) .
 (in_array('cou_code', $sel_column) ? '' : ',cou_code') .
 (in_array('dpt_code', $sel_column) ? '' : ',dpt_code') .
 (in_array('class', $sel_column) ? '' : ',class') .
-" from $var[table] where 1 $condition limit $from,$var[number]";
-$res = mysql_query($query, $dbh);// or die('Invalid Query');
+" FROM $var[table] WHERE 1 $condition LIMIT $from,$var[number]";
+$res = mysql_query($query, $dbh) or die('Invalid Query');
 
 echo mysql_error($dbh);
-$count_result = mysql_query("SELECT FOUND_ROWS() as count");
+$count_result = mysql_query("SELECT FOUND_ROWS() AS count");
 $total_count = mysql_result($count_result, 0);
 $number = mysql_num_rows($res);
 
@@ -315,7 +320,6 @@ if($number == 0) {
 	if($total_count != 0) {
 		echo "<p>(開始顯示的筆數 $var[start] 大於總結果筆數 $total_count)</p>";
 		echo '<input type="button" class="button" value="到第一頁" onClick="document.ThisForm.start.value=1; document.ThisForm.SubmitType[0].click();">';
-
 	} else
 		echo '<p>無符合條件的課程</p>';
 } else {
@@ -347,7 +351,7 @@ if(empty($var['csv'])) {
 		echo '<table border="1" width="100%">';
 		table_header($sel_column);
 
-		for($j=0; ($j < $RecordsPerTable && $row = mysql_fetch_assoc($res)); ++$j)
+		for($j = 0; ($j < $RecordsPerTable && $row = mysql_fetch_assoc($res)); ++$j)
 			displayRow($row, $var['table']);
 	}
 } else { // CSV here
@@ -361,13 +365,12 @@ formAddToScheduleTable(false);
 displayPager();
 
 }
-	echo "<br>\n query = [$query]<br>\n";
+//	echo "<br>\n query = [$query]<br>\n";
 $beg = explode (" ",$begin_time); 
 $end = explode (" ",microtime()); 
 echo "<p>本頁 ".(($end[1] - $beg[1])+($end[0] - $beg[0]))." 秒完成</p>";
 }
-?>
-<?
+
 if(empty($_POST['send'])) {
 	$fp = @fopen('acc.txt','r+');
 	if($fp) {
@@ -382,4 +385,14 @@ if(empty($_POST['send'])) {
 	}
 }
 require('include/footer.inc.php');
+
+function getIP() {
+	if(!empty($_SERVER["HTTP_CLIENT_IP"]))
+		$ip = $_SERVER['HTTP_CLIENT_IP'];
+	elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR']))
+		$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	elseif(!empty($_SERVER['REMOTE_ADDR']))
+		$ip = $_SERVER['REMOTE_ADDR'];
+	return $ip;
+}
 ?>

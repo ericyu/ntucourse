@@ -1,3 +1,9 @@
+<?
+session_name('ntucourse_sid');
+ini_set('session.use_only_cookies', true);
+session_start();
+header("Cache-control: private");
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
