@@ -386,7 +386,7 @@ if(empty($_POST['send'])) {
 		$cnew = $count+1;
 		rewind($fp);
 		fputs($fp,$cnew);
-		echo '<br><a href="hitStats.php">'.$cnew.' visits today</a><br>';
+		echo '<br><a href="hitStats.php">今日人數: '.$cnew.'</a><br>';
 		flock($fp,3);
 		fclose($fp);
 	}
