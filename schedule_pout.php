@@ -1,7 +1,7 @@
 <?
-include_once('include/query.inc.php');
-include_once('include/query_form.inc.php');
-include_once('include/schedule.inc.php');
+require_once('include/query.inc.php');
+require_once('include/query_form.inc.php');
+require_once('include/schedule.inc.php');
 // output compression
 ob_start();
 $var = &$_POST;
@@ -70,7 +70,7 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 <p align="center">
 <? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
 <?
-include('include/tablematrix.inc.php');
+require_once('include/tablematrix.inc.php');
 $class_size = 15;
 if(!empty($var['no_zero'])) {
 	$class_size -= 1;

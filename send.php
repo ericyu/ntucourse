@@ -1,5 +1,5 @@
 <?
-include('include/header.inc.php');
+require('include/header.inc.php');
 $EMAIL = trim(strip_tags($_POST['from']));
 if (eregi("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,3}$", $EMAIL, $check)) {
 	if(!(getmxrr(substr(strstr($check[0], '@'), 1), $validate_email_temp) || checkdnsrr(substr(strstr($check[0], '@'), 1),'ANY'))) {
@@ -31,7 +31,6 @@ if(empty($error) && mail($recipient, $subject, $contents, $headers))
 	echo '<p>您的信件成功送出!</p>';
 else
 	echo '<p>寄信失敗!</p>';
-?>
-<?
-include('include/footer.inc.php');
+
+require('include/footer.inc.php');
 ?>

@@ -1,6 +1,6 @@
 <?
-include_once('include/query.inc.php');
-include_once('include/schedule.inc.php');
+require_once('include/query.inc.php');
+require_once('include/schedule.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 $var = &$_POST;
@@ -33,7 +33,7 @@ if(isset($var['src']) && isset($var['dst'])) {
 	$COU = $array;
 	setcookie($sch_no,implode(';', $COU), time()+5184000);
 }
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <script type="text/javascript">
 function swap(src, dst) {
@@ -85,7 +85,7 @@ echo '</table>';
 ?>
 <p><a href="schedule.php?sch_no=<? echo $sch_no; ?>">返回課表</a>
 <?
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 
 function sel_order($size, $pos) {
 	$str = "<select name=\"pos$pos\" size=\"1\" onChange=\"javascript:swap($pos, this.form.pos$pos.selectedIndex);\">";

@@ -1,7 +1,7 @@
 <?
-include_once('include/query.inc.php');
-include_once('include/query_form.inc.php');
-include_once('include/schedule.inc.php');
+require_once('include/query.inc.php');
+require_once('include/query_form.inc.php');
+require_once('include/schedule.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 
@@ -16,7 +16,7 @@ if(!preg_match('/^SCHEDULE([23]?)$/', $sch_no))
 if(isset($_COOKIE[$sch_no]))
 	$COU = preg_split('/;/', $_COOKIE[$sch_no]);
 
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/color.js"></script>
 <script type="text/javascript">
@@ -84,5 +84,5 @@ for($i=0; isset($subquery) && $i<$size; ++$i) {
 <p><input type="submit" class="submit" value="送出">
 </form>
 <?
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 ?>

@@ -1,7 +1,7 @@
 <?
-include_once('include/query.inc.php');
-include_once('include/query_form.inc.php');
-include_once('include/schedule.inc.php');
+require_once('include/query.inc.php');
+require_once('include/query_form.inc.php');
+require_once('include/schedule.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 $var = &$_POST;

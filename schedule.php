@@ -1,7 +1,7 @@
 <?
-include_once('include/query.inc.php');
-include_once('include/query_form.inc.php');
-include_once('include/schedule.inc.php');
+require_once('include/query.inc.php');
+require_once('include/query_form.inc.php');
+require_once('include/schedule.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 $var = &$_POST;
@@ -49,7 +49,7 @@ if(!empty($var['add'])) {				// ADD
 	else
 		setcookie($sch_no, '', time() - 3600);
 }
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/schedule.js"></script>
 <h1>課表</h1>
@@ -167,5 +167,5 @@ for($c = 0; $c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 }
 echo "</table>\n";
 } // END OF CONDITION 'COURSE(S) IN SCHEDULE'
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 ?>

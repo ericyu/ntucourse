@@ -1,5 +1,5 @@
 <?
-include("include/db.inc.php");
+require("include/db.inc.php");
 $t = "dpt_code";
 $pattern = array("ser_no" => "/^(|\d{5})$/",
 				"cou_code" => "/^[0-9A-Z]{3} [0-9A-Z]{5}$/",

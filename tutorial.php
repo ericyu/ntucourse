@@ -1,5 +1,5 @@
 <?
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <h1>選課輔助程式 說明</h1>
 <h2>Part I</h2>
@@ -33,5 +33,5 @@ include('include/header.inc.php');
 <li>將上面的查詢條件儲存/讀取/清除儲存.</li>
 </ol>
 <?
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 ?>

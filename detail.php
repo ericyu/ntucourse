@@ -1,5 +1,5 @@
 <?
-include('include/query.inc.php');
+require_once('include/query.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 $info[1] = 'http://investea.aca.ntu.edu.tw/course/course_asp/ConQuery.asp';

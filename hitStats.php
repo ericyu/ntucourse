@@ -8,7 +8,7 @@
    // Specify which file format to output too.
    $outputFormat = "png";
 
-include('include/db.inc.php');
+require_once('include/db.inc.php');
 
    // The page id in hitCount that you want to show
    $pageId = 1;

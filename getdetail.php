@@ -1,6 +1,6 @@
 <?
-include('HTTP/Request.php');
-$INFO=array('http://investea.aca.ntu.edu.tw/course/course_asp/ConQuery.asp',
+require_once('HTTP/Request.php');
+$INFO = array('http://investea.aca.ntu.edu.tw/course/course_asp/ConQuery.asp',
 'http://couweb3.aca.ntu.edu.tw/course/course_asp/ConQuery.asp');
 $host = 'localhost';
 $user = 'ericyu';

@@ -1,5 +1,5 @@
 <?
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <h1>寄信給作者</h1>
 任何問題及建議或是可以新增的功能, 除了利用討論區發表外，也歡迎寄給下面的作者群：
@@ -25,5 +25,5 @@ include('include/header.inc.php');
 <input type="submit" class="submit" value="送出"> <input type="reset" class="submit" value="重填">
 </form>
 <?
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 ?>

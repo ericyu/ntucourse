@@ -1,5 +1,5 @@
 <?
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <h1>上課地點對照表</h1>
 最後更新： 2003/8/17<br/>
@@ -119,5 +119,5 @@ include('include/header.inc.php');
 <tr><td>(法)網球場<td><td><td>
 </table>
 <?
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 ?>
