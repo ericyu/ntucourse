@@ -172,7 +172,7 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 	list ($c1, $c2) = explode(' ', $row['cou_code']);
 	if(!$csv) {
 		if($sch || !$no_select)
-			echo "<tr onclick='javascript:setCheck(\"c$_rowCount\");' ".
+				echo "<tr onclick='javascript:setCheck(event,\"c$_rowCount\");' ".
 				"onmouseover='javascript:this.className=\"highlightrow\"' ".
 				"onmouseout='javascript:this.className=\"\"'>";
 		else
