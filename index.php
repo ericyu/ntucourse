@@ -93,16 +93,16 @@ echo '<table id="optiontable" bgcolor="#ffffcc" border="0" cellpadding="8"'.
 <input type="button" value="取消選取" onClick="javascript:checkAll(0)" class="selectButton"><br>
 <table border="0">
 <?
-for($n=0; $n<=1; ++$n) {
+
+for($n = 0; $n <= 1; ++$n) {
 	echo '<tr><td>'.($n?'下午':'上午');
-	for($i=1; $i<=6; ++$i)
+	for($i = 1; $i <= 6; ++$i)
 		echo '<td><input type="checkbox" name="c'.$i.($n?'p':'a').'" '.
 		'onClick="javascript:checkPart(' . "$i, $n" . ', this.checked)"'.
 		(empty($_POST['send']) ? ' checked' : '') . ">\n";
 	echo '</tr>';
 }
-?>
-<?
+
 for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 	echo '<tr>';
 	for($week = 0; $week < 7; ++$week) {
@@ -212,20 +212,11 @@ foreach($cou_code_type as $key => $item)
 <? formInputText('credit'); ?>
 <td>取 OR (聯集)
 <tr><td>期間<td colspan="2">
-<?
-$array = array(''=>'全年/半年', 'full'=>'全年', 'half'=>'半年');
-formSelect('interval', $array);
-?>
+<? formSelect('interval', array(''=>'全年/半年', 'full'=>'全年', 'half'=>'半年')); ?>
 <tr><td>必修/選修<td colspan="2">
-<?
-$array = array(''=>'必修/選修', 'ob'=>'必修', 'op'=>'選修');
-formSelect('elective', $array);
-?>
+<? formSelect('elective', array(''=>'必修/選修', 'ob'=>'必修', 'op'=>'選修')); ?>
 <tr><td>異動<td colspan="2">
-<?
-$array = array(''=>'', 'new'=>'加開', 'halt'=>'停開', 'mod'=>'異動');
-formSelect('modified', $array);
-?>
+<? formSelect('modified', array(''=>'', 'new'=>'加開', 'halt'=>'停開', 'mod'=>'異動')); ?>
 </table>
 </div>
 </fieldset>
@@ -246,6 +237,7 @@ formSelect('modified', $array);
 <legend>結果檢視</legend>
 <div>
 <?
+
 if(!empty($var['start']) && !is_numeric($var['start']))
 	$var['start'] = 1;
 if(!empty($var['number']) && !is_numeric($var['number']))
@@ -258,7 +250,7 @@ for($i = 1; $i <= 2001; $i += $RecordsPerTable)
 formSelect("start", $array);
 ?> 筆開始顯示 <?
 $array = array();
-for($i = $RecordsPerTable; $i <= 1000; $i += $RECORDS_PER_TABLE)
+for($i = $RecordsPerTable; $i <= 1000; $i += $RecordsPerTable)
 	$array[$i] = $i;
 formSelect("number", $array);
 ?> 筆
@@ -272,8 +264,7 @@ foreach($all_field as $k => $s) {
 }
 formSelect('sortby', $array);
 ?> 排序 (順序: <?
-$array = array(''=>'', 'asc'=>'小到大', 'desc'=>'大到小');
-formSelect('order', $array);
+formSelect('order', array(''=>'', 'asc'=>'小到大', 'desc'=>'大到小'));
 ?>)
 -->
 <? formCheckbox('csv', '純文字輸出 (tab 分隔)', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?>
