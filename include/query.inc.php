@@ -29,7 +29,7 @@ function condAndOrNot() {
 	foreach($check1 as $a) {
 		if(!empty($var[$a])) {
 			$c = '';
-			foreach(preg_split("/[, ]+/", $var[$a]) as $cur) {
+			foreach(mb_split("[，, ]+", $var[$a]) as $cur) {
 				if($cur != '') {
 					if($c != '')
 						$c = $c . ' ' . $var["radio_$a"];
@@ -42,8 +42,8 @@ function condAndOrNot() {
 	// 學分要例外處理
 	if(!empty($var['credit'])) {
 		$c = '';
-		foreach(preg_split("/[, ]+/", $var['credit']) as $cur) {
-			if($c != "")
+		foreach(mb_split("[，, ]+", $var['credit']) as $cur) {
+			if($c != '')
 				$c = $c . " OR ";
 			$c .= " credit = '$cur'";
 		}
@@ -53,7 +53,7 @@ function condAndOrNot() {
 	// 不包括的條件
 	foreach($check2 as $a => $b) {
 		if(!empty($var[$b])) {
-			foreach(preg_split("/[, ]+/", $var[$b]) as $cur)
+			foreach(mb_split("[，, ]+", $var[$b]) as $cur)
 				if($cur != "")
 					$condition.=" and !position('$cur' in $a)";
 		}
