@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+use utf8;
 open(DIFF, "diff -U0 ~/old.txt ~/93_1.txt|");
 @set=(0,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,0,1);
 $old_color="#FFEFC0";
@@ -69,7 +70,7 @@ sub print_out {
 	if($array[0] =~ /^-/) {
 		$output .= "<tr bgcolor='$old_color'>";
 	} else {
-		if($array[2] =~ /功[跚}/) {		# 加開, with escape characters
+		if($array[2] =~ /加開/) {
 			$output .= "<tr bgcolor='$add_color'>";
 		} else {
 			$output .= "<tr bgcolor='$new_color'>";

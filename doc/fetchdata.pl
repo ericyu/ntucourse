@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+use utf8;
 $sem = "93_1";
 
 system("wget -r -N -nH -nd -A .XLS,.xls ftp://ftp.ntu.edu.tw/NTU/course/");
@@ -15,7 +16,7 @@ foreach (@type) {
 	my $formal = $_;
 	$formal =~ s/^0//;
 	system("/usr/X11R6/bin/ssconvert -T Gnumeric_stf:stf_csv COURSE$_.XLS $_.txt 2>/dev/null");
-	open(FD, "/usr/local/bin/iconv -f utf-8 -t iso8859-1 $_.txt | tail -n +2 |");
+	open(FD, "/usr/local/bin/iconv -c -f utf-8 -t iso8859-1 $_.txt | /usr/local/bin/iconv -c -f big5 -t utf-8 | tail -n +2 |");
 
 	$s = "";
 	while (<FD>) {
