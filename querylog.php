@@ -9,7 +9,8 @@ echo '<pre>';
 while($row = mysql_fetch_assoc($res)) {
 	$data = unserialize($row['query']);
 	foreach($check1 as $c)
-		echo $data[$c]."\n";
+		if(!empty($data[$c]))
+			echo $data[$c]."\n";
 }
 echo '</pre>';
 
