@@ -3,12 +3,11 @@ error_reporting(E_ALL);
 ?>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Source</title>
 </head>
-
 <? $DONT_SHOW = array('source.php', 'db.inc.php', 'send.php',
 				'hitStats.php', 'dailyCount.php'); ?>
-
 <body bgcolor="white">
 <?
 if(!empty($_GET['show']))
