@@ -6,7 +6,7 @@ $pattern = array("ser_no" => "/^(|\d{5})$/",
 				"dpt_code" => "/^(|([0-9A-Z]|[0-9A-Z]{4}))$/",
 				"class" => "/^.{0,2}$/");
 
-$tbl = array("93_1", "92_2");
+$tbl = array('93_2');
 foreach($tbl as $se) {
 	$result = mysql_query("select ".implode(",", array_keys($pattern))." from $se", $dbh);
 	while($row = mysql_fetch_assoc($result))

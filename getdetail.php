@@ -9,7 +9,7 @@ $db = 'course';
 $dbh = mysql_pconnect($host, $user, $password) or die("The database system is not ready.");
 mysql_select_db($db);
 
-$query = "SELECT DISTINCT cou_code,class,tea_cname FROM 93_1";
+$query = "SELECT DISTINCT cou_code,class,tea_cname FROM 93_2";
 $result = mysql_query($query, $dbh);
 $count = 0;
 
