@@ -40,7 +40,7 @@ $sel_column=array('dptname', 'cou_code', 'class', 'year',
 <form action="http://<? echo $_SERVER[HTTP_HOST].$_SERVER[PHP_SELF]; ?>" method="post">
 <?
 $sch=array("SCHEDULE"=>"課表一", "SCHEDULE2"=>"課表二", "SCHEDULE3"=>"課表三");
-pull_down('sch_no', $sch);
+formSelect('sch_no', $sch);
 ?>
 <input type="submit" class="submit" value="變更">
 </form>

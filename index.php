@@ -80,7 +80,7 @@ echo '<table id="optiontable" bgcolor="#ffffcc" border="0" cellpadding="8"'.
 <tr><td>
 <fieldset>
 <legend>查詢學期</legend>
-<div><? pull_down('table', $SEMESTERS); ?></div>
+<div><? formSelect('table', $SEMESTERS); ?></div>
 </fieldset>
 <fieldset>
 <legend>時間</legend>
@@ -214,17 +214,17 @@ foreach($cou_code_type as $key => $item)
 <tr><td>期間<td colspan="2">
 <?
 $array = array(''=>'全年/半年', 'full'=>'全年', 'half'=>'半年');
-pull_down('interval', $array);
+formSelect('interval', $array);
 ?>
 <tr><td>必修/選修<td colspan="2">
 <?
 $array = array(''=>'必修/選修', 'ob'=>'必修', 'op'=>'選修');
-pull_down('elective', $array);
+formSelect('elective', $array);
 ?>
 <tr><td>異動<td colspan="2">
 <?
 $array = array(''=>'', 'new'=>'加開', 'halt'=>'停開', 'mod'=>'異動');
-pull_down('modified', $array);
+formSelect('modified', $array);
 ?>
 </table>
 </div>
@@ -255,12 +255,12 @@ if(!empty($var['number']) && !is_numeric($var['number']))
 $array = array();
 for($i = 1; $i <= 2001; $i += $RecordsPerTable)
 	$array["$i"] = $i;
-pull_down("start", $array);
+formSelect("start", $array);
 ?> 筆開始顯示 <?
 $array = array();
 for($i = $RecordsPerTable; $i <= 1000; $i += $RECORDS_PER_TABLE)
 	$array[$i] = $i;
-pull_down("number", $array);
+formSelect("number", $array);
 ?> 筆
 <span class="smallnote">(每多 100 筆約加 20~50KB)</span><br>
 <!--
@@ -270,10 +270,10 @@ $array[''] = '';
 foreach($all_field as $k => $s) {
 	$array[$k] = preg_replace('/<br>/', '', $s);
 }
-pull_down('sortby', $array);
+formSelect('sortby', $array);
 ?> 排序 (順序: <?
 $array = array(''=>'', 'asc'=>'小到大', 'desc'=>'大到小');
-pull_down('order', $array);
+formSelect('order', $array);
 ?>)
 -->
 <? formCheckbox('csv', '純文字輸出 (tab 分隔)', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?>

@@ -29,7 +29,7 @@ if(isset($_POST['sch_no'])) {
 if(!isset($_POST['sch_no'])) {
 	echo '<form action="http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'" method="post">';
 	$sch = array("SCHEDULE"=>"課表一", "SCHEDULE2"=>"課表二", "SCHEDULE3"=>"課表三");
-	pull_down('sch_no', $sch);
+	formSelect('sch_no', $sch);
 	echo '<br><input type="submit">';
 } else {
 for($i=0; isset($COU) && $i<sizeof($COU); ++$i) {

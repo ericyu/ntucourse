@@ -10,7 +10,7 @@ require('include/header.inc.php');
 <h1>流水號快速查詢</h1>
 <form action="serial.php" method="post" name="Form">
 <table class="sn" border="0" align="center">
-<tr valign="middle"><td>查詢學期:<? pull_down('table', $SEMESTERS); ?></td>
+<tr valign="middle"><td>查詢學期:<? formSelect('table', $SEMESTERS); ?></td>
 <td><? formCheckbox('csv', '輸出成純文字 (tab 分隔)', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?></td>
 <td>輸出欄位:</td><td><? formOutColSelect(); ?></td>
 <tr><td colspan="4">請輸入欲查詢流水號: <input type="text" name="serial">

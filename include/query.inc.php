@@ -230,7 +230,7 @@ echo '<table border="0"><tr valign="middle">
 <td><span style="font-size: 10pt">
 <a href="javascript:setCheckboxes(\'sch_sel\',true)">全部勾選</a> /
 <a href="javascript:setCheckboxes(\'sch_sel\',false)">全部取消</a></span><td>';
-	pull_down('sch_no'.($header ? '1' : '0'), $sch);
+	formSelect('sch_no'.($header ? '1' : '0'), $sch);
 	echo '<td>&nbsp;&nbsp;<input name="sub'.($header ? '1' : '0').
 		'" type="submit" class="submit" '.
 	'value="加入課表"></td></tr></table>';
