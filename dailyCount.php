@@ -8,10 +8,10 @@ I placed the following entry in the crontab to get the daily count:
 
 *********************************************************************/
 // Connect to the database
-$host = "localhost";
-$user = "course";
-$password = "course";
-$db = "course";
+$host = '';
+$user = '';
+$password = '';
+$db = '';
 $dbh = mysql_pconnect($host, $user, $password) or die;
 mysql_select_db($db);
 
