@@ -44,9 +44,16 @@ function popup(TTitle, TContent) {
 }
 
 function get_mouse(e) {
-var x = (ns4||ns6) ? e.pageX : event.x+document.body.scrollLeft;
+if(ns4||ns6) {
+	x = e.pageX;
+	y = e.pageY;
+} else if(document.documentElement && document.documentElement.scrollTop) {
+	x = event.x + document.documentElement.scrollLeft;
+	y = event.y + document.documentElement.scrollTop;
+} else if(document.body) {
+}
+
 skn.left = x+Xoffset+"px";
-var y = (ns4||ns6) ? e.pageY : event.y+document.body.scrollTop;
 skn.top = y+yyy+"px";
 }
 
