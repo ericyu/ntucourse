@@ -283,7 +283,15 @@ function switchOptions() {
 		'<img src="images/opentriangle.gif" height="11" width="11">隱藏搜尋選項');
 }
 
-function setCheck(name) {
-	var obj = document.getElementById(name);
-	obj.checked = !obj.checked;
+function eventTrigger (e) {
+	if (!e)
+		e = event;
+	return e.target || e.srcElement;
 }
+
+function setCheck(e, name) {
+	var obj = document.getElementById(name);
+	if(eventTrigger(e).tagName != 'INPUT')
+		obj.checked = !obj.checked;
+}
+
