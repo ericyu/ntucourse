@@ -32,7 +32,7 @@ if($_POST['SubmitType'] == '儲存查詢') {
 	$var = &$_POST;
 
 	foreach($ctime as $v) {
-		if($var['class'][$v] == 'on')
+		if(!empty($var['class'][$v]))
 			$class_r[$v] = "$v,1";
 		else
 			$class_r[$v] = "$v,0";
