@@ -1,6 +1,6 @@
 ## The Structure of a Table ##
 ## FOR MySQL
-CREATE TABLE `93_1` (
+CREATE TABLE `9x_x` (
   `type` varchar(2) NOT NULL default '',
   `ser_no` varchar(5) NOT NULL default '',
   `co_chg` varchar(4) NOT NULL default '',
@@ -21,50 +21,16 @@ CREATE TABLE `93_1` (
   `co_gmark` varchar(5) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+## Teacher's Comments for Course
 
-CREATE TABLE 91_1 (
-  type char(2) NOT NULL default '',
-  ser_no varchar(5) NOT NULL default '',
-  co_chg varchar(4) binary NOT NULL default '',
-  dpt_code varchar(4) binary NOT NULL default '',
-  dptname varchar(12) binary NOT NULL default '',
-  cou_code varchar(9) NOT NULL default '',
-  class char(2) NOT NULL default '',
-  year varchar(30) binary NOT NULL default '',
-  credit tinyint(1) NOT NULL default '0',
-  forth varchar(4) binary NOT NULL default '',
-  sel_code varchar(4) binary NOT NULL default '',
-  cou_cname varchar(40) binary NOT NULL default '',
-  tea_cname varchar(10) binary NOT NULL default '',
-  clsrom varchar(20) NOT NULL default '',
-  daytime varchar(60) binary NOT NULL default '',
-  mark varchar(255) binary NOT NULL default '',
-  co_tp tinyint(1) NOT NULL default '0',
-  co_gmark varchar(5) NOT NULL default ''
-) TYPE=MyISAM;
-
-## FOR PostgreSQL
-CREATE TABLE "91_1" (
-   type char(2) NOT NULL,
-   ser_no varchar(5) NOT NULL,
-   co_chg varchar(4) NOT NULL,
-   dpt_code varchar(4) NOT NULL,
-   dptname varchar(12) NOT NULL,
-   cou_code varchar(9) NOT NULL,
-   class char(2) NOT NULL,
-   year varchar(30) NOT NULL,
-   credit int2 DEFAULT '0' NOT NULL,
-   forth varchar(4) NOT NULL,
-   sel_code varchar(4) NOT NULL,
-   cou_cname varchar(40) NOT NULL,
-   tea_cname varchar(10) NOT NULL,
-   clsrom varchar(20) NOT NULL,
-   daytime varchar(60) NOT NULL,
-   mark varchar(255) NOT NULL,
-   co_tp varchar(1) NOT NULL,
-   co_gmark varchar(5) NOT NULL
-);
-
+CREATE TABLE `comment9x_x` (
+  `cou_code` varchar(9) NOT NULL default '',
+  `class` varchar(2) NOT NULL default '',
+  `tea` varchar(10) default NULL,
+  `comment` mediumtext,
+  PRIMARY KEY  (`cou_code`,`class`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+					        
 ## Query Log
 
 CREATE TABLE `querylog` (
@@ -85,13 +51,4 @@ mysqlimport --fields-escaped-by= --fields-terminated-by='\t' \
 (--local)
 
 ## FILE_NAME = TABLE_NAME
-
-## On Bunny, The Following Command Is Used:
-
-mysqlimport --local --fields-escaped-by= --fields-terminated-by='\t' \
---fields-optionally-enclosed-by='"' -u ericyu \
-    -h localhost -p ericyu 91_1.txt
-
-OR, AT MySQL COMMAND PROMPT:
-load data infile '/home/ericyu/91_1.txt' into TABLE ericyu.91_1 fields terminated by '\t' escaped by '';
 
