@@ -7,13 +7,13 @@ $AllFields['dpt_choice'] = '系所代碼';
 
 $check = array_merge($check1, $check2);
 
-$res = mysql_query('SELECT * FROM querylog', $dbh);
+$res = mysql_query('SELECT * FROM querylog WHERE modify > \'2005-01-28\'', $dbh);
 
 while($row = mysql_fetch_assoc($res)) {
 	$data = @unserialize($row['query']);
 	foreach($check as $c) {
 		if(!empty($data[$c])) {
-			foreach(preg_split("/[, ]+/", $data[$c]) as $cur) {
+			foreach(mb_split("[，, ]+", $data[$c]) as $cur) {
 				@$stats[$c][$cur]++;
 			}
 		}
@@ -24,7 +24,7 @@ foreach($check as $chk) {
 	if(empty($stats[$chk]))
 		continue;
 	arsort($stats[$chk]);
-	$stats[$chk] = array_slice($stats[$chk], 0, 100);
+	$stats[$chk] = array_slice($stats[$chk], 0, 50);
 	echo "<td style='vertical-align: text-top; background-color: ";
 	echo (in_array($chk, $check1) ? '#eeffdd' : '#ddeeff').";'>";
 	if(preg_match('/^not_(.+)$/', $chk, $result))
