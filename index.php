@@ -29,13 +29,13 @@ http://info.ntu.edu.tw/</a> 上的 "課程 Excel
 確認最新資料。</em>本資料庫中不包括: <em>90-1之前的學程, 90-2之前的進修學士班</em>。
 
 <?
-$initday = '7-23';
+$initday = '1-7';
 $d = dir('diffs/');
 while (false !== ($entry = $d->read()))
 	if(preg_match('/^.+\.out$/', $entry))
 		$list[] = $entry;
 $d->close();
-if(count($list) != 0) {
+if(!empty($list)) {
 	$list = array_merge(array($initday), preg_replace('/(.+)\.out$/', '\1', $list));
 	natsort($list);
 	$list = array_values($list);
@@ -48,7 +48,7 @@ if(count($list) != 0) {
 	echo $list2[$i];
 }
 echo ' (最後更新日期：94/'.
-	(count($list) ? $list2[$i] : preg_replace('/^(..?)-(..?)(_.)?$/',
+	(!empty($list) ? $list2[$i] : preg_replace('/^(..?)-(..?)(_.)?$/',
 	'\1/\2\3', $initday)).')';
 ?>
 <h1>選課輔助程式</h1>
