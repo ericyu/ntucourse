@@ -56,7 +56,7 @@ echo ' (最後更新日期：94/'.
 <a href="javascript:example();">範例</a><br>
 <span class="info">將滑鼠移到畫藍色底線的文字<span class="tooltip">這是說明</span></span>上會出現補充說明.
 <span class="smallnote">(本網頁部分功能需要瀏覽器支援 JavaScript 及 Cookies 方可正常運作)</span>
-<br><em><a href="/phpBB2/index.php" style="color: red;">歡迎到討論區表達您的意見</a></em>
+<br><em><a href="http://ericyu.org/phpBB2/index.php" style="color: red;">歡迎到討論區表達您的意見</a></em>
 </p>
 <? }
 echo '<a id="switchOptLink" href="javascript:switchOptions();">';
