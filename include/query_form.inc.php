@@ -112,7 +112,7 @@ function pull_down($name, $array) {
 	echo '</select>';
 }
 
-function add_pager() {
+function displayPager() {
 	global $var, $number, $MaxStartRow;
 	echo '<p style="text-align: center;">';
 	if($var['start'] != 1)

@@ -7,6 +7,7 @@ mb_internal_encoding("utf-8"); // 使用編碼
 
 /* 使用於 index.php */
 $MaxStartRow = 2001; 
+$RecordsPerTable = 100;
 $GE_NOTE = 'http://investea.aca.ntu.edu.tw/course/temp/com.htm';
 $GE_REALM = 'http://investea.aca.ntu.edu.tw/course/temp/comarea.htm';
 

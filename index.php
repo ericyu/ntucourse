@@ -1,7 +1,6 @@
 <?
-$RECORDS_PER_TABLE = 100;
 $begin_time = microtime();
-//			May Be Best Viewed with Tab Space = 4
+//			May Be Best Viewed with Tab Space = 2
 // output compression
 ob_start('ob_gzhandler');
 require_once('include/config.inc.php');
@@ -20,8 +19,8 @@ if(!empty($_POST['send'])) {
 }
 
 require('include/header.inc.php');
-?>
-<? if(empty($_POST['send'])) { ?>
+
+if(empty($_POST['send'])) { ?>
 <h1>免責聲明</h1>
 本網站所使用資料來源為 <a href="http://info.ntu.edu.tw">
 http://info.ntu.edu.tw/</a> 上的 "課程 Excel
@@ -250,16 +249,16 @@ pull_down('modified', $array);
 if(!empty($var['start']) && !is_numeric($var['start']))
 	$var['start'] = 1;
 if(!empty($var['number']) && !is_numeric($var['number']))
-	$var['number'] = $RECORDS_PER_TABLE;
+	$var['number'] = $RecordsPerTable;
 ?>
 從搜尋結果的第 <?
 $array = array();
-for($i = 1; $i <= 2001; $i += $RECORDS_PER_TABLE)
+for($i = 1; $i <= 2001; $i += $RecordsPerTable)
 	$array["$i"] = $i;
 pull_down("start", $array);
 ?> 筆開始顯示 <?
 $array = array();
-for($i = $RECORDS_PER_TABLE; $i <= 1000; $i += $RECORDS_PER_TABLE)
+for($i = $RecordsPerTable; $i <= 1000; $i += $RECORDS_PER_TABLE)
 	$array[$i] = $i;
 pull_down("number", $array);
 ?> 筆
@@ -348,16 +347,16 @@ if($number == 0) {
 </script>
 <?
 	}
-	add_pager();
+	displayPager();
 	formAddToScheduleTable(true);
 
 if(empty($var['csv'])) {
-	for($p = 0; $p < $number; $p += $RECORDS_PER_TABLE) {
+	for($p = 0; $p < $number; $p += $RecordsPerTable) {
 	// Display the First Row of the Table
 		echo '<table border="1" width="100%">';
 		table_header($sel_column);
 
-		for($j=0; ($j < $RECORDS_PER_TABLE && $row = mysql_fetch_assoc($res)); ++$j)
+		for($j=0; ($j < $RecordsPerTable && $row = mysql_fetch_assoc($res)); ++$j)
 			displayRow($row, $var['table']);
 	}
 } else { // CSV here
@@ -368,7 +367,7 @@ if(empty($var['csv'])) {
 echo (empty($var['csv']) ? '</table>' : '</pre>');
 
 formAddToScheduleTable(false);
-add_pager();
+displayPager();
 
 }
 	echo "<br>\n query = [$query]<br>\n";
