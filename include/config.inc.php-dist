@@ -1,0 +1,18 @@
+<?
+error_reporting(E_ALL);
+require_onece('constant.inc.php');
+require_once('db.inc.php'); // 連結資料庫
+
+mb_internal_encoding("utf-8"); // 使用編碼
+
+/* 使用於 index.php */
+$MaxStartRow = 2001; 
+$GE_NOTE = 'http://investea.aca.ntu.edu.tw/course/temp/com.htm';
+$GE_REALM = 'http://investea.aca.ntu.edu.tw/course/temp/comarea.htm';
+
+/* 目前有資料開放查詢的學期 */
+$SEMESTERS = array('93_1'=>'93-1',
+			'92_2'=>'92-2', '92_1'=>'92-1',
+			'91_2'=>'91-2', '91_1'=>'91-1',
+			'90_2'=>'90-2', '90_1'=>'90-1');
+?>

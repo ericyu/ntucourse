@@ -1,20 +1,6 @@
 <?
-error_reporting(E_ALL);
-
-// 資料庫設定見 db.inc.php
-
-mb_internal_encoding("utf-8");
-
-$GE_NOTE = 'http://investea.aca.ntu.edu.tw/course/temp/com.htm';
-$GE_REALM = 'http://investea.aca.ntu.edu.tw/course/temp/comarea.htm';
-$SEMESTERS = array('93_1'=>'93-1',
-			'92_2'=>'92-2', '92_1'=>'92-1',
-			'91_2'=>'91-2', '91_1'=>'91-1',
-			'90_2'=>'90-2', '90_1'=>'90-1');
-
 $WeekdayName=array('星期<br>節次','一','二','三','四','五','六');
 $ClassTimeName=array('','0','1','2','3','4','@','5','6','7','8','9','A','B','C','D');
-$MaxStartRow = 2001;
 
 $all_field = array(
 'ser_no' => '流水號',	'co_chg' => '異動',		'dptname' => '院系',

@@ -1,10 +1,11 @@
 <?
-include_once('include/config.inc.php');
-include_once('include/query_form.inc.php');
+require_once('include/config.inc.php');
+require_once('include/query.inc.php');
+require_once('include/query_form.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 $var = &$_POST;
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <h1>流水號快速查詢</h1>
 <form action="serial.php" method="post" name="Form">
@@ -26,7 +27,6 @@ foreach($serial as $v) {
 		$serial_split[] = $v;
 }
 $ser_qu = 'ser_no="'.implode('" or ser_no="', $serial_split).'"';
-include('include/query.inc.php');
 $query='select ' . implode(',', $sel_column) .
 (in_array('cou_code', $sel_column) ? '' : ',cou_code') .
 (in_array('dpt_code', $sel_column) ? '' : ',dpt_code') .
@@ -52,5 +52,5 @@ echo (empty($var['csv']) ? '</table>' : '</pre>');
 
 formAddToScheduleTable(false);
 }
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 ?>

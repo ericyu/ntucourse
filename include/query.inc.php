@@ -1,7 +1,5 @@
 <?
-// 連結資料庫
-include_once('db.inc.php');
-include_once('config.inc.php');
+require_once('config.inc.php');
 
 // 系所選擇判斷
 function condDpt() {

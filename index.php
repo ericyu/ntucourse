@@ -4,22 +4,22 @@ $begin_time = microtime();
 //			May Be Best Viewed with Tab Space = 4
 // output compression
 ob_start('ob_gzhandler');
-include_once('include/config.inc.php');
-include_once('include/query_form.inc.php');
+require_once('include/config.inc.php');
+require_once('include/query_form.inc.php');
 
 if(!empty($_POST['send'])) {
-	include('include/query.inc.php');
+	require_once('include/query.inc.php');
 	if($_POST['SubmitType'] == '儲存查詢' ||
 		$_POST['SubmitType'] == '取回儲存' ||
 		$_POST['SubmitType'] == '清除儲存') {
-		include('include/save_read.inc.php');
+		require_once('include/save_read.inc.php');
 		$save_read = true;
 	} else {
 		$var = &$_POST;
 	}
 }
 
-include('include/header.inc.php');
+require('include/header.inc.php');
 ?>
 <? if(empty($_POST['send'])) { ?>
 <h1>免責聲明</h1>
@@ -144,7 +144,7 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <span class="smallnote">(體育/軍訓/大學部/研究所, 不限定請不要填)</span><br>
 <input type="text" name="dpt_choice" id="dpt_choice" size="35" maxlength="200"
 <? if(!empty($_POST['send'])) FixDptInput();?> onChange="javascript:UpdateFromInput();">
-<? include('dpt/embed.html'); ?>
+<? require('dpt/embed.html'); ?>
 <a href="javascript:ClearAllInput();">清除</a>
 <a target="_blank" href="dpt/prev.php">無 JavaScript | 查看歷史資料...</a>
 </div>
@@ -391,5 +391,5 @@ if(empty($_POST['send'])) {
 		fclose($fp);
 	}
 }
-include('include/footer.inc.php');
+require('include/footer.inc.php');
 ?>
