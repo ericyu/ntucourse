@@ -122,9 +122,9 @@ function cmSplitItem (prefix, isMain, vertical)
 }
 
 // ericyu: for label effect
-function c(c) {
+function c(e, c) {
 	var o = document.getElementById(c);
-	o.checked = !o.checked;
+	setCheck(e, c);
 	Update(o);
 }
 
@@ -155,7 +155,7 @@ function cmDrawSubMenu (subMenu, prefix, id, orient, nodeProperties)
 		hasChild = (item.length > 2);
 		idSub = hasChild ? cmNewID () : null;
 
-		str += '<tr class="' + prefix + 'MenuItem"' + cmActionItem (item, prefix, 0, idSub, orient, nodeProperties) + '>';
+		str += '<tr class="' + prefix + 'MenuItem"' + cmActionItem (item, prefix, 0, idSub, orient, nodeProperties) + ' onClick="c(event,\'d'+item[0]+'\');">';
 
 /* ericyu: not used in my program so comment out
 		if (item == _cmSplit)
@@ -183,7 +183,7 @@ function cmDrawSubMenu (subMenu, prefix, id, orient, nodeProperties)
 		else
 			str += hasChild ? nodeProperties.folderLeft : nodeProperties.itemLeft;
 
-		str += '<td class="' + classStr + 'Text" onClick="c(\'d'+item[0]+'\');">' + item[1]; // ericyu
+		str += '<td class="' + classStr + 'Text">' + item[1]; // ericyu
 
 		str += '<td class="' + classStr + 'Right">';
 
