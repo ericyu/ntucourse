@@ -1,10 +1,13 @@
 <?
-function formCheckbox($name, $desc, $info = '') {
+function formCheckbox($name, $desc, $info = '', $defaultChecked = false) {
 	global $var;
 	if(!empty($info))
 		echo '<span class="info">';
 	echo "<input type='checkbox' name='$name' id='$name'";
-	echo (!empty($var[$name]) ? ' checked' : '') . '>';
+	if(!empty($var[$name]) ||
+			(empty($_POST['send']) && $defaultChecked == true))
+			echo ' checked';
+	echo '>';
 	echo "<label for='$name'>$desc</label>";
 	if(!empty($info))
 		echo '<span class="tooltip">'.$info.'</span></span>';

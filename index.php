@@ -224,7 +224,7 @@ foreach($cou_code_type as $key => $item)
 <legend>&nbsp;</legend>
 <div>
 <table border="0">
-<tr><td><? formCheckbox('no_void_time', '不顯示無時間的課', '將時間欄為空白的課程排除, 但是時間可能寫在備註欄'); ?>
+<tr><td><? formCheckbox('no_void_time', '不顯示無時間的課', '將時間欄為空白的課程排除, 但是時間可能寫在備註欄', true); ?>
 <td><? formCheckbox('no_void_serial', '不顯示無流水號的課'); ?>
 <tr><td><? formCheckbox('night', '查詢包括進修學士班'); ?>
 <td><? formCheckbox('no_cancelled', '不顯示已停開的課'); ?>
