@@ -27,10 +27,10 @@ foreach($serial as $v) {
 		$serial_split[] = $v;
 }
 $ser_qu = 'ser_no="'.implode('" or ser_no="', $serial_split).'"';
-$query='select ' . implode(',', $sel_column) .
-(in_array('cou_code', $sel_column) ? '' : ',cou_code') .
-(in_array('dpt_code', $sel_column) ? '' : ',dpt_code') .
-(in_array('class', $sel_column) ? '' : ',class') .
+$query='select ' . implode(',', $SelectedFields) .
+(in_array('cou_code', $SelectedFields) ? '' : ',cou_code') .
+(in_array('dpt_code', $SelectedFields) ? '' : ',dpt_code') .
+(in_array('class', $SelectedFields) ? '' : ',class') .
 " from $var[table] where $ser_qu";
 $res=mysql_query($query,$dbh);
 
@@ -39,12 +39,12 @@ formAddToScheduleTable(true);
 
 if(empty($var['csv'])) {
 	echo '<table class="sn" border="1" width="100%">';
-	table_header($sel_column);
+	table_header($SelectedFields);
 	while($row = mysql_fetch_assoc($res))
 			displayRow($row, $var['table']);
 } else {
 	// CSV here
-	table_header($sel_column, true);
+	table_header($SelectedFields, true);
 	for($j = 0; $row = mysql_fetch_assoc($res); ++$j)
 		displayRow($row, $var['table'], $var['csv']);
 }

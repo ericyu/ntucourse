@@ -4,7 +4,7 @@ require_once('include/schedule.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 $var = &$_POST;
-$sel_column = $pre_selection;
+$SelectedFields = $DefaultSelection;
 
 if(isset($_GET['sch_no']))
 	$sch_no = $_GET['sch_no'];
@@ -56,13 +56,13 @@ if(empty($COU)) {
 <?
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
 
-table_header(array_merge(array('sch_count'), $sel_column));
+table_header(array_merge(array('sch_count'), $SelectedFields));
 
 $total_course = $total_credit = 0;
-$sel_column_sql = column_sql($sel_column, split(" ", "cou_code dpt_code daytime credit"));
+$SelectedFieldsSQL = column_sql($SelectedFields, split(" ", "cou_code dpt_code daytime credit"));
 
 $size = sizeof($COU);
-$subquery = schedule_make_query($COU, $sel_column_sql);
+$subquery = makeScheduleQuery($COU, $SelectedFieldsSQL);
 
 if($size > 0) {
 	$query=implode(" UNION ALL ", $subquery);

@@ -116,7 +116,7 @@ function condCouCodeType() {
 }
 
 function condOthers() {
-	global $condition, $all_field, $var;
+	global $condition, $AllFields, $var;
 
 	if($var['interval'] == 'full')
 		$condition .= " and forth='全年'";
@@ -152,7 +152,7 @@ function condOthers() {
 		$condition .= " and co_chg != '停開'";
 	}
 
-	if(array_key_exists($var['sortby'], $all_field)) {
+	if(array_key_exists($var['sortby'], $AllFields)) {
 		$condition .= ' order by '.$var['sortby'];
 		if($var['order'] == 'asc')
 			$condition .= ' asc';
@@ -162,7 +162,7 @@ function condOthers() {
 }
 
 function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = false, $sch = false, $before = '') {
-	global $sel_column, $var;	// $sel_column 在呼叫此函式的程式內設定
+	global $SelectedFields, $var;	// $SelectedFields 在呼叫此函式的程式內設定
 	global $_rowCount;
 	if(!isset($_rowCount))
 		$_rowCount = 0;
@@ -185,7 +185,7 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 		echo ($csv ? '':'<td class="tdCheckbox">').'<input type="checkbox" name="selected_cou[]" class="tnum" value="'.
 			$_rowCount.'" id="c'.$_rowCount.'">'.($_rowCount+1).($csv ? "\t" : '');
 	}
-	foreach($sel_column as $f) {
+	foreach($SelectedFields as $f) {
 		// 如果是 schedule 就
 		if($f == 'ser_no') {
 			$array[$f] = '';
@@ -209,7 +209,7 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 	if($csv) {
 		echo implode("\t", $array);
 	} else {
-		foreach($sel_column as $f)
+		foreach($SelectedFields as $f)
 //		echo '<td>' . implode('<td>', $array);
 		echo "<td id=\"t$f\" name=\"t$f\">$array[$f]";
 	}
@@ -218,8 +218,8 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 
 function formAddToScheduleTable($header) {
 	$sch = array("SCHEDULE"=>"課表一", "SCHEDULE2"=>"課表二", "SCHEDULE3"=>"課表三");
-	global $sel_column;
-	if(!in_array('ser_no', $sel_column))
+	global $SelectedFields;
+	if(!in_array('ser_no', $SelectedFields))
 		return;
 	if($header)
 		echo '<form action="schedule.php" method="post" name="sch_sel" target="_new">
@@ -256,17 +256,17 @@ function getCourseTime($dt) {
 }
 
 function table_header($sel, $csv = false) {
-	global $all_field;
+	global $AllFieldsForTable;
 	if($csv) {
 		echo '<pre>';
 		$tmp = array();
 		foreach($sel as $s)
-			$tmp[] = $all_field[$s];
+			$tmp[] = $AllFieldsForTable[$s];
 		echo implode("\t", $tmp)."\n";
 	} else {
 		echo '<tr>';
 		foreach($sel as $s)
-			echo "<th id='t$s' name='t$s'>" . $all_field[$s];
+			echo "<th id='t$s' name='t$s'>" . $AllFieldsForTable[$s];
 		echo '</tr>';
 	}	
 }

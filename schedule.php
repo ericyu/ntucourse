@@ -85,19 +85,19 @@ if(!$csv) {
 	echo '<table border="1" width="100%" align="center">';
 
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
-	table_header(array_merge(array('sch_count'),$sel_column), false);
+	table_header(array_merge(array('sch_count'),$SelectedFields), false);
 
 } else { // CSV
-	table_header(array_merge(array('sch_count'),$sel_column), true);
+	table_header(array_merge(array('sch_count'),$SelectedFields), true);
 }
 
 $total_course = $total_credit = 0;
 
-$sel_column_sql = column_sql($sel_column, split(" ", "cou_code dpt_code class daytime credit"));
+$SelectedFieldsSQL = column_sql($SelectedFields, split(" ", "cou_code dpt_code class daytime credit"));
 
 if(isset($COU)) {
 	$size = sizeof($COU);
-	$subquery = schedule_make_query($COU, $sel_column_sql);
+	$subquery = makeScheduleQuery($COU, $SelectedFieldsSQL);
 } else
 	$size = 0;
 

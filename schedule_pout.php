@@ -5,7 +5,7 @@ require_once('include/schedule.inc.php');
 // output compression
 ob_start();
 $var = &$_POST;
-$sel_column = $pre_selection;
+$SelectedFields = $DefaultSelection;
 $trans = empty($var['trans']) ? false : true;
 
 if(isset($_POST['sch_no']))
@@ -36,14 +36,14 @@ if(isset($_COOKIE[$sch_no]))
 <?
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
 
-table_header($sel_column);
+table_header($SelectedFields);
 
 $total_course = $total_credit = 0;
-$sel_column_sql = column_sql($sel_column, split(" ", "cou_cname clsrom cou_code dpt_code class daytime credit"));
+$SelectedFieldsSQL = column_sql($SelectedFields, split(" ", "cou_cname clsrom cou_code dpt_code class daytime credit"));
 
 if(isset($COU)) {
 	$size = sizeof($COU);
-	$subquery = schedule_make_query($COU, $sel_column_sql);
+	$subquery = makeScheduleQuery($COU, $SelectedFieldsSQL);
 } else
 	$size = 0;
 

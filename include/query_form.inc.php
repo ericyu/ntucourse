@@ -30,20 +30,20 @@ function formRadioButton($s) {
 
 // 造出選擇輸出欄位的 select
 function formOutColSelect($display = 1, $size = 3) {
-	global $var, $all_field, $pre_selection, $sel_column;
+	global $var, $AllFields, $DefaultSelection, $SelectedFields;
 	if(empty($var['outcol_sel']) ||
 		(isset($_POST['SubmitType']) && $_POST['SubmitType'] == '清除儲存')) {
-		$sel_column = $pre_selection;
+		$SelectedFields = $DefaultSelection;
 	} else {
-		$sel_column = $var['outcol_sel'];
+		$SelectedFields = $var['outcol_sel'];
 	}
 
 	if(!$display)
 		return;
 	echo '<select name="outcol_sel[]" multiple size="'.$size.'">';
-	foreach($all_field as $en => $ch) {
+	foreach($AllFields as $en => $ch) {
 		echo '<option value="' . $en . '"' .
-			(in_array($en, $sel_column) ? ' selected':'') . '>' .
+			(in_array($en, $SelectedFields) ? ' selected':'') . '>' .
 			preg_replace('/<br>/','',$ch);
 	}
 	echo '</select>';
@@ -89,7 +89,7 @@ $dpt_code_array = explode(' ',
 '9210 9220 9410 9420 9430 9440 A210 A220 '.
 'B410 B420 B430 B440 B450 B460 B470 B471 B472 B473 B474');
 
-function FixDptInput() {
+function fixDptInput() {
 global $var, $dpt_choice_filtered, $dpt_code_array;
 
 	if(!empty($var['dpt_choice'])) {

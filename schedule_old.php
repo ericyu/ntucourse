@@ -18,10 +18,10 @@ if(!preg_match('/^SCHEDULE([23]?)$/', $sch_no))
 if(isset($_COOKIE[$sch_no]))
 	$COU = preg_split("/;/", $_COOKIE[$sch_no]);
 
-$sel_column=array('dptname', 'cou_code', 'class', 'year',
+$SelectedFields = array('dptname', 'cou_code', 'class', 'year',
 		'credit', 'forth', 'sel_code', 'cou_cname',
 		'tea_cname', 'clsrom', 'daytime', 'mark', 'co_gmark');
-#$sel_column=array_merge(array_slice($pre_selection,0,3), array('cou_code'),array_slice($pre_selection,3));
+#$SelectedFields=array_merge(array_slice($DefaultSelection,0,3), array('cou_code'),array_slice($DefaultSelection,3));
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -50,15 +50,15 @@ formSelect('sch_no', $sch);
 
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
 
-table_header($sel_column);
+table_header($SelectedFields);
 echo "</tr>\n";
 
 } else { // CSV
 	echo '<pre>';
 	$tmp = array();
 
-	foreach($sel_column as $s) {
-			$tmp[] = $all_field[$s];
+	foreach($SelectedFields as $s) {
+			$tmp[] = $AllFields[$s];
 	}
 	echo implode("\t", $tmp)."\n";
 }
@@ -66,10 +66,10 @@ echo "</tr>\n";
 $total_course = $total_credit = 0;
 
 $size = sizeof($COU);
-$subquery = schedule_make_query($COU, implode(",", $sel_column));
+$subquery = makeScheduleQuery($COU, implode(",", $SelectedFields));
 
 if($size > 0) {
-	$query=implode(" UNION ALL ", $subquery);
+	$query = implode(" UNION ALL ", $subquery);
 	$result = mysql_query($query, $dbh);
 }
 
@@ -109,15 +109,15 @@ else
 <? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
 <p><table border="1" align="center">
 <?
-for($c=0;$c<16;++$c) {	// $c = sizeof($ClassTimeName)
+for($c = 0; $c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 	echo '<tr>';
-	for($week=0;$week<7;++$week) {
+	for($week = 0; $week < 7; ++$week) {
 		echo '<td align="center">';
-		if($c==0)
+		if($c == 0)
 			echo $WeekdayName[$week];
-		elseif($week==0)
+		elseif($week == 0)
 			echo $ClassTimeName[$c];
-		elseif($class["$WeekdayName[$week]$ClassTimeName[$c]"]=='')
+		elseif($class["$WeekdayName[$week]$ClassTimeName[$c]"] == '')
 			echo '　&nbsp;　&nbsp;　';
 		else
 			echo $class["$WeekdayName[$week]$ClassTimeName[$c]"];

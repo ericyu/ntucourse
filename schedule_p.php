@@ -50,18 +50,18 @@ function PlainText(val) {
 <input type="button" class="button" name="testClr2" value="選取" onclick="NewWindow('fg');return false;">
 <table border="1">
 <?
-$sel_column = array('ser_no', 'dptname', 'class', 'year', 'credit',
+$SelectedFields = array('ser_no', 'dptname', 'class', 'year', 'credit',
 				'cou_cname', 'tea_cname', 'clsrom', 'daytime');
 
-$sel_column_sql = column_sql($sel_column, array('cou_code', 'dpt_code'));
+$SelectedFieldsSQL = column_sql($SelectedFields, array('cou_code', 'dpt_code'));
 
 if(isset($COU)) {
 	$size = sizeof($COU);
-	$subquery = schedule_make_query($COU, $sel_column_sql);
+	$subquery = makeScheduleQuery($COU, $SelectedFieldsSQL);
 } else
 	$size = 0;
 
-table_header(array_merge(array('bgcolor'), $sel_column));
+table_header(array_merge(array('bgcolor'), $SelectedFields));
 
 if($size > 0) {
 	$query=implode(" UNION ALL ", $subquery);

@@ -18,10 +18,10 @@ foreach($pattern as $f => $p)
 			exit();
 		}
 
-$sel_column = array('dptname', 'ser_no', 'cou_cname', 'credit', 'year',
+$SelectedFields = array('dptname', 'ser_no', 'cou_cname', 'credit', 'year',
 'tea_cname', 'clsrom', 'daytime', 'mark', 'co_gmark');
 
-$query = "SELECT $se.".implode(",$se.", $sel_column).",comment,$se.cou_code".
+$query = "SELECT $se.".implode(",$se.", $SelectedFields).",comment,$se.cou_code".
 " FROM `$se` NATURAL LEFT JOIN `comment$se` WHERE $se.cou_code = '$cou_code'".
 " AND $se.class = '$class' LIMIT 0 , 30 ";
 
@@ -60,12 +60,11 @@ if($size != 0) {
 	echo '<p><table border="1">';
 
 	echo "<tr>";
-	foreach($sel_column as $s) {
-		echo '<th>' . preg_replace("/<br>/", '', $all_field[$s]);
+	foreach($SelectedFields as $s) {
+		echo '<th>' . preg_replace("/<br>/", '', $AllFields[$s]);
 	}
 
 	while($row = mysql_fetch_assoc($result)) {
-		echo '<tr>';
 		displayRow($row, $se, false, true, true);
 		$comment = $row['comment'];
 	}

@@ -6,7 +6,7 @@ function column_sql($cols, $extra) {
 	return implode(',', $cols);
 }
 
-function schedule_make_query($COU, $sel_column_sql) {
+function makeScheduleQuery($COU, $SelectedFieldsSQL) {
 	global $size;
 	for($i = 0; isset($COU) && $i < $size; ++$i) {
 		list($table, $s, $c, $d, $cls) = split(',', $COU[$i]);
@@ -18,7 +18,7 @@ function schedule_make_query($COU, $sel_column_sql) {
 			echo "</table><p>data format error at No. " . ($i+1) .": $table $s $c $d $cls";
 			exit();
 		}
-		$subquery[$i] = "(select $i AS n, '$table' AS t, $sel_column_sql from $table where ser_no='$s' and cou_code='$c' and dpt_code='$d' and class='$cls' limit 0,1)";
+		$subquery[$i] = "(select $i AS n, '$table' AS t, $SelectedFieldsSQL from $table where ser_no='$s' and cou_code='$c' and dpt_code='$d' and class='$cls' limit 0,1)";
 	}
 	return $subquery;
 }

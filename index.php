@@ -142,7 +142,7 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <div>
 <span class="smallnote">(體育/軍訓/大學部/研究所, 不限定請不要填)</span><br>
 <input type="text" name="dpt_choice" id="dpt_choice" size="35" maxlength="200"
-<? if(!empty($_POST['send'])) FixDptInput();?> onChange="javascript:UpdateFromInput();">
+<? if(!empty($_POST['send'])) fixDptInput();?> onChange="javascript:UpdateFromInput();">
 <? require('dpt/embed.html'); ?>
 <a href="javascript:ClearAllInput();">清除</a>
 <a target="_blank" href="dpt/prev.php">無 JavaScript | 查看歷史資料...</a>
@@ -259,7 +259,7 @@ formSelect("number", $array);
 依 <?
 $array = array();
 $array[''] = '';
-foreach($all_field as $k => $s) {
+foreach($AllFields as $k => $s) {
 	$array[$k] = preg_replace('/<br>/', '', $s);
 }
 formSelect('sortby', $array);
@@ -304,10 +304,10 @@ $from = $var['start'] - 1;
 if(preg_match('/drop|delete/i', $condition))
 	$condition = '';
 
-$query = 'SELECT SQL_CALC_FOUND_ROWS ' . implode(',', $sel_column) .
-(in_array('cou_code', $sel_column) ? '' : ',cou_code') .
-(in_array('dpt_code', $sel_column) ? '' : ',dpt_code') .
-(in_array('class', $sel_column) ? '' : ',class') .
+$query = 'SELECT SQL_CALC_FOUND_ROWS ' . implode(',', $SelectedFields) .
+(in_array('cou_code', $SelectedFields) ? '' : ',cou_code') .
+(in_array('dpt_code', $SelectedFields) ? '' : ',dpt_code') .
+(in_array('class', $SelectedFields) ? '' : ',class') .
 " FROM $var[table] WHERE 1 $condition LIMIT $from,$var[number]";
 $res = mysql_query($query, $dbh) or die('Invalid Query');
 
@@ -350,13 +350,13 @@ if(empty($var['csv'])) {
 	for($p = 0; $p < $number; $p += $RecordsPerTable) {
 	// Display the First Row of the Table
 		echo '<table border="1" width="100%">';
-		table_header($sel_column);
+		table_header($SelectedFields);
 
 		for($j = 0; ($j < $RecordsPerTable && $row = mysql_fetch_assoc($res)); ++$j)
 			displayRow($row, $var['table']);
 	}
 } else { // CSV here
-	table_header($sel_column, true);
+	table_header($SelectedFields, true);
 	for($j = 0; $row = mysql_fetch_assoc($res); ++$j)
 		displayRow($row, $var['table'], $var['csv']);
 }
