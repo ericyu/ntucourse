@@ -1,9 +1,11 @@
 <?
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 require_once('constant.inc.php');
 require_once('db.inc.php'); // 連結資料庫
 
 mb_internal_encoding("utf-8"); // 使用編碼
+
+$LogQuery = false;
 
 /* 使用於 index.php */
 $MaxStartRow = 2001; 

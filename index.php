@@ -288,7 +288,8 @@ formSelect('order', array(''=>'', 'asc'=>'小到大', 'desc'=>'大到小'));
 if(!empty($_POST['send'])) {			// 程式開始, 有送出時才處理
 
 // log 到資料庫
-mysql_query("INSERT INTO querylog (ipaddr,sid,qid,query) VALUES ('".getIP()."','".session_id()."','$var[qid]','".serialize($var)."')", $dbh);
+if($LogQuery == true)
+	mysql_query("INSERT INTO querylog (ipaddr,sid,qid,query) VALUES ('".getIP()."','".session_id()."','$var[qid]','".serialize($var)."')", $dbh);
 
 // 這裡是處理使用者輸入條件的部份, see query.inc.php
 condDpt();
