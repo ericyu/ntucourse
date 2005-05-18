@@ -25,8 +25,10 @@ $query = "SELECT tea,$se.".implode(",$se.", $SelectedFields).",comment,$se.cou_c
 " FROM `$se` NATURAL LEFT JOIN `comment$se` WHERE $se.cou_code = '$cou_code'".
 " AND $se.class = '$class' LIMIT 0 , 30 ";
 $result = mysql_query($query, $dbh);
-if(!$result)
+if(!$result) {
+	header('Content-Type: text/plain; charset=utf-8');
 	die('此學期資料不存在');
+}
 $size = mysql_num_rows($result);
 $table_info = mysql_fetch_array(mysql_query("show table status from $db like 'comment$se'"));
 ?>
