@@ -257,6 +257,7 @@
 				<division id="7450"><name>財務金融組</name></division>
 				<division id="7460"><name>國際企業管理組</name></division>
 				<division id="7470"><name>資訊管理組</name></division>
+				<division id="7480"><name>商學組</name></division>
 			</department>
 		</college>
 		<college id="8M"><name>公共衛生學院研究所</name>
@@ -318,5 +319,8 @@
 		<program id="P210"><name>光電顯示學程</name></program>
 		<program id="P220"><name>晶片商管學程</name></program>
 		<program id="P230"><name>高分子學程</name></program>
+		<program id="P240"><name>生物統計學程</name></program>
+		<program id="P250"><name>大陸研究學程</name></program>
+		<program id="P260"><name>護理師學程</name></program>
 	</institution>
 </ntu>
