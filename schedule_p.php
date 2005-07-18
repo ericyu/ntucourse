@@ -8,14 +8,16 @@ ob_start('ob_gzhandler');
 if(isset($_GET['sch_no']))
 	$sch_no = $_GET['sch_no'];
 else
-	$sch_no = 'SCHEDULE';
+	$sch_no = 'sc1';
 
-if(!preg_match('/^SCHEDULE([23]?)$/', $sch_no))
+if(!preg_match('/^sc([123]?)$/', $sch_no))
 	header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
 
-if(isset($_COOKIE[$sch_no]))
-	$COU = preg_split('/;/', $_COOKIE[$sch_no]);
-
+if(!empty($_COOKIE[$sch_no])) {
+	list($semester, $C) = explode('|', $_COOKIE[$sch_no]);
+	$COU = explode(';', $C);
+}
+		
 require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/color.js"></script>
@@ -57,7 +59,7 @@ $SelectedFieldsSQL = column_sql($SelectedFields, array('cou_code', 'dpt_code'));
 
 if(isset($COU)) {
 	$size = sizeof($COU);
-	$subquery = makeScheduleQuery($COU, $SelectedFieldsSQL);
+	$subquery = makeScheduleQuery($semester, $COU, $SelectedFieldsSQL);
 } else
 	$size = 0;
 

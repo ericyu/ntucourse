@@ -11,10 +11,12 @@ $trans = empty($var['trans']) ? false : true;
 if(isset($_POST['sch_no']))
 	$sch_no = $_POST['sch_no'];
 else
-	$sch_no = 'SCHEDULE';
+	$sch_no = 'sc1';
 
-if(isset($_COOKIE[$sch_no]))
-	$COU = preg_split('/;/', $_COOKIE[$sch_no]);
+if(!empty($_COOKIE[$sch_no])) {
+	list($semester, $C) = explode('|', $_COOKIE[$sch_no]);
+	$COU = explode(';', $C);
+}
 
 formOutColSelect(0);
 ?>
@@ -43,7 +45,7 @@ $SelectedFieldsSQL = column_sql($SelectedFields, split(" ", "cou_cname clsrom co
 
 if(isset($COU)) {
 	$size = sizeof($COU);
-	$subquery = makeScheduleQuery($COU, $SelectedFieldsSQL);
+	$subquery = makeScheduleQuery($semester, $COU, $SelectedFieldsSQL);
 } else
 	$size = 0;
 
