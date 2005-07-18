@@ -75,7 +75,7 @@ require('include/header.inc.php');
 <tr valign="top"><td rowspan="2"><span style="font-size: 80%;">欄位:</span><br><? formOutColSelect(); ?>
 <td><? formCheckbox('csv', '純文字', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?><br>
 <?
-$sch = array("sc1"=>"課表一", "sc2"=>"課表二", "sc3"=>"課表三");
+$sch = array('sc1'=>'課表一', 'sc2'=>'課表二', 'sc3'=>'課表三');
 formSelect('sch_no', $sch);
 ?>
 <tr><td><input type="submit" class="submit" value="變更">

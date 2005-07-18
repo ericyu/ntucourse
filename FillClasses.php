@@ -4,13 +4,15 @@ require_once('include/query_form.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 
-if(isset($_POST['sch_no']) && !preg_match('/(^SCHEDULE([23]?)$)/', $_POST['sch_no']))
+if(isset($_POST['sch_no']) && !preg_match('/(^sc([123]?)$)/', $_POST['sch_no']))
 	header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
 
 if(isset($_POST['sch_no'])) {
 	$sch = $_POST['sch_no'];
-	if(isset($_COOKIE[$sch]))
-		$COU = preg_split("/;/", $_COOKIE[$sch]);
+	if(!empty($_COOKIE[$sch])) {
+  	list($semester, $C) = explode('|', $_COOKIE[$sch]);
+		$COU = explode(';', $C);
+	}
 }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -28,13 +30,13 @@ if(isset($_POST['sch_no'])) {
 <?
 if(!isset($_POST['sch_no'])) {
 	echo '<form action="http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'" method="post">';
-	$sch = array("SCHEDULE"=>"課表一", "SCHEDULE2"=>"課表二", "SCHEDULE3"=>"課表三");
+	$sch = array('sc1'=>'課表一', 'sc2'=>'課表二', 'sc3'=>'課表三');
 	formSelect('sch_no', $sch);
 	echo '<br><input type="submit">';
 } else {
 for($i=0; isset($COU) && $i<sizeof($COU); ++$i) {
-	list($table, $s, $c, $d, $cls) = split(',', $COU[$i]);
-	$query = "select daytime from $table where ser_no='$s' and cou_code='$c' and dpt_code='$d' and class='$cls' limit 0,1";
+	list($s, $c, $d, $cls) = split(',', $COU[$i]);
+	$query = "SELECT daytime FROM $semester WHERE ser_no='$s' AND cou_code='$c' AND dpt_code='$d' AND class='$cls' LIMIT 0,1";
 	$row = mysql_fetch_assoc(mysql_query($query, $dbh));
 
 	$daytime = getCourseTime($row["daytime"]);
