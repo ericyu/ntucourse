@@ -7,7 +7,7 @@ $AllFields['dpt_choice'] = '系所代碼';
 
 $check = array_merge($check1, $check2);
 
-$res = mysql_query('SELECT * FROM querylog WHERE modify > \'2005-01-28\'', $dbh);
+$res = mysql_query('SELECT * FROM querylog WHERE modify > \'2005-02-20\'', $dbh);
 
 while($row = mysql_fetch_assoc($res)) {
 	$data = @unserialize($row['query']);

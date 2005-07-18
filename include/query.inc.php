@@ -191,7 +191,7 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 			$array[$f] = '';
 			if(!$no_select) {
 				$array[$f] = '<input type="checkbox" name="selected_cou[]" value="'.
-				"$var[table],$row[ser_no],$c1 $c2,$row[dpt_code],$row[class]".'" '.
+				"$row[ser_no],$c1 $c2,$row[dpt_code],$row[class]".'" '.
 				"id='c$_rowCount'" . '">';
 			}
 			$array[$f] .= ($row[$f] ? $row[$f] : '-----');
@@ -217,20 +217,21 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 }
 
 function formAddToScheduleTable($header) {
-	$sch = array("SCHEDULE"=>"課表一", "SCHEDULE2"=>"課表二", "SCHEDULE3"=>"課表三");
-	global $SelectedFields;
+	$sch = array("sc1"=>"課表一", "sc2"=>"課表二", "sc3"=>"課表三");
+	global $SelectedFields, $var;
 	if(!in_array('ser_no', $SelectedFields))
 		return;
 	if($header)
-		echo '<form action="schedule.php" method="post" name="sch_sel" target="_new">
-<input type="hidden" name="add" value="1">';
+		echo '<form action="schedule.php" method="post" name="sch_sel" target="_new">'.
+		'<input type="hidden" name="add" value="1">'.
+		'<input type="hidden" name="semester" value="'.$var['table'].'"';
 
 echo '<table border="0"><tr valign="middle">
 <td><img src="images/arrow_'.($header?'ld':'lt').'.gif" alt="ld">
 <td><span style="font-size: 10pt">
 <a href="javascript:setCheckboxes(\'sch_sel\',true)">全部勾選</a> /
 <a href="javascript:setCheckboxes(\'sch_sel\',false)">全部取消</a></span><td>';
-	formSelect('sch_no'.($header ? '1' : '0'), $sch);
+	formSelect('sch_no'.($header?'1':'0'), $sch);
 	echo '<td>&nbsp;&nbsp;<input name="sub'.($header ? '1' : '0').
 		'" type="submit" class="submit" '.
 	'value="加入課表"></td></tr></table>';
@@ -267,7 +268,7 @@ function table_header($sel, $csv = false) {
 		echo '<tr>';
 		foreach($sel as $s)
 			echo "<th id='t$s' name='t$s'>" . $AllFieldsForTable[$s];
-		echo '</tr>';
+		echo "</tr>\n";
 	}	
 }
 ?>

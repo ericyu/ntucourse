@@ -5,7 +5,6 @@ require_once('include/schedule.inc.php');
 // output compression
 ob_start('ob_gzhandler');
 $var = &$_POST;
-
 $csv = empty($var['csv']) ? false : true;
 
 // Cookies must be dealed with before any context
@@ -19,21 +18,31 @@ elseif(isset($var['sch_no']))
 elseif(isset($_GET['sch_no']))
 	$sch_no = $_GET['sch_no'];
 else
-	$sch_no = 'SCHEDULE';
+	$sch_no = 'sc1';
 
 $var['sch_no'] = $sch_no;
 
-if(!preg_match('/^SCHEDULE([23]?)$/', $sch_no))
+if(!preg_match('/^sc([123])$/', $sch_no))
 	header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
 
-if(isset($_COOKIE[$sch_no]))
-	$COU = preg_split('/;/', $_COOKIE[$sch_no]);
+if(!empty($_COOKIE[$sch_no])) {
+	list($semester, $C) = explode('|', $_COOKIE[$sch_no]);
+	$COU = explode(';', $C);
+}
 
 if(!empty($var['add'])) {				// ADD
+	if(!empty($semester)) {
+		if($semester != $var['semester']) {
+			die("所加課程之資料與本課表學期不符合 (課表: $semester v.s. 新增: $var[semester])");
+		}
+	} else {
+		$semester = $var['semester'];
+	}
+
 	if(isset($var['selected_cou'])) {
 		foreach($var['selected_cou'] as $t)
 			$COU[] = $t;
-		setcookie($sch_no, implode(';', $COU), time() + 5184000);
+		setcookie($sch_no, $semester.'|'.implode(';', $COU), time() + 5184000);
 	}
 } elseif(!empty($var['delete']) && sizeof($var['selected_cou'])) {	// DELETE
 	$COU_tmp = array();
@@ -45,14 +54,16 @@ if(!empty($var['add'])) {				// ADD
 	$COU = $COU_tmp;
 	unset($COU_tmp);
 	if(sizeof($COU) > 0)
-		setcookie($sch_no, implode(';', $COU), time() + 5184000);
-	else
+		setcookie($sch_no, $var['semester'].'|'.implode(';', $COU), time() + 5184000);
+	else {
+		unset($semester);
 		setcookie($sch_no, '', time() - 3600);
+	}
 }
 require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/schedule.js"></script>
-<h1>課表</h1>
+<h1>課表<?=!empty($semester)?" (學期 $semester)":'';?></h1>
 <? /*
 <p style="color: red;">如果有因為加入時沒有流水號, 而因此無法在這頁讀出來的課程,
 請先讀取<a href="schedule_old.php">原先的課表</a>, 記下後, 再於本頁刪除該課程, 然後重新加入.</p>
@@ -64,13 +75,14 @@ require('include/header.inc.php');
 <tr valign="top"><td rowspan="2"><span style="font-size: 80%;">欄位:</span><br><? formOutColSelect(); ?>
 <td><? formCheckbox('csv', '純文字', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?><br>
 <?
-$sch = array("SCHEDULE"=>"課表一", "SCHEDULE2"=>"課表二", "SCHEDULE3"=>"課表三");
+$sch = array("sc1"=>"課表一", "sc2"=>"課表二", "sc3"=>"課表三");
 formSelect('sch_no', $sch);
 ?>
 <tr><td><input type="submit" class="submit" value="變更">
 </table></form>
-<td><a href="schedule_order.php?sch_no=<? echo $sch_no; ?>">調整列表順序</a><br>
-<a href="schedule_p.php?sch_no=<? echo $sch_no; ?>">輸出成有完整課名的課表</a>
+<td><a href="schedule_order.php?sch_no=<?= $sch_no ?>">調整列表順序</a><br>
+<a href="schedule_p.php?sch_no=<?= $sch_no ?>">輸出成有完整課名的課表</a>
+<p><a href="schedulelink.php?sch_no=<?= $sch_no ?>">本課表連結</a></p>
 </table>
 <?
 if(empty($COU)) {
@@ -97,7 +109,7 @@ $SelectedFieldsSQL = column_sql($SelectedFields, split(" ", "cou_cname cou_code 
 
 if(isset($COU)) {
 	$size = sizeof($COU);
-	$subquery = makeScheduleQuery($COU, $SelectedFieldsSQL);
+	$subquery = makeScheduleQuery($semester, $COU, $SelectedFieldsSQL);
 } else
 	$size = 0;
 

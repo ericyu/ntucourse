@@ -69,7 +69,7 @@ ul.makeMenu ul {
 </head>
 <body>
 <?
-$available = array(93, 92, 91, 90);
+$available = array(94, 93, 92, 91, 90);
 $year = $_GET[year];
 if(!in_array($year, $available))
 	$year = $available[0];
