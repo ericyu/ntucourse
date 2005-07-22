@@ -80,7 +80,7 @@ formSelect('sch_no', $sch);
 </table></form>
 <td><a href="schedule_order.php?sch_no=<?=$sch_no?>">調整列表順序</a><br>
 <a href="schedule_p.php?sch_no=<?=$sch_no?>">輸出成有完整課名的課表</a>
-<p><a href="schedulelink.php?sch_no=<?=$sch_no?>">本課表連結</a></p>
+<p><a href="ln.php?sch_no=<?=$sch_no?>">本課表連結</a></p>
 </table>
 <?
 if(empty($COU)) {
