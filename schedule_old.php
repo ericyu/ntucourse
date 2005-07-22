@@ -8,8 +8,11 @@ $var = &$_POST;
 
 if(isset($var['sch_no']))
 	$sch_no = $var['sch_no'];
+elseif(isset($_GET['sch_no']))
+	$sch_no = $_GET['sch_no'];
 else
 	$sch_no = 'sc1';
+$var['sch_no'] = $sch_no;
 
 if(!preg_match('/^sc([123])$/', $sch_no))
 	header("Location: http://".$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']);
@@ -41,7 +44,7 @@ $SelectedFields = array('dptname', 'cou_code', 'class', 'year',
 <body bgcolor="#FFFFFF">
 <form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">
 <?
-$sch=array('sc1'=>'課表一', 'sc2'=>'課表二', 'sc3'=>'課表三');
+$sch = array('sc1'=>'課表一', 'sc2'=>'課表二', 'sc3'=>'課表三');
 formSelect('sch_no', $sch);
 ?>
 <input type="submit" class="submit" value="變更">
@@ -61,7 +64,7 @@ echo "</tr>\n";
 $total_course = $total_credit = 0;
 
 $size = sizeof($COU);
-$subquery = makeScheduleQuery($semester, $COU, implode(",", $SelectedFields));
+$subquery = makeScheduleQuery($semester, $COU, implode(",", $SelectedFields), true);
 
 if($size > 0) {
 	$query = implode(" UNION ALL ", $subquery);

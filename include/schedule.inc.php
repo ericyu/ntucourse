@@ -6,7 +6,7 @@ function column_sql($cols, $extra) {
 	return implode(',', $cols);
 }
 
-function makeScheduleQuery($table, $COU, $SelectedFieldsSQL) {
+function makeScheduleQuery($table, $COU, $SelectedFieldsSQL, $old = false) {
 	global $size;
 	for($i = 0; isset($COU) && $i < $size; ++$i) {
 		list($s, $c, $d, $cls) = split(',', $COU[$i]);
@@ -19,7 +19,8 @@ function makeScheduleQuery($table, $COU, $SelectedFieldsSQL) {
 			exit();
 		}
 		$subquery[$i] = "(select $i AS n, '$table' AS t, $SelectedFieldsSQL FROM ".
-			"$table WHERE ser_no='$s' AND cou_code='$c' AND dpt_code='$d' AND class='$cls' LIMIT 0,1)";
+			"$table WHERE " . ($old ? '':" ser_no='$s' AND ") .
+			" cou_code='$c' AND dpt_code='$d' AND class='$cls' LIMIT 0,1)";
 	}
 	return $subquery;
 }
