@@ -225,7 +225,7 @@ foreach($cou_code_type as $key => $item)
 <div>
 <table border="0">
 <tr><td><? formCheckbox('no_void_time', '不顯示無時間的課', '將時間欄為空白的課程排除, 但是時間可能寫在備註欄', true); ?>
-<td><? formCheckbox('no_void_serial', '不顯示無流水號的課', '', true); ?>
+<td><? formCheckbox('no_void_serial', '不顯示無流水號的課', '', false); ?>
 <tr><td><? formCheckbox('night', '查詢包括進修學士班'); ?>
 <td><? formCheckbox('no_cancelled', '不顯示已停開的課'); ?>
 </table>
@@ -350,15 +350,15 @@ if(empty($var['csv'])) {
 	for($p = 0; $p < $number; $p += $RecordsPerTable) {
 	// Display the First Row of the Table
 		echo '<table border="1" width="100%">';
-		table_header($SelectedFields);
+		table_header($SelectedFields, false, true);
 
 		for($j = 0; ($j < $RecordsPerTable && $row = mysql_fetch_assoc($res)); ++$j)
-			displayRow($row, $var['table']);
+			displayRow($row, $var['table'], false, false, false, false, '', true);
 	}
 } else { // CSV here
 	table_header($SelectedFields, true);
 	for($j = 0; $row = mysql_fetch_assoc($res); ++$j)
-		displayRow($row, $var['table'], $var['csv']);
+		displayRow($row, $var['table'], true);
 }
 echo (empty($var['csv']) ? '</table>' : '</pre>');
 

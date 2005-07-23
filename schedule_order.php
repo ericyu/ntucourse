@@ -31,7 +31,7 @@ if(isset($var['src']) && isset($var['dst'])) {
 	$array = array_merge(array_slice($COU,0,$src), array_slice($COU,$src+1));
 	$array = array_merge(array_slice($array,0,$dst), $hopper, array_slice($array,$dst));
 	$COU = $array;
-	setcookie($sch_no,implode(';', $COU), time()+5184000);
+	setcookie($sch_no, $semester.'|'.implode(';', $COU), time()+5184000);
 }
 require('include/header.inc.php');
 ?>
@@ -42,6 +42,7 @@ function swap(src, dst) {
 	document.order.submit();
 }
 </script>
+<h1>課表<?=!empty($semester)?" (學期 $semester)":'';?></h1>
 <a href="schedule.php?sch_no=<? echo $sch_no; ?>">返回課表</a>
 <p>(本頁功能需 JavaScript)
 <?
@@ -75,7 +76,7 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 }
 
 for($i = 0; isset($COU) && $i < $size; ++$i)
-	displayRow($row[$i], $row[$i]['t'], false, true, false, false, '<td>'.sel_order($size, $i+1));
+	displayRow($row[$i], $row[$i]['t'], false, true, false, false, true, '<td>'.sel_order($size, $i+1));
 echo '</table>';
 ?>
 </form>
@@ -83,7 +84,7 @@ echo '</table>';
 <?
 } // END OF CONDITION 'COURSE(S) IN SCHEDULE'
 ?>
-<p><a href="schedule.php?sch_no=<? echo $sch_no; ?>">返回課表</a>
+<p><a href="schedule.php?sch_no=<?=$sch_no;?>">返回課表</a>
 <?
 require('include/footer.inc.php');
 

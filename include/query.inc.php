@@ -161,7 +161,9 @@ function condOthers() {
 	}
 }
 
-function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = false, $sch = false, $before = '') {
+function displayRow(&$row, $se, $csv = false, $noSerialSelect = false,
+	$noDetailLink = false, $isSchedule = false, $noScheduleSelect = false,
+	$before = '', $displayId = false) {
 	global $SelectedFields, $var;	// $SelectedFields 在呼叫此函式的程式內設定
 	global $_rowCount;
 	if(!isset($_rowCount))
@@ -171,7 +173,7 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 
 	list ($c1, $c2) = explode(' ', $row['cou_code']);
 	if(!$csv) {
-		if($sch || !$no_select)
+		if(!$noScheduleSelect || !$noSerialSelect)
 				echo "<tr onclick='javascript:setCheck(event,\"c$_rowCount\");' ".
 				"onmouseover='javascript:this.className=\"highlightrow\"' ".
 				"onmouseout='javascript:this.className=\"\"'>";
@@ -181,22 +183,25 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 
 	echo $before;
 
-	if($sch) {
-		echo ($csv ? '':'<td class="tdCheckbox">').'<input type="checkbox" name="selected_cou[]" class="tnum" value="'.
-			$_rowCount.'" id="c'.$_rowCount.'">'.($_rowCount+1).($csv ? "\t" : '');
+	if($isSchedule) {
+		echo ($csv ? '':'<td class="tdCheckbox">');
+		if(!$noScheduleSelect)
+			echo '<input type="checkbox" name="selected_cou[]" class="tnum" value="'.
+				$_rowCount.'" id="c'.$_rowCount.'">';
+		echo ($_rowCount+1).($csv ? "\t" : '');
 	}
 	foreach($SelectedFields as $f) {
 		// 如果是 schedule 就
 		if($f == 'ser_no') {
 			$array[$f] = '';
-			if(!$no_select) {
+			if(!$noSerialSelect) {
 				$array[$f] = '<input type="checkbox" name="selected_cou[]" value="'.
 				"$row[ser_no],$c1 $c2,$row[dpt_code],$row[class]".'" '.
 				"id='c$_rowCount'" . '">';
 			}
 			$array[$f] .= ($row[$f] ? $row[$f] : '-----');
 		} elseif($f == 'cou_cname') {
-			if($no_link)
+			if($noDetailLink)
 				$array[$f] = $row[$f];
 			else
 				$array[$f] = "<a href=\"detail.php?se=$se&amp;c1=$c1&amp;c2=$c2&amp;class=$row[class]\" target=\"_blank\">".htmlspecialchars($row[$f])."</a>";
@@ -209,9 +214,13 @@ function displayRow(&$row, $se, $csv = false, $no_select = false, $no_link = fal
 	if($csv) {
 		echo implode("\t", $array);
 	} else {
-		foreach($SelectedFields as $f)
-//		echo '<td>' . implode('<td>', $array);
-		echo "<td id=\"t$f\" name=\"t$f\">$array[$f]";
+		foreach($SelectedFields as $f) {
+			if($displayId)
+				echo "<td id=\"t$f\" name=\"t$f\">";
+			else
+				echo '<td>';
+			echo $array[$f];
+		}
 	}
 	echo ($csv ? "\n" : "</tr>\n");
 }
@@ -256,7 +265,7 @@ function getCourseTime($dt) {
 	return $dt;
 }
 
-function table_header($sel, $csv = false) {
+function table_header($sel, $csv = false, $displayId = false) {
 	global $AllFieldsForTable;
 	if($csv) {
 		echo '<pre>';
@@ -266,8 +275,13 @@ function table_header($sel, $csv = false) {
 		echo implode("\t", $tmp)."\n";
 	} else {
 		echo '<tr>';
-		foreach($sel as $s)
-			echo "<th id='t$s' name='t$s'>" . $AllFieldsForTable[$s];
+		foreach($sel as $s) {
+			if($displayId)
+				echo "<th id='t$s' name='t$s'>";
+			else
+				echo '<th>';
+			echo $AllFieldsForTable[$s];
+		}
 		echo "</tr>\n";
 	}	
 }

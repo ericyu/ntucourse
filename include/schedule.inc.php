@@ -24,4 +24,48 @@ function makeScheduleQuery($table, $COU, $SelectedFieldsSQL, $old = false) {
 	}
 	return $subquery;
 }
+
+function fillTimeTable() {
+	global $row, $i, $class, $cname;
+	$daytime = getCourseTime($row[$i]['daytime']);
+	foreach($daytime as $sd) {	// 將時間 & 中文課名填入表格
+		$w = mb_substr($sd, 0, 1);
+		$c = strtoupper(mb_substr($sd, 1));
+		for($j = 0; $j < strlen($c); ++$j) {
+			if(!empty($class["$w$c[$j]"])) {
+				$class["$w$c[$j]"] .= ','. ($i+1);
+				$cname["$w$c[$j]"] .= '<br>'.($i+1).": ".$row[$i]['cou_cname'];
+			} else {
+				$class["$w$c[$j]"] = $i+1;
+				$cname["$w$c[$j]"] = ($i+1).": ".$row[$i]['cou_cname'];
+			}
+		}
+	}
+}
+
+function displayScheduleTable() {
+	global $WeekdayName, $ClassTimeName, $class, $cname;
+	echo '<table border="1" align="center">';
+	for($c = 0; $c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
+		echo '<tr>';
+		for($week = 0; $week < 7; ++$week) {
+			$time = "$WeekdayName[$week]$ClassTimeName[$c]";
+			echo '<td align="center"'.
+		(!($c == 0 || $week == 0 || empty($class[$time])) ?
+			" onMouseOver=\"popup('$time','$cname[$time]');".
+			'" onMouseOut="kill()"' : '') . '>'; 
+			if($c == 0)
+				echo $WeekdayName[$week];
+			elseif($week == 0)
+				echo $ClassTimeName[$c];
+			elseif(empty($class["$WeekdayName[$week]$ClassTimeName[$c]"]))
+				echo '　&nbsp;　&nbsp;　';
+			else
+				echo $class["$WeekdayName[$week]$ClassTimeName[$c]"];
+			echo '</td>';
+		}
+		echo "</tr>\n";
+	}
+	echo "</table>\n";
+}
 ?>

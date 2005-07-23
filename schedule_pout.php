@@ -60,7 +60,7 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 }
 
 for($i = 0; isset($subquery) && $i < $size; ++$i) {
-	displayRow($row[$i], $row[$i]['t'], 0, 1, !empty($var['no_link']));
+	displayRow($row[$i], $row[$i]['t'], false, true, !empty($var['no_link']));
 	$course[] = $row[$i]['cou_cname'];
 	$time[] = $row[$i]['daytime'];
 	$place[] = $row[$i]['clsrom'];

@@ -78,7 +78,7 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 for($i=0; isset($subquery) && $i<$size; ++$i) {
 	$bgcolorSet = '<td><input type="text" name="CouClr'.$i.'" value="#ffffff" size="5" maxlength="7">'.
 		'<input type="button" class="button" name="Clr'.$i.'" value="選取" onclick="NewWindow(\'CouClr'.$i.'\');return false;">';
-	displayRow($row[$i], $row[$i]['t'], false, true, false, false, $bgcolorSet);
+	displayRow($row[$i], $row[$i]['t'], false, true, false, false, true, $bgcolorSet);
 }
 ?>
 </table>

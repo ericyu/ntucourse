@@ -46,7 +46,7 @@ if(!empty($var['add'])) {				// ADD
 	}
 } elseif(!empty($var['delete']) && sizeof($var['selected_cou'])) {	// DELETE
 	$COU_tmp = array();
-	for($i=0; $i<sizeof($COU); ++$i) {
+	for($i = 0; $i < sizeof($COU); ++$i) {
 		if(in_array($i, $var['selected_cou']))		// Pass the deleted one
 			continue;
 		$COU_tmp[] = $COU[$i];
@@ -54,7 +54,7 @@ if(!empty($var['add'])) {				// ADD
 	$COU = $COU_tmp;
 	unset($COU_tmp);
 	if(sizeof($COU) > 0)
-		setcookie($sch_no, $var['semester'].'|'.implode(';', $COU), time() + 5184000);
+		setcookie($sch_no, $semester.'|'.implode(';', $COU), time() + 5184000);
 	else {
 		unset($semester);
 		setcookie($sch_no, '', time() - 3600);
@@ -64,8 +64,10 @@ require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/schedule.js"></script>
 <h1>課表<?=!empty($semester)?" (學期 $semester)":'';?></h1>
+<!--
 <p style="color: red;">如果有因為加入時沒有流水號, 而因此無法在這頁讀出來的課程,
 請先讀取<a href="schedule_old.php?sch_no=<?=$sch_no?>">原先的課表</a>, 記下後, 再於本頁刪除該課程, 然後重新加入.</p>
+-->
 <table border="0">
 <tr valign="top"><td>
 <form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">
@@ -80,7 +82,7 @@ formSelect('sch_no', $sch);
 </table></form>
 <td><a href="schedule_order.php?sch_no=<?=$sch_no?>">調整列表順序</a><br>
 <a href="schedule_p.php?sch_no=<?=$sch_no?>">輸出成有完整課名的課表</a>
-<p><a href="ln.php?sch_no=<?=$sch_no?>">本課表連結</a></p>
+<!--<p><a href="ln.php?sch_no=<?=$sch_no?>">本課表連結</a></p>-->
 </table>
 <?
 if(empty($COU)) {
@@ -123,21 +125,7 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 
 for($i = 0; $i < $size; ++$i) {
 	displayRow($row[$i], $row[$i]['t'], $csv, true, false, true);
-
-	$daytime = getCourseTime($row[$i]['daytime']);
-	foreach($daytime as $sd) {	// 將時間 & 中文課名填入表格
-		$w = mb_substr($sd, 0, 1);
-		$c = strtoupper(mb_substr($sd, 1));
-		for($j = 0; $j < strlen($c); ++$j) {
-			if(!empty($class["$w$c[$j]"])) {
-				$class["$w$c[$j]"] .= ','. ($i+1);
-				$cname["$w$c[$j]"] .= '<br>'.($i+1).": ".$row[$i]['cou_cname'];
-			} else {
-				$class["$w$c[$j]"] = $i+1;
-				$cname["$w$c[$j]"] = ($i+1).": ".$row[$i]['cou_cname'];
-			}
-		}
-	}
+	fillTimeTable();
 	++$total_course;
 	$total_credit += $row[$i]['credit'];
 }
@@ -153,29 +141,9 @@ echo ($csv ? '</pre>' : '</table>');
 </form>
 <p align="center">
 <? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
-<p><table border="1" align="center">
+<p>
 <?
-for($c = 0; $c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
-	echo '<tr>';
-	for($week = 0; $week < 7; ++$week) {
-		$time = "$WeekdayName[$week]$ClassTimeName[$c]";
-		echo '<td align="center"'.
-	(!($c == 0 || $week == 0 || empty($class[$time])) ?
-		" onMouseOver=\"popup('$time','$cname[$time]');".
-		'" onMouseOut="kill()"' : '') . '>'; 
-		if($c == 0)
-			echo $WeekdayName[$week];
-		elseif($week == 0)
-			echo $ClassTimeName[$c];
-		elseif(empty($class["$WeekdayName[$week]$ClassTimeName[$c]"]))
-			echo '　&nbsp;　&nbsp;　';
-		else
-			echo $class["$WeekdayName[$week]$ClassTimeName[$c]"];
-		echo '</td>';
-	}
-	echo "</tr>\n";
-}
-echo "</table>\n";
+displayScheduleTable();
 } // END OF CONDITION 'COURSE(S) IN SCHEDULE'
 require('include/footer.inc.php');
 ?>
