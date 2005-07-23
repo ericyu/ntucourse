@@ -353,7 +353,7 @@ if(empty($var['csv'])) {
 		table_header($SelectedFields, false, true);
 
 		for($j = 0; ($j < $RecordsPerTable && $row = mysql_fetch_assoc($res)); ++$j)
-			displayRow($row, $var['table'], false, false, false, false, '', true);
+			displayRow($row, $var['table'], false, false, false, false, false, '', true);
 	}
 } else { // CSV here
 	table_header($SelectedFields, true);
