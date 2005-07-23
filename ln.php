@@ -109,20 +109,13 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 }
 
 for($i = 0; $i < $size; ++$i) {
-	displayRow($row[$i], $row[$i]['t'], $csv, true, false, true);
+	displayRow($row[$i], $row[$i]['t'], $csv, true, false, true, true);
 	fillTimeTable();
 	++$total_course;
 	$total_credit += $row[$i]['credit'];
 }
 echo ($csv ? '</pre>' : '</table>');
 ?>
-<table border="0"><tr valign="middle">
-<td><img src="images/arrow_lt.gif" alt="lt">
-<td><span style="font-size: 10pt">
-<a href="javascript:setCheckboxes('del_sel',true)">全部勾選</a> /
-<a href="javascript:setCheckboxes('del_sel',false)">全部取消</a></span>
-<td>&nbsp;&nbsp;<input type="submit" class="submit" value="刪除">
-</td></tr></table>
 </form>
 <p align="center">
 <? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
