@@ -37,6 +37,19 @@ formSelect('sch_no', $sch);
 ?>
 <input type="submit" class="submit" value="變更">
 </form>
+<script type="text/javascript">
+function deleteCookie(name) {
+	document.cookie = name + "=; expires=Thu, 01-Jan-70 00:00:01 GMT";
+	alert('已刪除課表 '+name);
+}
+</script>
+<?
+
+for($i = 1; $i <= 3; ++$i) {
+	echo "<input type='button' class='button' value='清除課表 $i' ".
+		"onClick='javascript:deleteCookie(\"sc$i\");'> ";
+}
+?>
 <p style="color: red;">以下資料僅供讀取使用</p>
 <?
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
@@ -45,7 +58,7 @@ if(empty($COU)) {
   echo '<p>此課表無內容';
 } else {
 echo '<table border="1" width="100%" align="center">';
-table_header($SelectedFields);
+table_header(array_merge(array('sch_count'),$SelectedFields), false);
 
 $total_course = $total_credit = 0;
 
@@ -63,7 +76,7 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 }
 
 for($i=0; isset($subquery) && $i<$size; ++$i) {
-	displayRow($row[$i], $row[$i]['t'], false, true, true, true);
+	displayRow($row[$i], $row[$i]['t'], false, true, true, true, true);
 	fillTimeTable();
 	++$total_course;
 	$total_credit += $row[$i]['credit'];

@@ -49,8 +49,8 @@ for($i=0; isset($COU) && $i<sizeof($COU); ++$i) {
 	}
 }
 $occupied = '';
-for($c=1;$c<16;++$c) {	// $c = sizeof($ClassTimeName)
-	for($week=1; $week<7;++$week)
+for($c = 1; $c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
+	for($week = 1; $week < 7; ++$week)
 		$occupied .= !empty($class["$WeekdayName[$week]$ClassTimeName[$c]"]) ? '1':'0';
 }
 ?>

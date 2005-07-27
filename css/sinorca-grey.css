@@ -339,8 +339,12 @@ span.smallnote {
 	text-align: center;
 }
 
-#tser_no, #tco_chg, #tclass, #tcredit, #tforth, #tsel_code, #ttea_cname, td.tdCheckbox {
+#tser_no, #tco_chg, #tclass, #tcredit, #tforth, #tsel_code, #ttea_cname {
 	white-space: nowrap;
+}
+
+td.tdCheckbox {
+	text-align: center;
 }
 
 .tooltiptitle {
