@@ -45,10 +45,8 @@ function deleteCookie(name) {
 </script>
 <?
 
-for($i = 1; $i <= 3; ++$i) {
-	echo "<input type='button' class='button' value='清除課表 $i' ".
-		"onClick='javascript:deleteCookie(\"sc$i\");'> ";
-}
+echo "<input type='button' class='button' value='清除此課表 ($sch[$sch_no])' ".
+		"onClick='javascript:deleteCookie(\"$sch_no\");'> ";
 ?>
 <p style="color: red;">以下資料僅供讀取使用</p>
 <?
