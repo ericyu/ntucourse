@@ -2,6 +2,7 @@
 require_once('include/query.inc.php');
 require_once('include/query_form.inc.php');
 require_once('include/schedule.inc.php');
+require('include/header.inc.php');
 // output compression
 ob_start();
 if(empty($_GET['s']) && empty($_POST['s'])) {
@@ -16,23 +17,6 @@ if(!empty($_COOKIE[$sch_no])) {
 	$COU = explode(';', $C);
 }
 		
-#formOutColSelect(0);
-?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="Content-Style-Type" content="text/css">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="expires" content="0">
-<meta name="robots" content="noindex,nofollow">
-<style type="text/css">
-	TH { font-size: 80%; white-space: nowrap; text-align: center; }
-</style>
-<title>課表</title>
-</head>
-<body bgcolor="#FFFFFF">
-<?
 if(!empty($_COOKIE[$sch_no])) {
 ?>
 您的課表 URL 是:
@@ -50,10 +34,9 @@ document.getElementById("url").select();
 <?
 if(strlen($url) < 498) {
 ?>
-<p>
 <form action="http://0rz.net/create.php" method="post" style="margin: 0px;">
 <table cellpadding="5" bgcolor="#e7e7f7"><tr><td>
-<b>Give me the long URL:</b><br />
+<b>很長的 URL</b><br>
 <input type="text" name="url" size="30" value="<?=$url?>">
 <input type="Submit" value="Make Shorter" style="border:1px solid gray;">
 </td></tr>
@@ -63,7 +46,7 @@ if(strlen($url) < 498) {
 <p>
 <form action="http://tinyurl.com/create.php" method="post" target="_blank">
 <table cellpadding="5" bgcolor="#E7E7F7"><tr><td>
-<b>Enter a long URL to make tiny:</b><br />
+<b>很長的 URL</b><br>
 <input type="text" name="url" size="30" value="<?=$url?>">
 <input type="submit" name="submit" value="Make TinyURL!">
 </td></tr></table>
@@ -79,7 +62,7 @@ $var = &$_POST;
 $csv = empty($var['csv']) ? false : true;
 $s = empty($_GET['s']) ? $_POST['s'] : $_GET['s'];
 $decoded = gzinflate(base64_decode($s));
-require('include/header.inc.php');
+
 if(!empty($decoded)) {
 	list($semester, $C) = explode('|', $decoded);
 	$COU = explode(';', $C);
@@ -151,7 +134,7 @@ echo ($csv ? '</pre>' : '</table>');
 <?
 displayScheduleTable();
 } // END OF CONDITION 'COURSE(S) IN SCHEDULE'
-require('include/footer.inc.php');
 }
+require('include/footer.inc.php');
 ?>
 
