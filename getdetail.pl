@@ -10,7 +10,8 @@ my $host = 'localhost';
 my $user = 'ntucourseupdate';
 my $password = 'courseupdate';
 my $db = 'ntucourse';
-my $table = '93_2';
+my $fromTable = '94_1';
+my $outTable = 'tp';
 
 my @mech;
 for(0 ... 1) {
@@ -26,7 +27,7 @@ my $dbh = DBI->connect("DBI:mysql:database=$db;host=$host",
 $dbh->do("SET NAMES 'utf8'");
 
 my $sth = $dbh->prepare("SELECT DISTINCT cou_code,class,MIN(ser_no) AS ".
-	"serial FROM $table WHERE ser_no != '' GROUP BY cou_code,class")
+	"serial FROM $fromTable WHERE ser_no != '' GROUP BY cou_code,class")
 	or die "Couldn't prepare statement: " . $dbh->errstr;
 $sth->execute;
 
@@ -52,7 +53,7 @@ while(my $res = $sth->fetchrow_hashref) {
 	}
 
 	my ($tea) = ( $url =~ /CLASS_1=.*&tea=(\d*)/ );
-	my $ins = $dbh->prepare("INSERT INTO tp VALUES (?, ?, ?, ?)");
+	my $ins = $dbh->prepare("INSERT INTO $outTable VALUES (?, ?, ?, ?)");
 	$ins->execute($res->{'cou_code'}, $res->{'class'}, $tea, $text);
 	$mech[$r]->back();
 	$mech[$r]->back();
