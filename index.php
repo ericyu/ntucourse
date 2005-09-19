@@ -28,7 +28,7 @@ http://info.ntu.edu.tw/</a> 上的 "課程 Excel
 確認最新資料。</em>本資料庫中不包括: <em>90-1之前的學程, 90-2之前的進修學士班</em>。
 
 <?
-$initday = '7-20';
+$initday = '07-27';
 $d = dir('diffs/');
 while (false !== ($entry = $d->read()))
 	if(preg_match('/^.+\.out$/', $entry))
@@ -39,7 +39,7 @@ if(!empty($list)) {
 	natsort($list);
 	$list = array_values($list);
 	$list2 = preg_replace('/^(..?)-(..?)(_.)?$/', '\1/\2\3', $list);
-	echo "<h1>課程異動記錄 - 93 學年上學期課程</h1>";
+	echo "<h1>課程異動記錄 - 94 學年上學期課程</h1>";
 	for($i = 0; $i < count($list2)-1; ++$i) {
 		echo "$list2[$i] <a href=\"showdiff.php?d1=$list[$i]&amp;d2=";
 		echo $list[$i+1]."\">=></a> ";
