@@ -70,7 +70,7 @@ if($size != 0) {
 <p>本地端備份資料: (最後更新日期 <?=$table_info['Update_time']?>. 可能較舊, 請再次確認)
 <p><div style="padding: 20px; background: #fffcd8; border: 3px solid #ccc; width: 80%;">
 <?
-	if(preg_match("/^http:\/\//", $comment))
+	if(preg_match("/^http(s?):\/\//", $comment))
 		echo "<a href=\"".urldecode($comment)."\">".urldecode($comment)."</a>";
 	else
 		echo nl2br($comment);
