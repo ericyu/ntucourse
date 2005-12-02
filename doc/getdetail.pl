@@ -44,7 +44,7 @@ while(my $res = $sth->fetchrow_hashref) {
 	my $text;
 
 	if($redirect ne '') {
-		$redirect =~ s/^%20(http:\/\/)/\1/g;
+		$redirect =~ s/^%20(http(s?):\/\/)/\1/g;
 		$text = $redirect;
 	} else {
 		($text) = ( decode("big5", $mech[$r]->content()) =~
