@@ -50,6 +50,7 @@ while(my $res = $sth->fetchrow_hashref) {
 		($text) = ( decode("big5", $mech[$r]->content()) =~
 			/<textarea rows=12 cols=80 wrap=physical>(.+)<\/textarea>/s );
 		$text =~ s/\r//g;
+		$text = '' if $text =~ /^\b+$/;
 	}
 
 	my ($tea) = ( $url =~ /CLASS_1=.*&tea=(\d*)/ );
