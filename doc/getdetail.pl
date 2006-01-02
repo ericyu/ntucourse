@@ -10,7 +10,7 @@ my $host = 'localhost';
 my $user = 'ntucourseupdate';
 my $password = 'courseupdate';
 my $db = 'ntucourse';
-my $fromTable = '94_1';
+my $fromTable = '94_2';
 my $outTable = 'tp';
 
 my @mech;
