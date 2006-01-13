@@ -61,7 +61,7 @@ if(strlen($url) < 498) {
 $var = &$_POST;
 $csv = empty($var['csv']) ? false : true;
 $s = empty($_GET['s']) ? $_POST['s'] : $_GET['s'];
-$decoded = gzinflate(base64_decode($s));
+$decoded = gzinflate(base64_decode(str_replace(' ', '+', $s)));
 
 if(!empty($decoded)) {
 	list($semester, $C) = explode('|', $decoded);
