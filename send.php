@@ -11,7 +11,7 @@ if (eregi("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,3}$", $
 	$error = 1;
 }
 $recipients = array(
-'ericyu'=>'ericyu@bunny.idv.tw',
+'ericyu'=>'ericyu@wkdlab.net',
 				'kcwu'=>'kcwu@ck.tp.edu.tw',
 				'piaip'=>'piaip@csie.ntu.edu.tw');
 
@@ -24,7 +24,7 @@ else {
 $name = stripslashes($_POST['name']);
 $contents = stripslashes($_POST['contents']);
 
-$subject = "=?UTF-8?B?" . base64_encode('來自 course.ericyu.org 的信')."?=";
+$subject = "=?UTF-8?B?" . base64_encode('來自 ntucourse.ericyu.org 的信')."?=";
 $headers = 'From: =?UTF-8?B?'.base64_encode($name)."?="."<$_POST[from]>\r\n";
 $headers .= 'Content-type: text/plain; charset=utf-8';
 if(empty($error) && mail($recipient, $subject, $contents, $headers))

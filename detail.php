@@ -2,8 +2,6 @@
 require_once('include/query.inc.php');
 // output compression
 ob_start('ob_gzhandler');
-$info[1] = 'http://investea.aca.ntu.edu.tw/course/course_asp/ConQuery.asp';
-$info[2] = 'http://couweb3.aca.ntu.edu.tw/course/course_asp/ConQuery.asp';
 
 $se = $_GET['se'];
 $cou_code = $_GET['c1'].' '.$_GET['c2'];
@@ -21,7 +19,7 @@ foreach($pattern as $f => $p)
 $SelectedFields = array('dptname', 'ser_no', 'cou_cname', 'credit', 'year',
 'tea_cname', 'clsrom', 'daytime', 'mark', 'co_gmark');
 
-$query = "SELECT tea,$se.".implode(",$se.", $SelectedFields).",comment,$se.cou_code".
+$query = "SELECT tea,$se.".implode(",$se.", $SelectedFields).",dpt_code,comment,$se.cou_code".
 " FROM `$se` NATURAL LEFT JOIN `comment$se` WHERE $se.cou_code = '$cou_code'".
 " AND $se.class = '$class' LIMIT 0 , 30 ";
 $result = mysql_query($query, $dbh);
@@ -45,18 +43,6 @@ $table_info = mysql_fetch_array(mysql_query("show table status from $db like 'co
 <body bgcolor="#FFFFFF">
 <?
 if($size != 0) {  
-	if(array_shift(array_keys($SEMESTERS)) == $se) {
-		$r = mysql_fetch_assoc($result);
-		$tea = $r['tea'];
-		mysql_data_seek($result, 0);
-/*
-		echo "<p>查詢教務處網頁上的課程大綱: ";
-		list($c1, $c2) = explode(' ', $cou_code);
-		foreach($info as $i => $loc)
-			echo "<a href=\"$loc?COU_CODE_1=$c1&amp;COU_CODE_2=$c2&amp;CLASS_1=$class&amp;tea=$tea\">伺服器 $i</a>&nbsp;&nbsp;";
-*/
-	}
-
 	echo "<p>學期: $se<br>課號: $cou_code<br>班次: $class";
 	echo '<p><table border="1"><tr>';
 
@@ -66,8 +52,19 @@ if($size != 0) {
 	while($row = mysql_fetch_assoc($result)) {
 		displayRow($row, $se, false, true, true);
 		$comment = $row['comment'];
+		$dptcode = $row['dpt_code'];
 	}
 	echo "</table>";
+	if(array_shift(array_keys($SEMESTERS)) == $se) {
+		$r = mysql_fetch_assoc($result);
+		$tea = $r['tea'];
+		mysql_data_seek($result, 0);
+		echo "<p>";
+		list($c1, $c2) = explode(' ', $cou_code);
+		echo '<a href="http://nol.ntu.edu.tw/nol/coursesearch/print_table.php?'.
+		"course_id=$c1 $c2&amp;class=$class&amp;dpt_code=$dptcode&amp;semester=".str_replace("_","-",$se).
+		"\">查詢教務處網頁上的課程大綱</a>";
+	}
 ?>
 <p>本地端備份資料: (最後更新日期 <?=$table_info['Update_time']?>. 可能較舊, 請再次確認)
 <p><div style="padding: 20px; background: #fffcd8; border: 3px solid #ccc; width: 80%;">
