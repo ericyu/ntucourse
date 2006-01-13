@@ -28,7 +28,7 @@ http://info.ntu.edu.tw/</a> 上的 "課程 Excel
 確認最新資料。</em>本資料庫中不包括: <em>90-1之前的學程, 90-2之前的進修學士班</em>。
 
 <?
-$initday = '01-02';
+$initday = '01-03';
 $d = dir('diffs/');
 while (false !== ($entry = $d->read()))
 	if(preg_match('/^.+\.out$/', $entry))

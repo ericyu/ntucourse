@@ -49,10 +49,12 @@ if($size != 0) {
 		$r = mysql_fetch_assoc($result);
 		$tea = $r['tea'];
 		mysql_data_seek($result, 0);
+/*
 		echo "<p>查詢教務處網頁上的課程大綱: ";
 		list($c1, $c2) = explode(' ', $cou_code);
 		foreach($info as $i => $loc)
 			echo "<a href=\"$loc?COU_CODE_1=$c1&amp;COU_CODE_2=$c2&amp;CLASS_1=$class&amp;tea=$tea\">伺服器 $i</a>&nbsp;&nbsp;";
+*/
 	}
 
 	echo "<p>學期: $se<br>課號: $cou_code<br>班次: $class";

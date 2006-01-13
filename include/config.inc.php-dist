@@ -11,8 +11,8 @@ $LogQuery = false;
 /* 使用於 index.php */
 $MaxStartRow = 2001; 
 $RecordsPerTable = 100;
-$GE_NOTE = 'http://investea.aca.ntu.edu.tw/course/temp/com.htm';
-$GE_REALM = 'http://investea.aca.ntu.edu.tw/course/temp/comarea.htm';
+$GE_NOTE = 'http://nol.ntu.edu.tw/nol/note/94-2/com.htm';
+$GE_REALM = 'http://nol.ntu.edu.tw/nol/note/94-2/comarea.htm';
 
 /* 目前有資料開放查詢的學期 */
 $SEMESTERS = array(
