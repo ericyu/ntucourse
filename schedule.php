@@ -64,8 +64,10 @@ require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/schedule.js"></script>
 <h1>課表<?=!empty($semester)?" (學期 $semester)":'';?></h1>
+<!--
 <p style="color: red;">如果有因為加入時沒有流水號, 而因此無法在這頁讀出來的課程,
 請先讀取<a href="schedule_old.php?sch_no=<?=$sch_no?>">原先的課表</a>, 記下後, 再於本頁刪除該課程, 然後重新加入.</p>
+-->
 <table border="0">
 <tr valign="top"><td>
 <form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">

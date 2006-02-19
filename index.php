@@ -314,17 +314,17 @@ $res = mysql_query($query, $dbh) or die('Invalid Query');
 echo mysql_error($dbh);
 $count_result = mysql_query("SELECT FOUND_ROWS() AS count");
 $total_count = mysql_result($count_result, 0);
-$number = mysql_num_rows($res);
+$display_count = mysql_num_rows($res);
 
 echo "<p>全部結果共有 $total_count 筆</p>";
-if($number == 0) {
+if($display_count == 0) {
 	if($total_count != 0) {
 		echo "<p>(開始顯示的筆數 $var[start] 大於總結果筆數 $total_count)</p>";
 		echo '<input type="button" class="button" value="到第一頁" onClick="document.ThisForm.start.value=1; document.ThisForm.SubmitType[0].click();">';
 	} else
 		echo '<p>無符合條件的課程</p>';
 } else {
-	echo '<p>學期: '.$var['table'].', 從第 '.$var['start'].' 筆顯示至第 '.($var['start']+$number-1).
+	echo '<p>學期: '.$var['table'].', 從第 '.$var['start'].' 筆顯示至第 '.($var['start']+$display_count-1).
 	' 筆<br>(按課名可連結至大綱)</p>';
 	if(empty($var['csv'])) {
 ?>
@@ -347,7 +347,7 @@ if($number == 0) {
 	formAddToScheduleTable(true);
 
 if(empty($var['csv'])) {
-	for($p = 0; $p < $number; $p += $RecordsPerTable) {
+	for($p = 0; $p < $display_count; $p += $RecordsPerTable) {
 	// Display the First Row of the Table
 		echo '<table border="1" width="100%">';
 		table_header($SelectedFields, false, true);

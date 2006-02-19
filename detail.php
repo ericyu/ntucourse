@@ -61,7 +61,7 @@ if($size != 0) {
 		mysql_data_seek($result, 0);
 		echo "<p>";
 		list($c1, $c2) = explode(' ', $cou_code);
-		echo '<a href="http://nol.ntu.edu.tw/nol/coursesearch/print_table.php?'.
+		echo '<a href="https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?'.
 		"course_id=$c1 $c2&amp;class=$class&amp;dpt_code=$dptcode&amp;semester=".str_replace("_","-",$se).
 		"\">查詢教務處網頁上的課程大綱</a>";
 	}

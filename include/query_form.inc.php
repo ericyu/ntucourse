@@ -116,11 +116,11 @@ function formSelect($name, $array) {
 }
 
 function displayPager() {
-	global $var, $total_count, $MaxStartRow;
+	global $var, $total_count, $display_count;
 	echo '<p style="text-align: center;">';
 	if($var['start'] != 1)
 		echo '<input type="button" class="button" value="上一頁" onClick="document.ThisForm.start.value ='.($var['start']-$var['number']).'; document.ThisForm.SubmitType[0].click();">';
-	if($total_count >= $var['number'] && $var['start'] < $MaxStartRow)
+	if($total_count > $var['start'] + $display_count - 1)
 		echo ' <input type="button" class="button" value="下一頁" onClick="document.ThisForm.start.value ='.($var['start']+$var['number']).'; document.ThisForm.SubmitType[0].click();">';
 	echo '</p>';
 }
