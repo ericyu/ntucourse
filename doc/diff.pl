@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-use utf8;
+use encoding 'utf8', STDOUT => 'utf8';
 open(DIFF, "diff -U0 ~/old.txt ~/94_2.txt|");
 @set=(0,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,0,1);
 $old_color="#FFEFC0";
