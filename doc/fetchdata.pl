@@ -15,7 +15,7 @@ open(WD, "> $sem.txt");
 foreach (@type) {
 	my $formal = $_;
 	$formal =~ s/^0//;
-	system("/usr/X11R6/bin/ssconvert -T Gnumeric_stf:stf_csv COURSE$_.XLS $_.txt 2>/dev/null");
+	system("/usr/local/bin/ssconvert -T Gnumeric_stf:stf_csv COURSE$_.XLS $_.txt 2>/dev/null");
 	open(FD, "/usr/local/bin/iconv -c -f utf-8 -t iso8859-1 $_.txt | /usr/local/bin/iconv -c -f big5 -t utf-8 | tail -n +2 |");
 
 	$s = "";
