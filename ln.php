@@ -34,13 +34,13 @@ document.getElementById("url").select();
 <?
 if(strlen($url) < 498) {
 ?>
-<form action="http://0rz.net/create.php" method="post" style="margin: 0px;">
+<form action="http://0rz.tw/create.php" method="post" style="margin: 0px;">
 <table cellpadding="5" bgcolor="#e7e7f7"><tr><td>
 <b>很長的 URL</b><br>
 <input type="text" name="url" size="30" value="<?=$url?>">
 <input type="Submit" value="Make Shorter" style="border:1px solid gray;">
 </td></tr>
-<tr><td align="right"><a href="http://0rz.net/" target="_blank"><img src="http://0rz.net/logo/0rz.jpg" border="0"></a></td></tr></table>
+<tr><td align="right"><a href="http://0rz.net/" target="_blank"><img src="http://0rz.tw/logo/0rz.jpg" border="0"></a></td></tr></table>
 </form>
 <? } ?>
 <p>

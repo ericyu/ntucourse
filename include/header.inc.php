@@ -75,7 +75,6 @@ header("Cache-control: private");
       <a href="place.php">上課地點對照</a>|
       <a href="javascript:showMe();">節數時間</a>|
       <a href="http://man.ptt.cc/man.pl/NTUcourse/">PTT 課程板</a>|
-      <a href="http://ericyu.org/phpBB2/index.php">討論區</a>|
       <a href="mail.php">聯絡</a>
     </div>
 
