@@ -22,13 +22,12 @@ require('include/header.inc.php');
 
 if(empty($_POST['send'])) { ?>
 <h1>免責聲明</h1>
-本網站所使用資料來源為 <a href="http://info.ntu.edu.tw">
-http://info.ntu.edu.tw/</a> 上的 "課程 Excel
+本網站所使用資料來源為 <a href="https://nol.ntu.edu.tw/">台大課程網</a> 上的 "課程 Excel
 檔下載"。 本網站不保證所引用資料的正確性與時效性，<em>請務必到 <a href="http://info.ntu.edu.tw">http://info.ntu.edu.tw/</a>
 確認最新資料。</em>本資料庫中不包括: <em>90-1之前的學程, 90-2之前的進修學士班</em>。
 
 <?
-$initday = '07-20';
+$initday = '01-12';
 $d = dir('diffs/');
 while (false !== ($entry = $d->read()))
 	if(preg_match('/^.+\.out$/', $entry))
@@ -46,7 +45,7 @@ if(!empty($list)) {
 	}
 	echo $list2[$i];
 }
-echo ' (最後更新日期：95/'.
+echo ' (最後更新日期：96/'.
 	(!empty($list) ? $list2[$i] : preg_replace('/^(..?)-(..?)(_.)?$/',
 	'\1/\2\3', $initday)).')';
 ?>
