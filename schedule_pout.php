@@ -105,7 +105,7 @@ if($trans) {
 if($trans) {
 	$tmp_array = $ClassTimeName;
 	array_shift($tmp_array);
-	$tmp_array = array_merge('星期<br>節次', $tmp_array);
+	$tmp_array = array_merge((array)'星期<br>節次', $tmp_array);
 	$tb->addData(array_slice($tmp_array, 0, $class_size+1));
 } else
 	$tb->addData($WeekdayName);
