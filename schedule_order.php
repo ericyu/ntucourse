@@ -29,7 +29,7 @@ if(isset($var['src']) && isset($var['dst'])) {
 	}
 	$hopper = $COU[$src];
 	$array = array_merge(array_slice($COU,0,$src), array_slice($COU,$src+1));
-	$array = array_merge(array_slice($array,0,$dst), $hopper, array_slice($array,$dst));
+	$array = array_merge(array_slice($array,0,$dst), (array)$hopper, array_slice($array,$dst));
 	$COU = $array;
 	setcookie($sch_no, $semester.'|'.implode(';', $COU), time()+5184000);
 }
