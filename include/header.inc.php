@@ -11,7 +11,6 @@ header("Cache-control: private");
     <meta http-equiv="Content-Style-Type" content="text/css">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="expires" content="0">
-    <meta name="robots" content="noindex,nofollow">
     <meta name="author" content="ericyu">
     <link rel="stylesheet" type="text/css" href="css/sinorca-grey.css" title="Grey boxes stylesheet">
     <style type="text/css" media="all">
