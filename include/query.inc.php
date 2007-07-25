@@ -85,18 +85,17 @@ function condClassTime() {
 function condGeneralEdu() {
 	global $condition, $var;
 	$c = '';
-	for($i = 1; $i <= 4; ++$i) {
+	for($i = 1; $i <= 8; ++$i) {
 		if(!empty($var['ge_sel'][$i])) {
-			if($c)
-				$c .= ' OR';
-			$c .= " position($i in co_gmark)";
+			$c .= $i;
 		}
 	}
 	if($c) {
-		$condition .= " AND type='12' AND ($c)";
-		if(!empty($var['no_multi_ge'])) {
-			$condition .= " AND co_gmark regexp '^[1-4](\\\\*?)$'";
-		}
+		$condition .= " AND type='12'";
+		if(!empty($var['no_multi_ge']))
+			$condition .= " AND co_gmark regexp '^[$c](\\\\*?)$'";
+		else
+			$condition .= " AND co_gmark regexp '[$c]'";
 	}
 }
 

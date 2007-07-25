@@ -27,7 +27,7 @@ if(empty($_POST['send'])) { ?>
 確認最新資料。</em>本資料庫中不包括: <em>90-1之前的學程, 90-2之前的進修學士班</em>。
 
 <?
-$initday = '01-12';
+$initday = '06-25';
 $d = dir('diffs/');
 while (false !== ($entry = $d->read()))
 	if(preg_match('/^.+\.out$/', $entry))
@@ -152,11 +152,15 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 若要限定僅顯示通識, 領域為:(<a href="<? echo $GE_NOTE; ?>">通識說明</a> &amp;
 <a href="<? echo $GE_REALM; ?>">各系歸屬領域</a>)<br>
 <?
-$ge_field = array('1'=>'人文學', '2'=>'社會科學', '3'=>'物質科學', '4'=>'生命科學');
-for($i = 1; $i <= 4; ++$i)
+$ge_field = array('1'=>'文學與藝術', '2'=>'歷史思維', '3'=>'世界文明',
+'4'=>'哲學與道德思考', '5' => '公民意識與社會分析',
+'6' => '量化分析與數學素養', '7' => '物質科學', '8' => '生命科學');
+for($i = 1; $i <= 8; ++$i) {
 	echo '<input type="checkbox" id="ge'. $i .'" name="ge_sel[' . $i . ']"' .
 			(!empty($var['ge_sel'][$i]) ? ' checked' : '') . '>' .
 			'<label for="ge'. $i .'">' . $ge_field[$i] . '</label>';
+	if ($i == 4 || $i == 6) echo '<br />';
+}
 ?>
 <br>
 <? formCheckbox('no_multi_ge', '不顯示跨領域通識(需勾選至少一個通識領域)'); ?>
