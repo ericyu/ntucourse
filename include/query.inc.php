@@ -9,7 +9,7 @@ function condDpt() {
 		foreach($dpt_choice_filtered as $cur) {
 			if($cond != '')
 				$cond .=' OR';
-			if(preg_match("/^[1-9ABP]$/", $cur))
+			if(preg_match("/^[1-9ABFP]$/", $cur))
 				$cond .= " dpt_code regexp '^".$cur."[01]'";
 			elseif(preg_match("/^[1-9AB]M$/", $cur))
 				$cond .= " dpt_code regexp '^".substr($cur,0,1)."[234]'";
