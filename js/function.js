@@ -295,3 +295,24 @@ function setCheck(e, name) {
 		obj.checked = !obj.checked;
 }
 
+var yearMode = true; // true = new
+
+function switchGEYear() {
+	yearMode = !yearMode;
+	if(yearMode == false) {
+		var d = new Array("人文學", "社會科學", "物質科學", "生命科學");
+		var mode = 'none';
+	} else {
+		var d = new Array("文學與藝術", "歷史思維", "世界文明", "哲學與道德思考");
+		var mode = 'inline';
+	}
+	for(var i = 1; i <= 4; i++)
+		document.getElementById("gel"+i).innerHTML = d[i-1];
+
+	for(var i = 5; i <= 8; i++) {
+		document.getElementById("gel"+i).style.display =
+			document.getElementById("ge"+i).style.display = mode;
+	}
+
+	document.getElementById("switchGELink").innerHTML = (yearMode ? '切換至 95 學年前分類' : '切換至 96 學年後分類');
+}

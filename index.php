@@ -149,8 +149,7 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <fieldset class="rhseven">
 <legend>通識</legend>
 <div>
-若要限定僅顯示通識, 領域為:(<a href="<? echo $GE_NOTE; ?>">通識說明</a> &amp;
-<a href="<? echo $GE_REALM; ?>">各系歸屬領域</a>)<br>
+若要限定僅顯示通識, 領域為:(<a href="<? echo $GE; ?>">通識說明</a>)<br>
 <?
 $ge_field = array('1'=>'文學與藝術', '2'=>'歷史思維', '3'=>'世界文明',
 '4'=>'哲學與道德思考', '5' => '公民意識與社會分析',
@@ -158,12 +157,13 @@ $ge_field = array('1'=>'文學與藝術', '2'=>'歷史思維', '3'=>'世界文�
 for($i = 1; $i <= 8; ++$i) {
 	echo '<input type="checkbox" id="ge'. $i .'" name="ge_sel[' . $i . ']"' .
 			(!empty($var['ge_sel'][$i]) ? ' checked' : '') . '>' .
-			'<label for="ge'. $i .'">' . $ge_field[$i] . '</label>';
+			"<label for='ge$i' id='gel$i'>" . $ge_field[$i] . '</label>';
 	if ($i == 4 || $i == 6) echo '<br />';
 }
 ?>
 <br>
-<? formCheckbox('no_multi_ge', '不顯示跨領域通識(需勾選至少一個通識領域)'); ?>
+<? formCheckbox('no_multi_ge', '不顯示跨領域通識(需勾選至少一個通識領域)'); ?><br>
+<a href="javascript:switchGEYear()" id="switchGELink">切換至 95 學年前分類</a>
 </div>
 </fieldset>
 <fieldset class="rhsodd">
