@@ -305,31 +305,37 @@
 		</college>
 	</institution>
 	<institution id="program"><name>學程</name>
-		<program id="P010"><name>中等教育學程</name></program>
+		<program id="P010"><name>師資培育中心</name></program>
 		<program id="P020"><name>地球系統科學學程</name></program>
 		<program id="P030"><name>婦女與性別研究學程</name></program>
 		<program id="P040"><name>永續資源學程</name></program>
 		<program id="P050"><name>生物技術學程</name></program>
 		<program id="P060"><name>生物產業自動化學程</name></program>
-		<program id="P070"><name>基因體醫學學程</name></program>
+		<program id="P070"><name>基因體與蛋白體學學程</name></program>
 		<program id="P080"><name>食品科技學程</name></program>
-		<program id="P090"><name>休閒事業經營管理學程</name></program>
+		<program id="P090"><name>休閒事業管理學程</name></program>
 		<program id="P100"><name>農業環境污染與資源保育學程</name></program>
-		<program id="P110"><name>醫工學程</name></program>
+		<program id="P110"><name>醫學工程學程</name></program>
 		<program id="P120"><name>知識管理學程</name></program>
 		<program id="P130"><name>海洋科學學程</name></program>
 		<program id="P140"><name>傳播學程</name></program>
-		<program id="P150"><name>生物資訊學程</name></program>
-		<program id="P160"><name>奈米工程學程</name></program>
+		<program id="P150"><name>系統生物與生物資訊學程</name></program>
+		<program id="P160"><name>奈米科技學程</name></program>
 		<program id="P170"><name>科技創業與管理學程</name></program>
 		<program id="P180"><name>臺灣研究學程</name></program>
-		<program id="P190"><name>積體電路學程</name></program>
+		<program id="P190"><name>積體電路設計學程</name></program>
 		<program id="P200"><name>生態工程學程</name></program>
-		<program id="P210"><name>光電顯示學程</name></program>
-		<program id="P220"><name>晶片商管學程</name></program>
-		<program id="P230"><name>高分子學程</name></program>
+		<program id="P210"><name>光電科技學程</name></program>
+		<program id="P220"><name>晶片系統商管學程</name></program>
+		<program id="P230"><name>高分子科技學程</name></program>
 		<program id="P240"><name>生物統計學程</name></program>
-		<program id="P250"><name>大陸研究學程</name></program>
-		<program id="P260"><name>護理師學程</name></program>
+		<program id="P250"><name>中國大陸研究學程</name></program>
+		<program id="P260"><name>臨床護理師學程</name></program>
+		<program id="P270"><name>歐洲研究學程</name></program>
+		<program id="P280"><name>光機電學程</name></program>
+		<program id="P290"><name>分子醫藥學程</name></program>
+		<program id="P300"><name>幹細胞與再生醫學學程</name></program>
+		<program id="P310"><name>神經生物與認知科學學程</name></program>
+		<program id="P320"><name>經典人文學程</name></program>
 	</institution>
 </ntu>
