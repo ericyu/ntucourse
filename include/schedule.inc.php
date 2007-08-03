@@ -1,4 +1,4 @@
-<?
+<?php
 function column_sql($cols, $extra) {
 	foreach ($extra as $a)
 		if(!in_array($a, $cols))

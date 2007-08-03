@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require_once('include/query_form.inc.php');
 // output compression
@@ -26,8 +26,8 @@ if(isset($_POST['sch_no'])) {
 </style>
 <title>課表</title>
 </head>
-<body bgcolor="#FFFFFF"<? echo (isset($_POST['sch_no'])?'onLoad=\'setTimeout("window.close()", 1000);\'':''); ?>>
-<?
+<body bgcolor="#FFFFFF"<?php echo (isset($_POST['sch_no'])?'onLoad=\'setTimeout("window.close()", 1000);\'':''); ?>>
+<?php
 if(!isset($_POST['sch_no'])) {
 	echo '<form action="http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'" method="post">';
 	$sch = array('sc1'=>'課表一', 'sc2'=>'課表二', 'sc3'=>'課表三');
@@ -57,7 +57,7 @@ for($c = 1; $c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <script type="text/javascript">
 var day = new Array("1", "2", "3", "4", "5", "6");
 var classname = new Array("0","1","2","3","4","@","5","6","7","8","9","A","B","C","D");
-var occupied = "<? echo $occupied ?>";
+var occupied = "<?php echo $occupied ?>";
 for(var i=0; i<classname.length; ++i) {
 	for(var j=0; j<day.length; ++j) {
 		var x = "class["+ day[j]+classname[i] + "]";
@@ -66,6 +66,6 @@ for(var i=0; i<classname.length; ++i) {
 }
 </script>
 完成.
-<? } ?>
+<?php } ?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require_once('include/query_form.inc.php');
 require_once('include/schedule.inc.php');
@@ -21,7 +21,7 @@ if(!empty($_COOKIE[$sch_no])) {
 ?>
 您的課表 URL 是:
 <textarea id="url" cols="" style="width: 100%;" wrap="virtual">
-<?
+<?php
 $url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?s='.
 	str_replace('=','',base64_encode(gzdeflate($_COOKIE[$sch_no])));
 echo $url;
@@ -31,32 +31,32 @@ echo $url;
 document.getElementById("url").select();
 </script>
 <p>長網址縮短可使用:
-<?
+<?php
 if(strlen($url) < 498) {
 ?>
 <form action="http://0rz.tw/create.php" method="post" style="margin: 0px;">
 <table cellpadding="5" bgcolor="#e7e7f7"><tr><td>
 <b>很長的 URL</b><br>
-<input type="text" name="url" size="30" value="<?=$url?>">
+<input type="text" name="url" size="30" value="<?php echo $url; ?>">
 <input type="Submit" value="Make Shorter" style="border:1px solid gray;">
 </td></tr>
 <tr><td align="right"><a href="http://0rz.net/" target="_blank"><img src="http://0rz.tw/logo/0rz.jpg" border="0"></a></td></tr></table>
 </form>
-<? } ?>
+<?php } ?>
 <p>
 <form action="http://tinyurl.com/create.php" method="post" target="_blank">
 <table cellpadding="5" bgcolor="#E7E7F7"><tr><td>
 <b>很長的 URL</b><br>
-<input type="text" name="url" size="30" value="<?=$url?>">
+<input type="text" name="url" size="30" value="<?php echo $url; ?>">
 <input type="submit" name="submit" value="Make TinyURL!">
 </td></tr></table>
 </form>
 
-<? } else { ?>
+<?php } else { ?>
 <p>此課表無內容.
-<? } ?>
+<?php } ?>
 <p><table border="1" width="100%" align="center">
-<?
+<?php
 } else { // DISPLAY
 $var = &$_POST;
 $csv = empty($var['csv']) ? false : true;
@@ -69,26 +69,26 @@ if(!empty($decoded)) {
 }
 ?>
 <script type="text/javascript" src="js/schedule.js"></script>
-<h1>課表<?=!empty($semester)?" (學期 $semester)":'';?></h1>
+<h1>課表<?php echo !empty($semester)?" (學期 $semester)":''; ?></h1>
 <table border="0">
 <tr valign="top"><td>
-<form action="http://<?=$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']?>" method="post">
-<input type="hidden" name="s" value="<?=$s?>">
+<form action="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">
+<input type="hidden" name="s" value="<?php echo $s; ?>">
 <table border="0" bgcolor="#FFFFCC">
-<tr valign="top"><td rowspan="2"><span style="font-size: 80%;">欄位:</span><br><? formOutColSelect(); ?>
-<td><? formCheckbox('csv', '純文字', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?><br>
+<tr valign="top"><td rowspan="2"><span style="font-size: 80%;">欄位:</span><br><?php formOutColSelect(); ?>
+<td><?php formCheckbox('csv', '純文字', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?><br>
 <tr><td><input type="submit" class="submit" value="變更">
 </table></form>
 </table>
-<?
+<?php
 if(empty($COU)) {
 	echo '<p>此課表無內容';
 } else {
 ?>
-<form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post" name="del_sel">
+<form action="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post" name="del_sel">
 <input type="hidden" name="delete" value="1">
-<input type="hidden" name="sch_no" value="<? echo $sch_no; ?>">
-<?
+<input type="hidden" name="sch_no" value="<?php echo $sch_no; ?>">
+<?php
 if(!$csv) {
 	echo '<table border="1" width="100%" align="center">';
 
@@ -129,9 +129,9 @@ echo ($csv ? '</pre>' : '</table>');
 ?>
 </form>
 <p align="center">
-<? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
+<?php echo "$total_course 堂課, 共 $total_credit 學分"; ?>
 <p>
-<?
+<?php
 displayScheduleTable();
 } // END OF CONDITION 'COURSE(S) IN SCHEDULE'
 }

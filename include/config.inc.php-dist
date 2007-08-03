@@ -1,4 +1,4 @@
-<?
+<?php
 //error_reporting(E_ALL);
 require_once('constant.inc.php');
 require_once('db.inc.php'); // 連結資料庫

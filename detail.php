@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 // output compression
 ob_start('ob_gzhandler');
@@ -41,7 +41,7 @@ $table_info = mysql_fetch_array(mysql_query("show table status from $db like 'co
 <title>選課輔助程式</title>
 </head>
 <body bgcolor="#FFFFFF">
-<?
+<?php
 if($size != 0) {  
 	echo "<p>學期: $se<br>課號: $cou_code<br>班次: $class";
 	echo '<p><table border="1"><tr>';
@@ -66,9 +66,9 @@ if($size != 0) {
 		"\">查詢教務處網頁上的課程大綱</a>";
 	}
 ?>
-<p>本地端備份資料: (最後更新日期 <?=$table_info['Update_time']?>. 可能較舊, 請再次確認)
+<p>本地端備份資料: (最後更新日期 <?php echo $table_info['Update_time']; ?>. 可能較舊, 請再次確認)
 <p><div style="padding: 20px; background: #fffcd8; border: 3px solid #ccc; width: 80%;">
-<?
+<?php
 	if(preg_match("/^http(s?):\/\//", $comment))
 		echo "<a href=\"".urldecode($comment)."\">".urldecode($comment)."</a>";
 	else

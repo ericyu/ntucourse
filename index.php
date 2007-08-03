@@ -1,4 +1,4 @@
-<?
+<?php
 $begin_time = microtime();
 //			May Be Best Viewed with Tab Space = 2
 // output compression
@@ -26,7 +26,7 @@ if(empty($_POST['send'])) { ?>
 檔下載"。 本網站不保證所引用資料的正確性與時效性，<em>請務必到 <a href="http://info.ntu.edu.tw">http://info.ntu.edu.tw/</a>
 確認最新資料。</em>本資料庫中不包括: <em>90-1之前的學程, 90-2之前的進修學士班</em>。
 
-<?
+<?php
 $initday = '07-25';
 $d = dir('diffs/');
 while (false !== ($entry = $d->read()))
@@ -38,7 +38,7 @@ if(!empty($list)) {
 	natsort($list);
 	$list = array_values($list);
 	$list2 = preg_replace('/^(..?)-(..?)(_.)?$/', '\1/\2\3', $list);
-	echo "<h1>課程異動記錄 - 95 學年上學期課程</h1>";
+	echo "<h1>課程異動記錄 - 96 學年上學期課程</h1>";
 	for($i = 0; $i < count($list2)-1; ++$i) {
 		echo "$list2[$i] <a href=\"showdiff.php?d1=$list[$i]&amp;d2=";
 		echo $list[$i+1]."\">=></a> ";
@@ -56,7 +56,7 @@ echo ' (最後更新日期：96/'.
 <span class="info">將滑鼠移到畫藍色底線的文字<span class="tooltip">這是說明</span></span>上會出現補充說明.
 <span class="smallnote">(本網頁部分功能需要瀏覽器支援 JavaScript 及 Cookies 方可正常運作)</span>
 </p>
-<? }
+<?php }
 echo '<a id="switchOptLink" href="javascript:switchOptions();">';
 if(!empty($_POST['send']) && empty($save_read))
 	echo '<img src="images/triangle.gif" height="11" width="11" alt="closedtriangle">顯示搜尋選項</a>';
@@ -78,19 +78,19 @@ echo '<table id="optiontable" bgcolor="#ffffcc" border="0" cellpadding="8"'.
 <tr><td>
 <fieldset>
 <legend>查詢學期</legend>
-<div><? formSelect('table', $SEMESTERS); ?></div>
+<div><?php formSelect('table', $SEMESTERS); ?></div>
 </fieldset>
 <fieldset>
 <legend>時間</legend>
 <div>
 <span style="color: #ff0000">請勾選有空堂的時間</span><br>
-或 <? formCheckbox('grep', 'Grep 模式', '改為找出: 包含「任何所選取的時間」的課程'); ?>
+或 <?php formCheckbox('grep', 'Grep 模式', '改為找出: 包含「任何所選取的時間」的課程'); ?>
 <hr>
 <a href="javascript:FillClasses()">依課表中空堂選擇</a><br>
 <input type="button" value="全部選取" onClick="javascript:checkAll(1)" class="selectButton">
 <input type="button" value="取消選取" onClick="javascript:checkAll(0)" class="selectButton"><br>
 <table border="0">
-<?
+<?php
 
 for($n = 0; $n <= 1; ++$n) {
 	echo '<tr><td>'.($n?'下午':'上午');
@@ -131,7 +131,7 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <legend>顯示欄位</legend>
 <div>
 <span class="smallnote">(以 Ctrl 多選)</span><br>
-<? formOutColSelect(1,5); ?>
+<?php formOutColSelect(1,5); ?>
 </div>
 </fieldset>
 <td>
@@ -140,8 +140,8 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <div>
 <span class="smallnote">(體育/軍訓/大學部/研究所, 不限定請不要填)</span><br>
 <input type="text" name="dpt_choice" id="dpt_choice" size="35" maxlength="200"
-<? if(!empty($_POST['send'])) fixDptInput();?> onChange="javascript:UpdateFromInput();">
-<? require('dpt/embed.html'); ?>
+<?php if(!empty($_POST['send'])) fixDptInput();?> onChange="javascript:UpdateFromInput();">
+<?php require('dpt/embed.html'); ?>
 <a href="javascript:ClearAllInput();">清除</a>
 <a target="_blank" href="dpt/prev.php">無 JavaScript | 查看歷史資料...</a>
 </div>
@@ -149,8 +149,8 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <fieldset class="rhseven">
 <legend>通識</legend>
 <div>
-若要限定僅顯示通識, 領域為:(<a href="<? echo $GE; ?>">通識說明</a>)<br>
-<?
+若要限定僅顯示通識, 領域為:(<a href="<?php echo $GE; ?>">通識說明</a>)<br>
+<?php
 $ge_field = array('1'=>'文學與藝術', '2'=>'歷史思維', '3'=>'世界文明',
 '4'=>'哲學與道德思考', '5' => '公民意識與社會分析',
 '6' => '量化分析與數學素養', '7' => '物質科學', '8' => '生命科學');
@@ -162,14 +162,14 @@ for($i = 1; $i <= 8; ++$i) {
 }
 ?>
 <br>
-<? formCheckbox('no_multi_ge', '不顯示跨領域通識(需勾選至少一個通識領域)'); ?><br>
+<?php formCheckbox('no_multi_ge', '不顯示跨領域通識(需勾選至少一個通識領域)'); ?><br>
 <a href="javascript:switchGEYear()" id="switchGELink">切換至 95 學年前分類</a>
 </div>
 </fieldset>
 <fieldset class="rhsodd">
 <legend>課號限制</legend>
 <div>
-<?
+<?php
 $cou_code_type=array('U'=>'大學部/研究所選修[列於研究所](U)<br>','M'=>'碩士班(M)','D'=>'博士班(D)','O'=>'以上皆非(O)');
 foreach($cou_code_type as $key => $item)
 	echo '<input type="checkbox" id="ccode' . $key . '" name="cou_code_type[' .
@@ -184,25 +184,25 @@ foreach($cou_code_type as $key => $item)
 <div style="color: red">以下欄位, 填寫多項時, 以逗點或空白分隔多個條件.<br>
 「不包括」的條件是指: 符合其中任一即被排除.</div>
 <table style="white-space: nowrap;">
-<tr><td>課名內包括<td><? formInputText('cou_cname'); ?>
-<td><span class="note"><? formRadioButton('cou_cname'); ?></span>
-<tr><td>課名內不包括<td><? formInputText('not_cou_cname'); ?><td>
+<tr><td>課名內包括<td><?php formInputText('cou_cname'); ?>
+<td><span class="note"><?php formRadioButton('cou_cname'); ?></span>
+<tr><td>課名內不包括<td><?php formInputText('not_cou_cname'); ?><td>
 
-<tr><td>教師包括<td><? formInputText('tea_cname'); ?>
-<td><span class="note"><? formRadioButton('tea_cname'); ?></span>
-<tr><td>教師不包括<td><? formInputText('not_tea_cname'); ?><td>
+<tr><td>教師包括<td><?php formInputText('tea_cname'); ?>
+<td><span class="note"><?php formRadioButton('tea_cname'); ?></span>
+<tr><td>教師不包括<td><?php formInputText('not_tea_cname'); ?><td>
 
-<tr><td>年級包括<td><? formInputText('year'); ?>
-<td><span class="note"><? formRadioButton('year'); ?></span>
-<tr><td>年級不包括<td><? formInputText('not_year'); ?><td>
+<tr><td>年級包括<td><?php formInputText('year'); ?>
+<td><span class="note"><?php formRadioButton('year'); ?></span>
+<tr><td>年級不包括<td><?php formInputText('not_year'); ?><td>
 
-<tr><td>地點包括<td><? formInputText('clsrom'); ?>
-<td><span class="note"><? formRadioButton('clsrom'); ?></span>
-<tr><td>地點不包括<td><? formInputText('not_clsrom'); ?><td>
+<tr><td>地點包括<td><?php formInputText('clsrom'); ?>
+<td><span class="note"><?php formRadioButton('clsrom'); ?></span>
+<tr><td>地點不包括<td><?php formInputText('not_clsrom'); ?><td>
 
-<tr><td>備註包括<td><? formInputText('mark'); ?>
-<td><span class="note"><? formRadioButton('mark'); ?></span>
-<tr><td>備註不包括<td><? formInputText('not_mark'); ?><td>
+<tr><td>備註包括<td><?php formInputText('mark'); ?>
+<td><span class="note"><?php formRadioButton('mark'); ?></span>
+<tr><td>備註不包括<td><?php formInputText('not_mark'); ?><td>
 </table>
 </div>
 </fieldset>
@@ -211,14 +211,14 @@ foreach($cou_code_type as $key => $item)
 <div>
 <table border="0">
 <tr><td>學分數<td>
-<? formInputText('credit'); ?>
+<?php formInputText('credit'); ?>
 <td>取 OR (聯集)
 <tr><td>期間<td colspan="2">
-<? formSelect('interval', array(''=>'全年/半年', 'full'=>'全年', 'half'=>'半年')); ?>
+<?php formSelect('interval', array(''=>'全年/半年', 'full'=>'全年', 'half'=>'半年')); ?>
 <tr><td>必修/選修<td colspan="2">
-<? formSelect('elective', array(''=>'必修/選修', 'ob'=>'必修', 'op'=>'選修')); ?>
+<?php formSelect('elective', array(''=>'必修/選修', 'ob'=>'必修', 'op'=>'選修')); ?>
 <tr><td>異動<td colspan="2">
-<? formSelect('modified', array(''=>'', 'new'=>'加開', 'halt'=>'停開', 'mod'=>'異動')); ?>
+<?php formSelect('modified', array(''=>'', 'new'=>'加開', 'halt'=>'停開', 'mod'=>'異動')); ?>
 </table>
 </div>
 </fieldset>
@@ -226,10 +226,10 @@ foreach($cou_code_type as $key => $item)
 <legend>&nbsp;</legend>
 <div>
 <table border="0">
-<tr><td><? formCheckbox('no_void_time', '不顯示無時間的課', '將時間欄為空白的課程排除, 但是時間可能寫在備註欄', true); ?>
-<td><? formCheckbox('no_void_serial', '不顯示無流水號的課', '', true); ?>
-<tr><td><? formCheckbox('night', '查詢包括進修學士班'); ?>
-<td><? formCheckbox('no_cancelled', '不顯示已停開的課'); ?>
+<tr><td><?php formCheckbox('no_void_time', '不顯示無時間的課', '將時間欄為空白的課程排除, 但是時間可能寫在備註欄', true); ?>
+<td><?php formCheckbox('no_void_serial', '不顯示無流水號的課', '', true); ?>
+<tr><td><?php formCheckbox('night', '查詢包括進修學士班'); ?>
+<td><?php formCheckbox('no_cancelled', '不顯示已停開的課'); ?>
 </table>
 </div>
 </fieldset>
@@ -238,19 +238,19 @@ foreach($cou_code_type as $key => $item)
 <fieldset class="rhsodd">
 <legend>結果檢視</legend>
 <div>
-<?
+<?php
 
 if(!empty($var['start']) && !is_numeric($var['start']))
 	$var['start'] = 1;
 if(!empty($var['number']) && !is_numeric($var['number']))
 	$var['number'] = $RecordsPerTable;
 ?>
-從搜尋結果的第 <?
+從搜尋結果的第 <?php
 $array = array();
 for($i = 1; $i <= 2001; $i += $RecordsPerTable)
 	$array["$i"] = $i;
 formSelect("start", $array);
-?> 筆開始顯示 <?
+?> 筆開始顯示 <?php
 $array = array();
 for($i = $RecordsPerTable; $i <= 1000; $i += $RecordsPerTable)
 	$array[$i] = $i;
@@ -258,18 +258,18 @@ formSelect("number", $array);
 ?> 筆
 <span class="smallnote">(每多 100 筆約加 20~50KB)</span><br>
 <!--
-依 <?
+依 <?php
 $array = array();
 $array[''] = '';
 foreach($AllFields as $k => $s) {
 	$array[$k] = preg_replace('/<br>/', '', $s);
 }
 formSelect('sortby', $array);
-?> 排序 (順序: <?
+?> 排序 (順序: <?php
 formSelect('order', array(''=>'', 'asc'=>'小到大', 'desc'=>'大到小'));
 ?>)
 -->
-<? formCheckbox('csv', '純文字輸出 (tab 分隔)', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?>
+<?php formCheckbox('csv', '純文字輸出 (tab 分隔)', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?>
 </div>
 </fieldset>
 </td></tr>
@@ -281,12 +281,12 @@ formSelect('order', array(''=>'', 'asc'=>'小到大', 'desc'=>'大到小'));
 <input type="submit" class="submit" name="SubmitType" value="儲存查詢">
 <input type="submit" class="submit" name="SubmitType" value="取回儲存">
 <input type="submit" class="submit" name="SubmitType" value="清除儲存">
-<input type="hidden" name="qid" value="<?= (empty($var['qid'])) ? md5(uniqid(rand(),1)) : $var['qid']; ?>">
+<input type="hidden" name="qid" value="<?php echo (empty($var['qid'])) ? md5(uniqid(rand(),1)) : $var['qid']; ?>">
 </td></tr></table>
 </form>
 
 <p>
-<?
+<?php
 if(!empty($_POST['send'])) {			// 程式開始, 有送出時才處理
 
 // log 到資料庫
@@ -343,7 +343,7 @@ if($display_count == 0) {
 	}
 	document.writeln('</form>');
 </script>
-<?
+<?php
 	}
 	displayPager();
 	formAddToScheduleTable(true);

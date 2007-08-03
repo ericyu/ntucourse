@@ -1,4 +1,4 @@
-<?
+<?php
 error_reporting(E_ALL);
 ?>
 <html>
@@ -6,10 +6,10 @@ error_reporting(E_ALL);
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Source</title>
 </head>
-<? $DONT_SHOW = array('source.php', 'db.inc.php', 'send.php',
+<?php $DONT_SHOW = array('source.php', 'db.inc.php', 'send.php',
 				'hitStats.php', 'dailyCount.php'); ?>
 <body bgcolor="white">
-<?
+<?php
 if(!empty($_GET['show']))
 	$f = urldecode($_GET['show']);
 else
@@ -34,7 +34,7 @@ if(filetype($f) == 'file') {
 	<th align="center" bgcolor="#abcdef">大小</td>
 	<th align="center" bgcolor="#abcdef">更動日期</td>
 	</tr>
-<?
+<?php
 $current = $f;
 $oper = opendir($current);
 while($file = readdir($oper)) {
@@ -81,7 +81,7 @@ echo '</table></center>';
 ?>
 </body> 
 </html> 
-<?
+<?php
 function measure_size($size) {
 	if($size <= 1)
 		$size = "$size byte";

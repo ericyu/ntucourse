@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require_once('include/query_form.inc.php');
 require_once('include/schedule.inc.php');
@@ -35,7 +35,7 @@ formOutColSelect(0);
 </head>
 <body bgcolor="#FFFFFF">
 <table border="1" width="100%" align="center">
-<?
+<?php
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
 
 table_header($SelectedFields);
@@ -70,8 +70,8 @@ for($i = 0; isset($subquery) && $i < $size; ++$i) {
 ?>
 </table>
 <p align="center">
-<? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
-<?
+<?php echo "$total_course 堂課, 共 $total_credit 學分"; ?>
+<?php
 require_once('include/tablematrix.inc.php');
 $class_size = 15;
 if(!empty($var['no_zero'])) {
@@ -169,7 +169,7 @@ if(!empty($overlap)) {
 ?>
 </body>
 </html>
-<?
+<?php
 if(empty($var['text'])) {
 	ob_end_flush();
 } else {

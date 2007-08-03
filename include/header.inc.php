@@ -1,4 +1,4 @@
-<?
+<?php
 session_name('ntucourse_sid');
 ini_set('session.use_only_cookies', true);
 session_start();

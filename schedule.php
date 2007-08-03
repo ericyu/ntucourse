@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require_once('include/query_form.inc.php');
 require_once('include/schedule.inc.php');
@@ -63,37 +63,37 @@ if(!empty($var['add'])) {				// ADD
 require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/schedule.js"></script>
-<h1>課表<?=!empty($semester)?" (學期 $semester)":'';?></h1>
+<h1>課表<?php echo !empty($semester)?" (學期 $semester)":''; ?></h1>
 <!--
 <p style="color: red;">如果有因為加入時沒有流水號, 而因此無法在這頁讀出來的課程,
-請先讀取<a href="schedule_old.php?sch_no=<?=$sch_no?>">原先的課表</a>, 記下後, 再於本頁刪除該課程, 然後重新加入.</p>
+請先讀取<a href="schedule_old.php?sch_no=<?php echo $sch_no; ?>">原先的課表</a>, 記下後, 再於本頁刪除該課程, 然後重新加入.</p>
 -->
 <table border="0">
 <tr valign="top"><td>
-<form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">
+<form action="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">
 <table border="0" bgcolor="#FFFFCC">
-<tr valign="top"><td rowspan="2"><span style="font-size: 80%;">欄位:</span><br><? formOutColSelect(); ?>
-<td><? formCheckbox('csv', '純文字', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?><br>
-<?
+<tr valign="top"><td rowspan="2"><span style="font-size: 80%;">欄位:</span><br><?php formOutColSelect(); ?>
+<td><?php formCheckbox('csv', '純文字', '可更方便地存入 Excel:<br>編輯->選擇性貼上->文字'); ?><br>
+<?php
 $sch = array('sc1'=>'課表一', 'sc2'=>'課表二', 'sc3'=>'課表三');
 formSelect('sch_no', $sch);
 ?>
 <tr><td><input type="submit" class="submit" value="變更">
 </table></form>
 <td>
-<a href="ln.php?sch_no=<?=$sch_no?>">分享此課表</a><br><br>
-<a href="schedule_order.php?sch_no=<?=$sch_no?>">調整列表順序</a><br>
-<a href="schedule_p.php?sch_no=<?=$sch_no?>">輸出成有完整課名的課表</a>
+<a href="ln.php?sch_no=<?php echo $sch_no; ?>">分享此課表</a><br><br>
+<a href="schedule_order.php?sch_no=<?php echo $sch_no; ?>">調整列表順序</a><br>
+<a href="schedule_p.php?sch_no=<?php echo $sch_no; ?>">輸出成有完整課名的課表</a>
 </table>
-<?
+<?php
 if(empty($COU)) {
 	echo '<p>此課表無內容';
 } else {
 ?>
-<form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post" name="del_sel">
+<form action="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post" name="del_sel">
 <input type="hidden" name="delete" value="1">
-<input type="hidden" name="sch_no" value="<? echo $sch_no; ?>">
-<?
+<input type="hidden" name="sch_no" value="<?php echo $sch_no; ?>">
+<?php
 if(!$csv) {
 	echo '<table border="1" width="100%" align="center">';
 	// BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
@@ -139,9 +139,9 @@ echo ($csv ? '</pre>' : '</table>');
 </td></tr></table>
 </form>
 <p align="center">
-<? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
+<?php echo "$total_course 堂課, 共 $total_credit 學分"; ?>
 <p>
-<?
+<?php
 displayScheduleTable();
 } // END OF CONDITION 'COURSE(S) IN SCHEDULE'
 require('include/footer.inc.php');

@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require_once('include/query_form.inc.php');
 require_once('include/schedule.inc.php');
@@ -30,8 +30,8 @@ $SelectedFields = array('dptname', 'cou_code', 'class', 'year',
 require('include/header.inc.php');
 ?>
 <script type="text/javascript" src="js/schedule.js"></script>
-<form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">
-<?
+<form action="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']; ?>" method="post">
+<?php
 $sch = array('sc1'=>'課表一', 'sc2'=>'課表二', 'sc3'=>'課表三');
 formSelect('sch_no', $sch);
 ?>
@@ -43,13 +43,13 @@ function deleteCookie(name) {
 	alert('已刪除課表 '+name);
 }
 </script>
-<?
+<?php
 
 echo "<input type='button' class='button' value='清除此課表 ($sch[$sch_no])' ".
 		"onClick='javascript:deleteCookie(\"$sch_no\");'> ";
 ?>
 <p style="color: red;">以下資料僅供讀取使用</p>
-<?
+<?php
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
 
 if(empty($COU)) {
@@ -82,9 +82,9 @@ for($i=0; isset($subquery) && $i<$size; ++$i) {
 ?>
 </table>
 <p align="center">
-<? echo "$total_course 堂課, 共 $total_credit 學分"; ?>
+<?php echo "$total_course 堂課, 共 $total_credit 學分"; ?>
 <p>
-<?
+<?php
 displayScheduleTable();
 }
 require('include/footer.inc.php');

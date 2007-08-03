@@ -1,4 +1,4 @@
-<?
+<?php
 /* tablematrix.php (c) 2001 John Dickinson (john@techwise.com.au)
  *
  * TERMS OF USAGE:

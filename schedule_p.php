@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require_once('include/query_form.inc.php');
 require_once('include/schedule.inc.php');
@@ -29,10 +29,10 @@ function PlainText(val) {
 </script>
 <h1>課表輸出格式</h1>
 <p style="color: red;">注意: 所選課程必須不衝堂才能輸出!</p>
-<form name="Form" action="http://<? echo $_SERVER['HTTP_HOST'].preg_replace("/schedule_p/", "schedule_pout", $_SERVER['PHP_SELF']); ?>" method="post">
+<form name="Form" action="http://<?php echo $_SERVER['HTTP_HOST'].preg_replace("/schedule_p/", "schedule_pout", $_SERVER['PHP_SELF']); ?>" method="post">
 <input type="hidden" name="fieldName" value="">
-<input type="hidden" name="sch_no" value="<? echo $sch_no; ?>">
-輸出欄位<br><? formOutColSelect(); ?><br>
+<input type="hidden" name="sch_no" value="<?php echo $sch_no; ?>">
+輸出欄位<br><?php formOutColSelect(); ?><br>
 <hr width="30%">
 <input type="checkbox" name="display_place" id="display_place" value="1"><label for="display_place">顯示地點</label><br>
 <input type="checkbox" name="trans" id="trans" value="1"><label for="trans">轉置顯示</label></label><br>
@@ -51,7 +51,7 @@ function PlainText(val) {
 課表文字顏色: <input type="text" name="fg" value="#000000" size="5" maxlength="7" style="background: #000000;">
 <input type="button" class="button" name="testClr2" value="選取" onclick="NewWindow('fg');return false;">
 <table border="1">
-<?
+<?php
 $SelectedFields = array('ser_no', 'dptname', 'class', 'year', 'credit',
 				'cou_cname', 'tea_cname', 'clsrom', 'daytime');
 
@@ -85,6 +85,6 @@ for($i=0; isset($subquery) && $i<$size; ++$i) {
 </div>
 <p><input type="submit" class="submit" value="送出">
 </form>
-<?
+<?php
 require('include/footer.inc.php');
 ?>

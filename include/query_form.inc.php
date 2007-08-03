@@ -1,4 +1,4 @@
-<?
+<?php
 function formCheckbox($name, $desc, $info = '', $defaultChecked = false) {
 	global $var;
 	if(!empty($info))

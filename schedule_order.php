@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require_once('include/schedule.inc.php');
 // output compression
@@ -42,19 +42,19 @@ function swap(src, dst) {
 	document.order.submit();
 }
 </script>
-<h1>課表<?=!empty($semester)?" (學期 $semester)":'';?></h1>
-<a href="schedule.php?sch_no=<? echo $sch_no; ?>">返回課表</a>
+<h1>課表<?php echo !empty($semester)?" (學期 $semester)":''; ?></h1>
+<a href="schedule.php?sch_no=<?php echo $sch_no; ?>">返回課表</a>
 <p>(本頁功能需 JavaScript)
-<?
+<?php
 if(empty($COU)) {
 	echo '<p>此課表無內容';
 } else {
 ?>
-<form action="http://<? echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?sch_no=".$sch_no; ?>" method="post" name="order">
+<form action="http://<?php echo $_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF']."?sch_no=".$sch_no; ?>" method="post" name="order">
 <input type="hidden" name="src" value="">
 <input type="hidden" name="dst" value="">
 <table border="1" width="100%" align="center">
-<?
+<?php
 // BELOW ARE SIMILAR TO THOSE CODE IN COURSE.PHP
 
 table_header(array_merge(array('sch_count'), $SelectedFields));
@@ -81,11 +81,11 @@ echo '</table>';
 ?>
 </form>
 </table>
-<?
+<?php
 } // END OF CONDITION 'COURSE(S) IN SCHEDULE'
 ?>
-<p><a href="schedule.php?sch_no=<?=$sch_no;?>">返回課表</a>
-<?
+<p><a href="schedule.php?sch_no=<?php echo $sch_no; ?>">返回課表</a>
+<?php
 require('include/footer.inc.php');
 
 function sel_order($size, $pos) {

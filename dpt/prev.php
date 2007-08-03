@@ -1,4 +1,4 @@
-<?
+<?php
 // output compression
 ob_start('ob_gzhandler');
 ?>
@@ -10,7 +10,7 @@ ob_start('ob_gzhandler');
 <meta http-equiv="Content-Style-Type" content="text/css">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="expires" content="0">
-<?
+<?php
 #<link rel="stylesheet" type="text/css" href="prev_menu.css" title="Menu View">
 #<link rel="stylesheet" type="text/css" href="prev_list.css" title="List View">
 #<script type="text/javascript" src="styleswitcher.js"></script>
@@ -68,7 +68,7 @@ ul.makeMenu ul {
 <![endif]-->
 </head>
 <body>
-<?
+<?php
 $available = array(94, 93, 92, 91, 90);
 $year = $_GET[year];
 if(!in_array($year, $available))
@@ -86,7 +86,7 @@ foreach($available as $v)
 <script language="JavaScript" type="text/javascript">
 document.writeln('<a href="javascript:disableStyleSheet();">關閉階層式選單</a> (抱歉, IE 尚無法正常使用)');
 </script>
-<?
+<?php
 include("$year.html");
 ?>
 </body>
