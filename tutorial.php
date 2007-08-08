@@ -1,4 +1,4 @@
-<?
+<?php
 require('include/header.inc.php');
 ?>
 <h1>選課輔助程式 說明</h1>
@@ -32,6 +32,6 @@ require('include/header.inc.php');
 <li>確定送出查詢.</li>
 <li>將上面的查詢條件儲存/讀取/清除儲存.</li>
 </ol>
-<?
+<?php
 require('include/footer.inc.php');
 ?>

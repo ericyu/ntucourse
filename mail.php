@@ -1,4 +1,4 @@
-<?
+<?php
 require('include/header.inc.php');
 ?>
 <h1>寄信給作者</h1>
@@ -24,6 +24,6 @@ require('include/header.inc.php');
 </table>
 <input type="submit" class="submit" value="送出"> <input type="reset" class="submit" value="重填">
 </form>
-<?
+<?php
 require('include/footer.inc.php');
 ?>

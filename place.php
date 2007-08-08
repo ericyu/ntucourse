@@ -1,4 +1,4 @@
-<?
+<?php
 require('include/header.inc.php');
 ?>
 <h1>上課地點對照表</h1>
@@ -118,6 +118,6 @@ require('include/header.inc.php');
 <tr><td>(法)高球場<td><td><td>
 <tr><td>(法)網球場<td><td><td>
 </table>
-<?
+<?php
 require('include/footer.inc.php');
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 require_once('include/query.inc.php');
 require('include/header.inc.php');
 

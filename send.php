@@ -1,4 +1,4 @@
-<?
+<?php
 require('include/header.inc.php');
 $EMAIL = trim(strip_tags($_POST['from']));
 if (eregi("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,3}$", $EMAIL, $check)) {

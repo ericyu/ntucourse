@@ -1,4 +1,4 @@
-<?
+<?php
 require("include/db.inc.php");
 $t = "dpt_code";
 $pattern = array("ser_no" => "/^(|\d{5})$/",

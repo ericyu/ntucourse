@@ -1,5 +1,5 @@
 #!/usr/local/bin/php -q
-<?
+<?php
 /*********************************************************************
 
 I placed the following entry in the crontab to get the daily count:
