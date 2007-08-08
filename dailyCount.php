@@ -18,7 +18,7 @@ mysql_select_db($db);
 // Read the record for yesterday, and reset it.
 $day = date("m/d", time()-86400);
 $day = date("Y-m-d-H-i-s", time()-86400);
-$fp=fopen("/home/ericyu/public_html/course/acc.txt","r+");
+$fp=fopen("/home/ericyu/course/acc.txt","r+");
 flock($fp,2);
 $count=fgets($fp,1024);
 rewind($fp);
