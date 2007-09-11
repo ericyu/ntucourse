@@ -151,6 +151,14 @@ function condOthers() {
 		$condition .= " and co_chg != '停開'";
 	}
 
+	if(!empty($var['co_select_type'])) {
+		$c = '';
+		foreach($var['co_select_type'] as $key => $value) {
+			$c .= ($c == '' ? '' : ' OR ') . "co_select = $key ";
+		}
+		$condition .= " AND ($c) ";
+	}
+
 	if(array_key_exists($var['sortby'], $AllFields)) {
 		$condition .= ' order by '.$var['sortby'];
 		if($var['order'] == 'asc')

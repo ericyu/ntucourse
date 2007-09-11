@@ -10,7 +10,7 @@ rename($_, uc) while(glob("COU*.*[Ss]"));
 use CSV;
 $dquote = "\"";
 
-open(WD, "> $sem.txt");
+open(WD, "> $sem.tmp.txt");
 
 foreach (@type) {
 	my $formal = $_;
@@ -35,3 +35,6 @@ foreach (@type) {
 }
 close(WD);
 unlink($_) while(glob("??.txt"));
+
+system("mergecolumn.pl $sem.tmp.txt > $sem.txt");
+

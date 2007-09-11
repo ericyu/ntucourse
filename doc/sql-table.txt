@@ -18,7 +18,8 @@ CREATE TABLE `9x_x` (
   `daytime` varchar(60) NOT NULL default '',
   `mark` varchar(255) NOT NULL default '',
   `co_tp` tinyint(1) NOT NULL default '0',
-  `co_gmark` varchar(5) NOT NULL default ''
+  `co_gmark` varchar(5) NOT NULL default '',
+	`co_select` tinyint(1) NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 ## Teacher's Comments for Course

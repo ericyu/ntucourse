@@ -7,14 +7,15 @@ $AllFields = array(
 'cou_code' => '課號',	'class' => '班次',		'year' => '年級',
 'credit' => '學分',		'forth' => '期間',		'sel_code' => '選/必',
 'cou_cname' => '課名',	'tea_cname' => '教師',	'clsrom' => '教室',
-'daytime' => '時間',	'mark' => '備註',		'co_gmark' => '通識');
+'daytime' => '時間',	'mark' => '備註',		'co_gmark' => '通識',
+'co_select' => '加選方式');
 
 $AllFieldsForTable = array_merge($AllFields,
 	array('sch_count' => '編號', 'bgcolor' => '背景顏色'));
 
 $DefaultSelection = array('ser_no', 'co_chg', 'dptname', 'class', 'year',
 				'credit', 'forth', 'sel_code', 'cou_cname',
-				'tea_cname', 'clsrom', 'daytime', 'mark', 'co_gmark');
+				'tea_cname', 'clsrom', 'daytime', 'mark', 'co_gmark', 'co_select');
 
 // 在 query.inc.php 和 save_read.inc.php 中使用
 $check1 = array('cou_cname', 'tea_cname', 'year', 'clsrom', 'mark');

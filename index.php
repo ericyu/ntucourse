@@ -134,6 +134,20 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <?php formOutColSelect(1,5); ?>
 </div>
 </fieldset>
+<fieldset>
+<legend>開學後之加選方式</legend>
+<div>
+<?php
+$co_select_type = array(1=>'(1)', 2=>'(2)', 3=>'(3)');
+foreach($co_select_type as $key => $item)
+  echo '<input type="checkbox" id="cstype' . $key .
+		'" name="co_select_type[' .  $key . ']"' .
+		(!empty($var['co_select_type'][$key]) ? ' checked' : '') . '>'.
+		'<label for="cstype' . $key . '">' . $item . '</label>';
+?>
+<br>(詳見<a href="http://reg.aca.ntu.edu.tw/reg2007/selcou.htm">教務處說明</a>)
+</div>
+</fieldset>
 <td>
 <fieldset class="rhsodd">
 <legend>院系代碼</legend>
