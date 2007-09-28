@@ -35,7 +35,9 @@ function PlainText(val) {
 輸出欄位<br><?php formOutColSelect(); ?><br>
 <hr width="30%">
 <input type="checkbox" name="display_place" id="display_place" value="1"><label for="display_place">顯示地點</label><br>
-<input type="checkbox" name="trans" id="trans" value="1"><label for="trans">轉置顯示</label></label><br>
+<input type="checkbox" name="display_time" id="display_time" value="1"><label for="display_time">顯示課堂時間 (8:10-9:00, ...)</label><br>
+<input type="checkbox" name="trans" id="trans" value="1"><label
+for="trans">轉置顯示</label><br>
 <input type="checkbox" name="no_sat" id="no_sat" value="1" checked><label for="no_sat">不顯示週六</label><br>
 <input type="checkbox" name="no_zero" id="no_zero" value="1" checked><label for="no_zero">不顯示第 0 節</label><br>
 <input type="checkbox" name="no_nine" id="no_nine" value="1" checked><label for="no_nine">不顯示第 9 節及 A/B/C/D 節</label><br>

@@ -7,6 +7,7 @@ ob_start();
 $var = &$_POST;
 $SelectedFields = $DefaultSelection;
 $trans = empty($var['trans']) ? false : true;
+$displayTime = empty($var['display_time']) ? false : true;
 
 if(isset($_POST['sch_no']))
 	$sch_no = $_POST['sch_no'];
@@ -104,19 +105,25 @@ if($trans) {
 
 if($trans) {
 	$tmp_array = $ClassTimeName;
-	array_shift($tmp_array);
-	$tmp_array = array_merge((array)'星期<br>節次', $tmp_array);
+	if($displayTime) {
+		foreach($tmp_array as $k => $v) {
+			$tmp_array[$k] .= '<br>' . $ClassTimeDetail[$k];
+		}
+	}
+	$tmp_array[0] = '節次<br>星期';
 	$tb->addData(array_slice($tmp_array, 0, $class_size+1));
-} else
+} else {
 	$tb->addData($WeekdayName);
+}
 
 $size = $trans ? count($WeekdayName)-1 : $class_size;
 
 for($i = 1; $i <= $size; ++$i) {
 	if($trans)
 		$tb->content($WeekdayName[$i], $i, 0);
-	else
-		$tb->content($ClassTimeName[$i], $i, 0);
+	else {
+		$tb->content($ClassTimeName[$i] . ($displayTime ? '<br>' . $ClassTimeDetail[$i] : ''), $i, 0);
+	}
 }
 
 $size = isset($time) ? sizeof($time) : 0;
@@ -145,7 +152,7 @@ if(!empty($overlap)) {
 		for($j=1; $j<=$class_size; ++$j) {
 			if(empty($class["$WeekdayName[$i]$ClassTimeName[$j]"])) {
 				for($k=$j+1; $k<=$class_size+1; ++$k) {
-					if(!empty($class["$WeekdayName[$i]$ClassTimeName[$k]"]) || $k > $class_size) {
+					if(@!empty($class["$WeekdayName[$i]$ClassTimeName[$k]"]) || $k > $class_size) {
 						if($k - $j > 1) {
 							if($trans)
 								$tb->td('colspan', $k-$j, $i, $j);
