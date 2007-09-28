@@ -213,8 +213,8 @@ if(empty($var['text'])) {
 
 // ---------------------------------------------------------------------
 function fillSection($weekday, $sec, $cou, $place, $color) {
-	global $tb, $ClassTimeName, $WeekdayName, $var, $trans;
-	
+	global $tb, $ClassTimeName, $ClassTimeDetail, $WeekdayName, $var, $trans;
+
 	while($sec != '') {
 	$start = array_search($sec{0}, $ClassTimeName);
 	if(!$start || preg_match('/-|,/', $sec))
