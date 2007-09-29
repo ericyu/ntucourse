@@ -78,6 +78,7 @@ $class_size = 15;
 if(!empty($var['no_zero'])) {
 	$class_size -= 1;
 	array_shift($ClassTimeName);
+	array_shift($ClassTimeDetail);
 }
 if(!empty($var['no_nine']))
 	$class_size -= $var['no_nine']*5;
