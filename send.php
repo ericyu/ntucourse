@@ -11,7 +11,7 @@ if (eregi("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,3}$", $
 	$error = 1;
 }
 $recipients = array(
-'ericyu'=>'ericyu@wkdlab.net',
+'ericyu'=>'ericyu@gmail.com',
 				'kcwu'=>'kcwu@ck.tp.edu.tw',
 				'piaip'=>'piaip@csie.ntu.edu.tw');
 
