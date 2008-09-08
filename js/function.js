@@ -1,6 +1,6 @@
 // safety
 if (!document.getElementById)
-    document.getElementById = function() { return null; }
+	document.getElementById = function() { return null; }
 
 function checkAll(val) {
 	var day = new Array("1", "2", "3", "4", "5", "6");
@@ -295,24 +295,34 @@ function setCheck(e, name) {
 		obj.checked = !obj.checked;
 }
 
-var yearMode = true; // true = new
+function updateGECheckboxes() {
+	var table = document.getElementById("table");
+	var year = parseInt(table.options[table.selectedIndex].value.split('_')[0]);
+	var GE;
+	if(year <= 95)
+		GE = new Array('人文學','社會科學','物質科學','生命科學');
+	else
+		GE = new Array('文學與藝術', '歷史思維', '世界文明', '哲學與道德思考', '公民意識與社會分析', '量化分析與數學素養', '物質科學', '生命科學');
 
-function switchGEYear() {
-	yearMode = !yearMode;
-	if(yearMode == false) {
-		var d = new Array("人文學", "社會科學", "物質科學", "生命科學");
-		var mode = 'none';
-	} else {
-		var d = new Array("文學與藝術", "歷史思維", "世界文明", "哲學與道德思考");
-		var mode = 'inline';
+	if(GE.length == $("#geContainer > :checkbox").size())
+		return;
+
+	var container = document.getElementById("geContainer");
+	container.innerHTML = '';
+	for(var i = 0; i < GE.length; i++) {
+		var cb = document.createElement("input");
+		cb.type = "checkbox";
+		cb.name = "ge_sel[" + (i+1) + "]";
+		cb.id = "ge" + (i+1);
+		container.appendChild(cb);
+		var label = document.createElement("label");
+		label.appendChild(document.createTextNode(GE[i]));
+		label.setAttribute("for", "ge" + (i+1));
+		container.appendChild(label);
+		container.appendChild(label);
+		if(i == 3 || i == 5) {
+			container.appendChild(document.createElement("br"));
+		}
 	}
-	for(var i = 1; i <= 4; i++)
-		document.getElementById("gel"+i).innerHTML = d[i-1];
-
-	for(var i = 5; i <= 8; i++) {
-		document.getElementById("gel"+i).style.display =
-			document.getElementById("ge"+i).style.display = mode;
-	}
-
-	document.getElementById("switchGELink").innerHTML = (yearMode ? '切換至 95 學年前分類' : '切換至 96 學年後分類');
 }
+

@@ -80,6 +80,9 @@ echo '<table id="optiontable" bgcolor="#ffffcc" border="0" cellpadding="8"'.
 <div><?php formSelect('table', $SEMESTERS); ?></div>
 </fieldset>
 <fieldset>
+<script type="text/javascript">
+$("#table").change(updateGECheckboxes);
+</script>
 <legend>時間</legend>
 <div>
 <span style="color: #ff0000">請勾選有空堂的時間</span><br>
@@ -137,14 +140,14 @@ for($c = 0;$c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 <legend>開學後之加選方式</legend>
 <div>
 <?php
-$co_select_type = array(1=>'(1)', 2=>'(2)', 3=>'(3)');
+$co_select_type = array(1=>'1 不限人數 上網加選',
+2=>'2 取得授權碼後加選', 3=>'3 人數限制 登記分發');
 foreach($co_select_type as $key => $item)
   echo '<input type="checkbox" id="cstype' . $key .
 		'" name="co_select_type[' .  $key . ']"' .
 		(!empty($var['co_select_type'][$key]) ? ' checked' : '') . '>'.
-		'<label for="cstype' . $key . '">' . $item . '</label>';
+		'<label for="cstype' . $key . '">' . $item . '</label><br>';
 ?>
-<br>(詳見<a href="http://reg.aca.ntu.edu.tw/reg2007/selcou.htm">教務處說明</a>)
 </div>
 </fieldset>
 <td>
@@ -162,22 +165,25 @@ foreach($co_select_type as $key => $item)
 <fieldset class="rhseven">
 <legend>通識</legend>
 <div>
-若要限定僅顯示通識, 領域為:(<a href="<?php echo $GE; ?>">通識說明</a>)<br>
+若要限定僅顯示通識, 領域為:(<a target="_blank" href="<?php echo $GE; ?>">通識說明</a>)<br>
+<div id="geContainer"></div>
+</div>
+<script type="text/javascript">
+updateGECheckboxes();
 <?php
-$ge_field = array('1'=>'文學與藝術', '2'=>'歷史思維', '3'=>'世界文明',
-'4'=>'哲學與道德思考', '5' => '公民意識與社會分析',
-'6' => '量化分析與數學素養', '7' => '物質科學', '8' => '生命科學');
-for($i = 1; $i <= 8; ++$i) {
-	echo '<input type="checkbox" id="ge'. $i .'" name="ge_sel[' . $i . ']"' .
-			(!empty($var['ge_sel'][$i]) ? ' checked' : '') . '>' .
-			"<label for='ge$i' id='gel$i'>" . $ge_field[$i] . '</label>';
-	if ($i == 4 || $i == 6) echo '<br />';
+if(!empty($var['ge_sel'])) {
+	echo 'var selectedGE = new Array();';
+	foreach(array_keys($var['ge_sel']) as $i => $val) {
+		echo "selectedGE[$i] = $val;";
+	}
 }
 ?>
+for(var i = 0; i < selectedGE.length; i++) {
+	document.getElementById("ge"+selectedGE[i]).checked = true;
+}
+</script>
 <br>
-<?php formCheckbox('no_multi_ge', '不顯示跨領域通識(需勾選至少一個通識領域)'); ?><br>
-<a href="javascript:switchGEYear()" id="switchGELink">切換至 95 學年前分類</a>
-</div>
+<?php formCheckbox('no_multi_ge', '不顯示跨領域通識(需勾選至少一個通識領域)'); ?>
 </fieldset>
 <fieldset class="rhsodd">
 <legend>課號限制</legend>
