@@ -1,4 +1,4 @@
 use ntucourse;
 SET NAMES 'utf8';
-delete from 96_2;
-load data infile "/home/ericyu/96_2.txt" into TABLE 96_2 fields terminated by '\t' escaped by '';
+delete from 97_1;
+load data infile "/home/ericyu/97_1.txt" into TABLE 97_1 fields terminated by '\t' escaped by '';
