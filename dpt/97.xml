@@ -46,7 +46,7 @@
 			<department id="4010"><name>醫學系</name></department>
 			<department id="4020"><name>牙醫學系</name></department>
 			<department id="4030"><name>藥學系</name></department>
-			<department id="4040"><name>醫事技術學系</name></department>
+			<department id="4040"><name>醫學檢驗暨生物技術學系</name></department>
 			<department id="4060"><name>護理學系</name></department>
 			<department id="4080"><name>物理治療學系</name></department>
 			<department id="4090"><name>職能治療學系</name></department>
@@ -67,17 +67,17 @@
 				<division id="6032"><name>農產製造組</name></division>
 			</department>
 			<department id="6040"><name>植物病蟲害學系</name></department>
-			<department id="6050"><name>森林學系</name>
+			<department id="6050"><name>森林環境暨資源學系</name>
 				<division id="6051"><name>育林組</name></division>
 				<division id="6052"><name>資源管理組</name></division>
 				<division id="6053"><name>森林工業組</name></division>
 				<division id="6054"><name>森林資源保育組</name></division>
 			</department>
-			<department id="6060"><name>畜產學系</name></department>
+			<department id="6060"><name>動物科學技術學系</name></department>
 			<department id="6070"><name>農業經濟學系</name></department>
 			<department id="6080"><name>園藝學系</name></department>
 			<department id="6090"><name>獸醫學系</name></department>
-			<department id="6100"><name>農業推廣學系</name>
+			<department id="6100"><name>生物產業傳播暨發展學系</name>
 				<division id="6101"><name>推廣教育組</name></division>
 				<division id="6102"><name>鄉村社會組</name></division>
 			</department>
@@ -88,7 +88,7 @@
 		<college id="7"><name>管理學院</name>
 			<department id="7010"><name>工商管理學系</name>
 				<division id="7011"><name>企業管理組</name></division>
-				<division id="7012"><name>工業管理組</name></division>
+				<division id="7012"><name>工業管理組(科技管理組)</name></division>
 			</department>
 			<department id="7020"><name>會計學系</name></department>
 			<department id="7030"><name>財務金融學系</name></department>
@@ -132,7 +132,10 @@
 		<college id="2M"><name>理學院研究所</name>
 			<department id="2210"><name>數學研究所</name></department>
 			<department id="2220"><name>物理學研究所</name></department>
-			<department id="2230"><name>化學研究所</name></department>
+			<department id="2230"><name>化學研究所</name>
+				<division id="2231"><name>化學組</name></division>
+				<division id="2232"><name>化學生物學組</name></division>
+			</department>
 			<department id="2240"><name>地質科學所</name>
 				<division id="2241"><name>地質組</name></division>
 				<division id="2242"><name>應用地質組</name></division>
@@ -154,6 +157,7 @@
 			<department id="2420"><name>生化科學研究所</name></department>
 			<department id="2430"><name>漁業科學研究所</name></department>
 			<department id="2440"><name>天文物理研究所</name></department>
+			<department id="2450"><name>應用物理學研究所</name></department>
 		</college>
 		<college id="3M"><name>社會科學院研究所</name>
 			<department id="3220"><name>政治學研究所</name></department>
@@ -186,6 +190,12 @@
 			<department id="4500"><name>口腔生物科學研究所</name></department>
 			<department id="4510"><name>臨床藥學研究所</name></department>
 			<department id="4520"><name>法醫學研究所</name></department>
+			<department id="4530"><name>腫瘤醫學研究所</name></department>
+			<department id="4540"><name>臨床光電醫學研究所</name></department>
+			<department id="4550"><name>臨床基因醫學研究所</name></department>
+			<department id="4560"><name>血管心臟醫學研究所</name></department>
+			<department id="4570"><name>臨床組織工程研究所</name></department>
+			<department id="4580"><name>影像醫學研究所</name></department>
 			<department id="4200"><name>醫學院暨公衛學院共同課程</name></department>
 		</college>
 		<college id="5M"><name>工學院研究所</name>
@@ -238,18 +248,20 @@
 				<division id="6283"><name>造園組</name></division>
 			</department>
 			<department id="6290"><name>獸醫學研究所</name></department>
-			<department id="6300"><name>農業推廣學研究所</name></department>
+			<department id="6300"><name>生物產業傳播暨發展研究所</name></department>
 			<department id="6310"><name>生物產業機電工程學所</name></department>
 			<department id="6320"><name>昆蟲學研究所</name></department>
-			<department id="6330"><name>植物病理學研究所</name></department>
+			<department id="6330"><name>植物病理與微生物學研究所</name></department>
 			<department id="6410"><name>食品科技研究所</name></department>
+			<department id="6420"><name>生物科技研究所</name></department>
+			<department id="6430"><name>臨床動物醫學研究所</name></department>
 		</college>
 		<college id="7M"><name>管理學院研究所</name>
 			<department id="7220"><name>會計學研究所</name></department>
 			<department id="7230"><name>財務金融學研究所</name></department>
 			<department id="7240"><name>國際企業學研究所</name></department>
 			<department id="7250"><name>資訊管理學研究所</name></department>
-			<department id="7400"><name>EMBA課程</name></department>
+			<department id="7400"><name>高階管理碩士專班(EMBA)</name></department>
 			<department id="7410"><name>商學研究所</name>
 				<division id="7420"><name>知識管理組</name></division>
 				<division id="7430"><name>高階公共管理組</name></division>
@@ -258,6 +270,7 @@
 				<division id="7460"><name>國際企業管理組</name></division>
 				<division id="7470"><name>資訊管理組</name></division>
 				<division id="7480"><name>商學組</name></division>
+				<division id="7490"><name>管理學院企業管理碩士專班</name></division>
 			</department>
 		</college>
 		<college id="8M"><name>公共衛生學院研究所</name>
@@ -275,6 +288,7 @@
 			<department id="9420"><name>電信工程學研究所</name></department>
 			<department id="9430"><name>電子工程學研究所</name></department>
 			<department id="9440"><name>資訊網路與多媒體研究所</name></department>
+			<department id="9450"><name>生醫電子與資訊學研究所</name></department>
 		</college>
 		<college id="AM"><name>法律學院研究所</name>
 			<department id="A210"><name>法律研究所</name></department>
@@ -296,31 +310,37 @@
 		</college>
 	</institution>
 	<institution id="program"><name>學程</name>
-		<program id="P010"><name>中等教育學程</name></program>
+		<program id="P010"><name>師資培育中心</name></program>
 		<program id="P020"><name>地球系統科學學程</name></program>
 		<program id="P030"><name>婦女與性別研究學程</name></program>
 		<program id="P040"><name>永續資源學程</name></program>
 		<program id="P050"><name>生物技術學程</name></program>
 		<program id="P060"><name>生物產業自動化學程</name></program>
-		<program id="P070"><name>基因體醫學學程</name></program>
+		<program id="P070"><name>基因體與蛋白體學學程</name></program>
 		<program id="P080"><name>食品科技學程</name></program>
-		<program id="P090"><name>休閒事業經營管理學程</name></program>
+		<program id="P090"><name>休閒事業管理學程</name></program>
 		<program id="P100"><name>農業環境污染與資源保育學程</name></program>
-		<program id="P110"><name>醫工學程</name></program>
+		<program id="P110"><name>醫學工程學程</name></program>
 		<program id="P120"><name>知識管理學程</name></program>
 		<program id="P130"><name>海洋科學學程</name></program>
 		<program id="P140"><name>傳播學程</name></program>
-		<program id="P150"><name>生物資訊學程</name></program>
-		<program id="P160"><name>奈米工程學程</name></program>
+		<program id="P150"><name>系統生物與生物資訊學程</name></program>
+		<program id="P160"><name>奈米科技學程</name></program>
 		<program id="P170"><name>科技創業與管理學程</name></program>
 		<program id="P180"><name>臺灣研究學程</name></program>
-		<program id="P190"><name>積體電路學程</name></program>
+		<program id="P190"><name>積體電路設計學程</name></program>
 		<program id="P200"><name>生態工程學程</name></program>
-		<program id="P210"><name>光電顯示學程</name></program>
-		<program id="P220"><name>晶片商管學程</name></program>
-		<program id="P230"><name>高分子學程</name></program>
+		<program id="P210"><name>光電科技學程</name></program>
+		<program id="P220"><name>晶片系統商管學程</name></program>
+		<program id="P230"><name>高分子科技學程</name></program>
 		<program id="P240"><name>生物統計學程</name></program>
-		<program id="P250"><name>大陸研究學程</name></program>
-		<program id="P260"><name>護理師學程</name></program>
+		<program id="P250"><name>中國大陸研究學程</name></program>
+		<program id="P260"><name>臨床護理師學程</name></program>
+		<program id="P270"><name>歐洲研究學程</name></program>
+		<program id="P280"><name>光機電學程</name></program>
+		<program id="P290"><name>分子醫藥學程</name></program>
+		<program id="P300"><name>幹細胞與再生醫學學程</name></program>
+		<program id="P310"><name>神經生物與認知科學學程</name></program>
+		<program id="P320"><name>經典人文學程</name></program>
 	</institution>
 </ntu>
