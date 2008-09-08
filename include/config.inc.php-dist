@@ -10,14 +10,15 @@ $LogQuery = false;
 
 /* 使用於 index.php */
 $year = '97';
-$SemesterName = '96 學年下學期';
-$initday = '01-10';
+$SemesterName = '97 學年上學期';
+$initday = '07-23';
 $MaxStartRow = 2001; 
 $RecordsPerTable = 100;
 $GE = 'http://nol.ntu.edu.tw/nol/coursesearch/search_for_03_co.php';
 
 /* 目前有資料開放查詢的學期 */
 $SEMESTERS = array(
+			'97_1'=>'97-1',
 			'96_2'=>'96-2', '96_1'=>'96-1',
 			'95_2'=>'95-2', '95_1'=>'95-1',
 			'94_2'=>'94-2', '94_1'=>'94-1',

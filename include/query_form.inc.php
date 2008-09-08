@@ -108,7 +108,7 @@ global $var, $dpt_choice_filtered, $dpt_code_array;
 // 下拉式的單選選單
 function formSelect($name, $array) {
 	global $var;
-	echo "<select name=\"$name\">";
+	echo "<select name='$name' id='$name'>";
 	if(empty($var[$name]) || !in_array($var[$name], array_keys($array)))
 		$var[$name] = '';
 	foreach($array as $f => $desc)

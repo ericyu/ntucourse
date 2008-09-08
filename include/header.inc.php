@@ -17,6 +17,7 @@ header("Cache-control: private");
 		@import "css/color-scheme.css";
 		@import "dpt/ThemeOffice/theme.css";
     </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
     <script type="text/javascript" src="js/function.js"></script>
     <script type="text/javascript" src="js/drag.js"></script>
     <title>選課輔助程式</title>

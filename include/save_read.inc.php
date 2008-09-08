@@ -11,9 +11,9 @@ if($_POST['SubmitType'] == '儲存查詢') {
 			$element = stripslashes($element);
 	}
 
-	$to_save = array('grep', 'table', 'outcol_sel', 'dpt_choice',
-	'ge_sel', 'no_multi_ge', 'cou_code_type', 'interval', 'elective',
-	'modified', 'no_void_time', 'no_void_serial', 'night',
+	$to_save = array('grep', 'table', 'outcol_sel', 'co_select_type',
+	'dpt_choice', 'ge_sel', 'no_multi_ge', 'cou_code_type', 'interval',
+	'elective', 'modified', 'no_void_time', 'no_void_serial', 'night',
 	'no_cancelled', 'start', 'number', 'csv');
 
 	$to_save = array_merge($to_save, $check1, array_values($check2));
