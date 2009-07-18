@@ -170,9 +170,9 @@ foreach($co_select_type as $key => $item)
 </div>
 <script type="text/javascript">
 updateGECheckboxes();
+var selectedGE = new Array();
 <?php
 if(!empty($var['ge_sel'])) {
-	echo 'var selectedGE = new Array();';
 	foreach(array_keys($var['ge_sel']) as $i => $val) {
 		echo "selectedGE[$i] = $val;";
 	}
@@ -406,6 +406,18 @@ if(empty($_POST['send'])) {
 		fclose($fp);
 	}
 }
+
+if(empty($_POST['send'])) {
+?>
+<!--[if lte IE 6]>
+<div style="background-color:#DDECFF;margin:5px 0 5px 0;padding:3px 10px 3px 10px;border-color:#F6F6F6; border-style:solid;border-width:2px;">
+<p><font size="2"><strong>您好</strong>，您目前使用的是舊版的<del>IE 6.0網路瀏覽器</del>，建議使用更快、更好用的瀏覽器！ 如：<big><a target="_blank" href="http://briian.com/?p=5726"><u>Google瀏覽器</u> <font color="red">(推薦!)</font></a></big>、<a target="_blank" href="http://briian.com/?p=6248">Firefox</a>、<a target="_blank" href="http://briian.com/?p=6264">Opera</a>、<a target="_blank" href="http://briian.com/?p=6139">Safari</a> 或 <a target="_blank" href="http://briian.com/?p=6166">IE
+8.0</a>。</font></p>
+</div>
+<![endif]-->
+<?php
+}
+
 require('include/footer.inc.php');
 
 function getIP() {
