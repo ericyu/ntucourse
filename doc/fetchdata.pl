@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 use utf8;
-$sem = "98_1";
+$sem = "98_2";
 
 system("wget -r -N -nH -nd -A .XLS,.xls ftp://ftp.ntu.edu.tw/NTU/course/");
 

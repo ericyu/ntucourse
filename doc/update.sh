@@ -1,8 +1,9 @@
 #!/bin/sh
-mv 98_1.txt old.txt
+FILE=98_2
+mv ${FILE}.txt old.txt
 cd t
 ./fetchdata.pl
-mv 98_1.txt ..
+mv ${FILE}.txt ..
 cd ..
 mysql -u ntucourseupdate -p ntucourse < course/doc/update.sql
 
