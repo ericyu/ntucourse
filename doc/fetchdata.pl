@@ -28,6 +28,10 @@ foreach (@type) {
 	@tmp = split("\n", $s);
 	for(@tmp) {
 		@fields = CSVsplit($_);
+		for ($i = 0; $i < $#fields; ++$i) {
+			chomp($fields[$i]);
+			$fields[$i] =~ s/\s+$//;
+		}
 		print WD join("\t", $formal, @fields);
 		print WD "\n";
 	}
