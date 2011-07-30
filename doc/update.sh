@@ -1,5 +1,5 @@
 #!/bin/sh
-FILE=99_1
+FILE=100_1
 mv ${FILE}.txt old.txt
 cd t
 ./fetchdata.pl
