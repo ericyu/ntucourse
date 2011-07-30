@@ -10,7 +10,7 @@ function makeScheduleQuery($table, $COU, $SelectedFieldsSQL, $old = false) {
 	global $size;
 	for($i = 0; isset($COU) && $i < $size; ++$i) {
 		list($s, $c, $d, $cls) = split(',', $COU[$i]);
-		if(!preg_match("/^\d\d_\d$/", $table)
+		if(!preg_match("/^\d{2,3}_\d$/", $table)
 		|| !preg_match("/^(|\d{5})$/", $s)
 		|| !preg_match("/^[0-9A-Z]{3} [0-9A-Z]{5}$/", $c)
 		|| !preg_match("/^(|([0-9A-Z]|[0-9A-Z]{4}))$/", $d)
