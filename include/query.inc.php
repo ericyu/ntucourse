@@ -210,9 +210,9 @@ function displayRow(&$row, $se, $csv = false, $noSerialSelect = false,
 		} elseif($f == 'cou_cname') {
 			if($noDetailLink)
 				$array[$f] = $row[$f];
-			else
-				$array[$f] = "<a href=\"detail.php?se=$se&amp;c1=$c1&amp;c2=$c2&amp;class=$row[class]\" target=\"_blank\">".htmlspecialchars($row[$f])."</a>";
-			
+			else {
+				$array[$f] = "<a href='https://nol.ntu.edu.tw/nol/coursesearch/print_table.php?course_id=$c1 $c2&amp;class=".$row['class']."&amp;dpt_code=".$row['dpt_code']."&amp;ser_no=".$row['ser_no']."&amp;semester=".str_replace("_", "-", $se)."&amp;lang=CH' target='_blank'>".htmlspecialchars($row[$f])."</a>";
+			}
 		} elseif($row[$f] == '')
 			$array[$f] = ($csv ? '' : '&nbsp;');
 		else
