@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 use encoding 'utf8', STDOUT => 'utf8';
-open(DIFF, "diff -U0 ~/old.txt ~/100_1.txt|");
+open(DIFF, "diff -U0 ~/old.txt ~/100_2.txt|");
 @set=(0,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,0,1);
 $old_color="#FFEFC0";
 $new_color="#89D8FE";
