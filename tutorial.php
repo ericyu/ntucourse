@@ -2,7 +2,7 @@
 require('include/header.inc.php');
 ?>
 <h1>選課輔助程式 說明</h1>
-有人另外寫了一個<a href="http://homepage.ntu.edu.tw/~b95208023/ntucourse/">簡易使用說明</a>.
+有人另外寫了一個<a href="http://ntucourse.yuyumagic424.net/help/">簡易使用說明</a>.
 <h2>Part I</h2>
 <img src="help/header.gif" alt="header"><br>
 <ol>
