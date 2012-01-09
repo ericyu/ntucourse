@@ -11,7 +11,7 @@ $LogQuery = false;
 /* 使用於 index.php */
 $year = '100';
 $SemesterName = '100 學年下學期';
-$initday = '12-21';
+$initday = '2011-12-21';
 $MaxStartRow = 2001; 
 $RecordsPerTable = 100;
 $GE = 'http://nol.ntu.edu.tw/nol/coursesearch/search_for_03_co.php';

@@ -13,9 +13,9 @@ ob_start('ob_gzhandler');
 </head>
 <body bgcolor="#FFFFFF">
 <?php
-if(!preg_match("/^\d{1,2}-\d{1,2}$/", $_GET['d1']))
+if(!preg_match("/^\d{4}-\d{1,2}-\d{1,2}$/", $_GET['d1']))
 	echo "error in d1<br>";
-if(!preg_match("/^\d{1,2}-\d{1,2}$/", $_GET['d2'])) {
+if(!preg_match("/^\d{4}-\d{1,2}-\d{1,2}$/", $_GET['d2'])) {
 	echo "error in d2<br>";
 	die();
 }

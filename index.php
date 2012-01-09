@@ -36,7 +36,7 @@ if(!empty($list)) {
 	$list = array_merge(array($initday), preg_replace('/(.+)\.out$/', '\1', $list));
 	natsort($list);
 	$list = array_values($list);
-	$list2 = preg_replace('/^(..?)-(..?)(_.)?$/', '\1/\2\3', $list);
+	$list2 = preg_replace('/^\d{4}-(..?)-(..?)(_.)?$/', '\1/\2\3', $list);
 	echo "<h1>課程異動記錄 - $SemesterName 課程</h1>";
 	for($i = 0; $i < count($list2)-1; ++$i) {
 		echo "$list2[$i] <a href=\"showdiff.php?d1=$list[$i]&amp;d2=";
@@ -44,7 +44,7 @@ if(!empty($list)) {
 	}
 	echo $list2[$i];
 }
-echo ' (最後更新日期：'.$year.'/'.
+echo ' (最後更新日期：'.
 	(!empty($list) ? $list2[$i] : preg_replace('/^(..?)-(..?)(_.)?$/',
 	'\1/\2\3', $initday)).')';
 ?>
