@@ -2,4 +2,6 @@ diffs/*.out
 dpt/*.html
 include/db.inc.php
 include/config.inc.php
+UpdateData/tmp
+UpdateData/data
 

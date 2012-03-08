@@ -1,7 +1,9 @@
 #!/usr/bin/perl
 use utf8;
-$sem = "100_2";
-
+$sem = `cat CURRENT_SEMESTER`;
+chomp $sem;
+mkdir("tmp");
+chdir("tmp");
 system("wget -r -N -nH -nd -A .XLS,.xls ftp://ftp.ntu.edu.tw/NTU/course/");
 
 rename($_, uc) while(glob("COU*.*[Ss]"));
@@ -40,5 +42,5 @@ foreach (@type) {
 close(WD);
 unlink($_) while(glob("??.txt"));
 
-system("mergecolumn.pl $sem.tmp.txt > $sem.txt");
+system("../mergecolumn.pl $sem.tmp.txt > ../data/$sem.txt");
 
