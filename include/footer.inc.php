@@ -2,8 +2,8 @@
 <div id="footer">
 	<div>
 		<span class="footerLHS">
-			<a href="mail.php"> E-mail 與聯絡資訊</a> |
-			Copyright &copy; 2000-2008, kcwu, ericyu, piaip
+			<a href="mail.php">E-mail 與聯絡資訊</a> |
+			Copyright &copy; 2000-2012, kcwu, ericyu, piaip
 		</span>
 	</div>
 </div>

@@ -21,6 +21,9 @@ if(!empty($_POST['send'])) {
 require('include/header.inc.php');
 
 if(empty($_POST['send'])) { ?>
+<div id="opensource" style="float: right; background-color: #ffffcc; color: #ffffff; padding: 16px; font-weight: bold; font-size: 150%; border: 3px solid #cccccc; text-decoration: none;">
+<a href="https://bitbucket.org/ericyu/ntucourse">開放原始碼</a>
+</div>
 <h1>免責聲明</h1>
 本網站所使用資料來源為 <a href="https://nol.ntu.edu.tw/">台大課程網</a> 上的 "課程 Excel
 檔下載"。 本網站不保證所引用資料的正確性與時效性，<em>請務必到 <a href="http://info.ntu.edu.tw">http://info.ntu.edu.tw/</a>
