@@ -11,9 +11,9 @@ if (eregi("^[0-9a-z]([-_.]?[0-9a-z])*@[0-9a-z]([-.]?[0-9a-z])*\\.[a-z]{2,3}$", $
 	$error = 1;
 }
 $recipients = array(
-'ericyu'=>'ericyu@gmail.com',
-				'kcwu'=>'kcwu@ck.tp.edu.tw',
-				'piaip'=>'piaip@csie.ntu.edu.tw');
+'ericyu'=>'ericyu'.'@'.'gmail.com',
+				'kcwu'=>'kcwu'.'@'.'ck.tp.edu.tw',
+				'piaip'=>'piaip'.'@'.'csie.ntu.edu.tw');
 
 if(in_array($_POST['recipient'], array_keys($recipients)))
 	$recipient = $recipients["$_POST[recipient]"];
