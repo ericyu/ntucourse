@@ -42,7 +42,7 @@ formOutColSelect(0);
 table_header($SelectedFields);
 
 $total_course = $total_credit = 0;
-$SelectedFieldsSQL = column_sql($SelectedFields, split(" ", "cou_cname clsrom cou_code dpt_code class daytime credit"));
+$SelectedFieldsSQL = column_sql($SelectedFields, preg_split("/ /", "cou_cname clsrom cou_code dpt_code class daytime credit"));
 
 if(isset($COU)) {
 	$size = sizeof($COU);

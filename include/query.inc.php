@@ -259,11 +259,11 @@ function getCourseTime($dt) {
 	global $ClassTimeName;
 	$dt = preg_replace("/(一|二|三|四|五|六)([A-Da-d0-9@\-]+)/", "\\0,", $dt);
 	$dt = preg_replace("/^(.+),$/", "\\1", $dt); // 消去最後多餘的逗點
-	$dt = split(',', $dt);
+	$dt = preg_split('/,/', $dt);
 	for($i = 0; $i < sizeof($dt); ++$i) {
 		if(preg_match("/[A-Da-d0-9@]-[A-Da-d0-9@]/", $dt[$i])) {
 			$tmp = mb_substr($dt[$i], 1);
-			list($a, $b) = split(",", preg_replace("/([A-Da-d0-9@])-([A-Da-d0-9@])/", "\\1,\\2", $tmp));
+			list($a, $b) = preg_split("/,/", preg_replace("/([A-Da-d0-9@])-([A-Da-d0-9@])/", "\\1,\\2", $tmp));
 			$start = array_search($a, $ClassTimeName);
 			$length = array_search($b, $ClassTimeName)-1;
 			$dt[$i] = mb_substr($dt[$i], 0, 1) . implode("", array_slice($ClassTimeName, $start, $length));

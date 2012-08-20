@@ -60,7 +60,7 @@ if(empty($COU)) {
 table_header(array_merge(array('sch_count'), $SelectedFields));
 
 $total_course = $total_credit = 0;
-$SelectedFieldsSQL = column_sql($SelectedFields, split(" ", "cou_code dpt_code daytime credit"));
+$SelectedFieldsSQL = column_sql($SelectedFields, preg_split("/ /", "cou_code dpt_code daytime credit"));
 
 $size = sizeof($COU);
 $subquery = makeScheduleQuery($semester, $COU, $SelectedFieldsSQL);
