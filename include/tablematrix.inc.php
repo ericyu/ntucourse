@@ -32,7 +32,7 @@ class tablematrix {
 			$this->row[$row] = $trtemplate;
 			for($col=0; $col<$numCols; $col++){
 				$this->cell[$row][$col] = $tdtemplate;
-				$this->cell[$row][$col] = ereg_replace("\&nbsp;", "[$row,$col]", $this->cell[$row][$col]);
+				$this->cell[$row][$col] = preg_replace("/\&nbsp;/", "[$row,$col]", $this->cell[$row][$col]);
 				$this->content[$row][$col] = "[$row,$col]";
 			}
 		}
@@ -47,10 +47,10 @@ class tablematrix {
 		$this->regit($this->cell[$row][$col], $name, $value, $row, $col);
 	}
 	function regit(&$reg, $name, $value, $row=0, $col=0){
-		if(!eregi("$name='[^ ]*'",$reg))
-			$reg = ereg_replace("\*", " $name='$value' *", $reg);
-		$reg = ereg_replace("$name='[^ ]*'", " $name='$value' ", $reg);
-		$reg = ereg_replace(" +", " ", $reg);
+		if(!preg_match("/$name='[^ ]*'/i",$reg))
+			$reg = preg_replace("/\*/", " $name='$value' *", $reg);
+		$reg = preg_replace("/$name='[^ ]*'/", " $name='$value' ", $reg);
+		$reg = preg_replace("/ +/", " ", $reg);
 	}
 	function row($name, $value, $row=0, $offset=0){
 		for($col=0;$col<$this->numCols; $col++)
@@ -96,13 +96,13 @@ class tablematrix {
 	function span($row, $col){
 		//this is a private function DO NOT CALL IT FROM OUTSIDE!!
 		$cell = &$this->cell[$row][$col];
-		if(eregi("colspan='[^ ]*'", $cell, $regs)) {
-			eregi("'[^ ]*'", $regs[0], $regs);
-			$colspan = ereg_replace("'","",$regs[0]);
+		if(preg_match("/colspan='[^ ]*'/i", $cell, $regs)) {
+			preg_match("/'[^ ]*'/i", $regs[0], $regs);
+			$colspan = preg_replace("/'/","",$regs[0]);
 		}
-		if(eregi("rowspan='[^ ]*'", $cell, $regs)) {
-			eregi("'[^ ]*'", $regs[0], $regs);
-			$rowspan = ereg_replace("'","",$regs[0]);
+		if(preg_match("/rowspan='[^ ]*'/i", $cell, $regs)) {
+			preg_match("/'[^ ]*'/i", $regs[0], $regs);
+			$rowspan = preg_replace("/'/","",$regs[0]);
 		}
 		if(isset($rowspan) && isset($colspan))
 			for($i=1; $i<$colspan; $i++)
@@ -136,13 +136,13 @@ class tablematrix {
 			for($col=0; $col<$this->numCols; $col++){
 				$cell = &$this->cell[$row][$col];
 				$content = &$this->content[$row][$col];
-				if(eregi("colspan='[^ ]*'", $cell) or
-				  eregi("rowspan='[^ ]*'", $cell))
+				if(preg_match("/colspan='[^ ]*'/i", $cell) or
+				  preg_match("/rowspan='[^ ]*'/i", $cell))
 					$this->span($row,$col);
- 				$cell = ereg_replace("[ ]+\*", '', $cell);
-				$cell = ereg_replace("\[$row,$col\]", $content, $cell);
+ 				$cell = preg_replace("/[ ]+\*/", '', $cell);
+				$cell = preg_replace("/\[$row,$col\]/", $content, $cell);
 				if(!$this->coordinates)
-					$cell = ereg_replace("\[$row,$col\]", "&nbsp;", $cell);
+					$cell = preg_replace("/\[$row,$col\]/", "&nbsp;", $cell);
 				$this->string .= $cell;
 			}
 			$this->string = $this->string."</tr>\n";
