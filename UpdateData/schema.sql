@@ -1,6 +1,6 @@
 ## The Structure of a Table ##
 ## FOR MySQL
-CREATE TABLE `9x_x` (
+CREATE TABLE `1xx_x` (
   `type` varchar(2) NOT NULL default '',
   `ser_no` varchar(5) NOT NULL default '',
   `co_chg` varchar(4) NOT NULL default '',
@@ -13,6 +13,7 @@ CREATE TABLE `9x_x` (
   `forth` varchar(4) NOT NULL default '',
   `sel_code` varchar(4) NOT NULL default '',
   `cou_cname` varchar(40) NOT NULL default '',
+	`cou_ename` varchar(200) NOT NULL default '',
   `tea_cname` varchar(10) NOT NULL default '',
   `clsrom` varchar(20) NOT NULL default '',
   `daytime` varchar(60) NOT NULL default '',
@@ -20,26 +21,6 @@ CREATE TABLE `9x_x` (
   `co_tp` tinyint(1) NOT NULL default '0',
   `co_gmark` varchar(5) NOT NULL default '',
 	`co_select` tinyint(1) NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-## Teacher's Comments for Course
-
-CREATE TABLE `comment9x_x` (
-  `cou_code` varchar(9) NOT NULL default '',
-  `class` varchar(2) NOT NULL default '',
-  `tea` varchar(10) default NULL,
-  `comment` mediumtext,
-  PRIMARY KEY  (`cou_code`,`class`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-					        
-## Query Log
-
-CREATE TABLE `querylog` (
-  `ipaddr` varchar(15) default NULL,
-  `sid` varchar(32) default '00000000000000000000000000000000',
-  `qid` varchar(32) NOT NULL default '',
-  `query` mediumtext NOT NULL,
-  `modify` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 ##### Now those commands should issue encoding=utf-8 #####
