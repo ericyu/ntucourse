@@ -4,7 +4,7 @@ while(<>) {
 	chomp;
 	($type, $ser_no, $co_chg, $dpt_code, $dptname,
 	$cou_code, $class, $year, $credit, $forh, $sel_code,
-	$cou_cname, $tea_cname, $rooms[0], $rooms[1], $daytime,
+	$cou_cname, $cou_ename, $tea_cname, $rooms[0], $rooms[1], $daytime,
 	$mark, $co_tp, $co_gmark, $rooms[2], $rooms[3],
 	$rooms[4], $rooms[5], $co_select) = split /\t/;
 	
@@ -36,7 +36,7 @@ while(<>) {
 
 	print join("\t", $type, $ser_no, $co_chg, $dpt_code, $dptname,
 	$cou_code, $class, $year, $credit, $forh, $sel_code,
-	$cou_cname, $tea_cname, $clsrom, $daytime, $mark, $co_tp,
+	$cou_cname, $cou_ename, $tea_cname, $clsrom, $daytime, $mark, $co_tp,
 	$co_gmark, $co_select) . "\n";
 }
 

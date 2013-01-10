@@ -1,7 +1,33 @@
 #!/usr/bin/perl
 use encoding 'utf8', STDOUT => 'utf8';
-open(DIFF, "diff -U0 ./data/old.txt ./data/100_2.txt|");
-@set=(0,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,0,1);
+open FILE, "CURRENT_SEMESTER" or die "Couldn't find CURRENT_SEMESTER";
+$curSem = <FILE>;
+chomp $curSem;
+close FILE;
+open(DIFF, "diff -U0 ./data/old.txt ./data/$curSem.txt|");
+# This sets the columns to output, and matches the table head below
+# 1 = output, and appears in the table head
+@set=(
+	0, # type
+	1, # ser_no
+	1, # co_chg
+	0, # dpt_code
+	1, # dptname
+	0, # cou_code
+	1, # class
+	1, # year
+	1, # credit
+	1, # forth
+	1, # sel_code
+	1, # cou_cname
+	0, # cou_ename
+	1, # tea_cname
+	1, # clsrom
+	1, # daytime
+	1, # mark
+	0, # co_tp
+	1  # co_gmark
+);
 $old_color="#FFEFC0";
 $new_color="#89D8FE";
 $add_color="#FF9966";
