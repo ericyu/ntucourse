@@ -22,7 +22,7 @@ require('include/header.inc.php');
 
 if(empty($_POST['send'])) { ?>
 <div id="opensource" style="float: right; background-color: #ffffcc; color: #ffffff; padding: 16px; font-weight: bold; font-size: 150%; border: 3px solid #cccccc; text-decoration: none;">
-<a href="https://bitbucket.org/ericyu/ntucourse">開放原始碼</a>
+<a href="https://github.com/ericyu/ntucourse">開放原始碼</a>
 </div>
 <h1>免責聲明</h1>
 本網站所使用資料來源為 <a href="https://nol.ntu.edu.tw/">台大課程網</a> 上的 "課程 Excel
