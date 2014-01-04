@@ -1,7 +1,8 @@
 #最新的, 嵌於 index.php 中:
-xsltproc embed.xsl 99.xml > embed.html
+xsltproc embed.xsl 102.xml > embed.html
 
 #歷史資料:
+xsltproc prev.xsl 102.xml > 102.html
 xsltproc prev.xsl 99.xml > 99.html
 xsltproc prev.xsl 98.xml > 98.html
 xsltproc prev.xsl 97.xml > 97.html
