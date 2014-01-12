@@ -5,7 +5,7 @@ require_once('config.inc.php');
 function condDpt() {
 	global $condition,$dpt_choice_filtered;
 	$cond = '';
-	if($dpt_choice_filtered != '') {
+	if(!empty($dpt_choice_filtered)) {
 		foreach($dpt_choice_filtered as $cur) {
 			if($cond != '')
 				$cond .=' OR';
