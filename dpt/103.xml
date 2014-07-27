@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ntu>
+	<institution id="under"><name>大學部</name>
+		<college id="0000"><name>系所欄為"全校各系"</name></college>
+		<college id="T010"><name>體育室</name></college>
+		<college id="S010"><name>軍訓室</name></college>
+		<college id="0050"><name>課外活動組</name></college>
+		<college id="F"><name>遠距教學</name></college>
+		<college id="1"><name>文學院</name>
+			<department id="1010"><name>中國文學系</name></department>
+			<department id="1020"><name>外國語文學系</name></department>
+			<department id="1030"><name>歷史學系</name></department>
+			<department id="1040"><name>哲學系</name></department>
+			<department id="1050"><name>人類學系</name></department>
+			<department id="1060"><name>圖書資訊學系</name></department>
+			<department id="1070"><name>日本語文學系</name></department>
+			<department id="1090"><name>戲劇學系</name></department>
+			<department id="1011"><name>中文系國際生</name></department>
+		</college>
+		<college id="2"><name>理學院</name>
+			<department id="2010"><name>數學系</name></department>
+			<department id="2020"><name>物理學系</name></department>
+			<department id="2030"><name>化學系</name></department>
+			<department id="2040"><name>地質科學系</name></department>
+			<department id="2070"><name>心理學系</name></department>
+			<department id="2080"><name>地理環境資源學系</name></department>
+			<department id="2090"><name>大氣科學系</name></department>
+		</college>
+		<college id="3"><name>社會科學院</name>
+			<department id="3020"><name>政治學系</name>
+				<division id="3021"><name>政治理論組</name></division>
+				<division id="3022"><name>國際關係組</name></division>
+				<division id="3023"><name>公共行政組</name></division>
+			</department>
+			<department id="3030"><name>經濟學系</name></department>
+			<department id="3050"><name>社會學系</name></department>
+			<department id="3100"><name>社會工作學系</name></department>
+		</college>
+		<college id="4"><name>醫學院</name>
+			<department id="4010"><name>醫學系</name></department>
+			<department id="4020"><name>牙醫學系</name></department>
+			<department id="4030"><name>藥學系</name></department>
+			<department id="4040"><name>醫學檢驗暨生物技術學系</name></department>
+			<department id="4060"><name>護理學系</name></department>
+			<department id="4080"><name>物理治療學系</name></department>
+			<department id="4090"><name>職能治療學系</name></department>
+			<department id="4200"><name>醫學院暨公衛學院共同課程</name></department>
+		</college>
+		<college id="5"><name>工學院</name>
+			<department id="5010"><name>土木工程學系</name></department>
+			<department id="5020"><name>機械工程學系</name></department>
+			<department id="5040"><name>化學工程學系</name></department>
+			<department id="5050"><name>工程科學及海洋工程學系</name></department>
+			<department id="5070"><name>材料科學與工程學系</name></department>
+		</college>
+		<college id="6"><name>生物資源暨農學院</name>
+			<department id="6010"><name>農藝學系</name></department>
+			<department id="6020"><name>生物環境系統工程學系</name></department>
+			<department id="6030"><name>農業化學系</name></department>
+			<department id="6050"><name>森林環境暨資源學系</name></department>
+			<department id="6060"><name>動物科學技術學系</name></department>
+			<department id="6070"><name>農業經濟學系</name></department>
+			<department id="6080"><name>園藝學系</name></department>
+			<department id="6090"><name>獸醫學系</name></department>
+			<department id="6100"><name>生物產業傳播暨發展學系</name></department>
+			<department id="6110"><name>生物產業機電工程學系</name></department>
+			<department id="6120"><name>昆蟲學系</name></department>
+			<department id="6130"><name>植物病理與微生物學系</name></department>
+		</college>
+		<college id="7"><name>管理學院</name>
+			<department id="7010"><name>工商管理學系</name>
+				<division id="7011"><name>企業管理組</name></division>
+				<division id="7012"><name>科技管理組</name></division>
+				<division id="7013"><name>工管企管專班</name></division>
+			</department>
+			<department id="7020"><name>會計學系</name></department>
+			<department id="7030"><name>財務金融學系</name></department>
+			<department id="7040"><name>國際企業學系</name></department>
+			<department id="7050"><name>資訊管理學系</name></department>
+		</college>
+		<college id="8"><name>公共衛生學院</name>
+			<department id="8010"><name>公共衛生學系</name></department>
+		</college>
+		<college id="9"><name>電機資訊學院</name>
+			<department id="9010"><name>電機工程學系</name></department>
+			<department id="9020"><name>資訊工程學系</name></department>
+		</college>
+		<college id="A"><name>法律學院</name>
+			<department id="A010"><name>法律學系</name>
+				<division id="A011"><name>法學組</name></division>
+				<division id="A012"><name>司法組</name></division>
+				<division id="A013"><name>財法組</name></division>
+			</department>
+		</college>
+		<college id="B"><name>生命科學院</name>
+			<department id="B010"><name>生命科學系</name></department>
+			<department id="B020"><name>生化科技學系</name></department>
+		</college>
+	</institution>
+	<institution id="graduate"><name>研究所</name>
+		<college id="1M"><name>文學院研究所</name>
+			<department id="1210"><name>中國文學研究所</name></department>
+			<department id="1220"><name>外國語文學研究所</name></department>
+			<department id="1230"><name>歷史學研究所</name></department>
+			<department id="1240"><name>哲學研究所</name></department>
+			<department id="1250"><name>人類學研究所</name></department>
+			<department id="1260"><name>圖書資訊學研究所</name></department>
+			<department id="1270"><name>日本語文學研究所</name></department>
+			<department id="1290"><name>戲劇學研究所</name></department>
+			<department id="1410"><name>藝術史研究所</name></department>
+			<department id="1420"><name>語言學研究所</name></department>
+			<department id="1440"><name>音樂學研究所</name></department>
+			<department id="1450"><name>臺灣文學研究所</name></department>
+			<department id="1460"><name>華語教學碩士學位學程</name></department>
+			<department id="1470"><name>翻譯碩士學位學程</name></department>
+		</college>
+		<college id="2M"><name>理學院研究所</name>
+			<department id="2210"><name>數學研究所</name></department>
+			<department id="2220"><name>物理學研究所</name></department>
+			<department id="2230"><name>化學研究所</name>
+				<division id="2231"><name>化學組</name></division>
+				<division id="2232"><name>化學生物學組</name></division>
+			</department>
+			<department id="2240"><name>地質科學所</name>
+				<division id="2241"><name>地質組</name></division>
+				<division id="2242"><name>應用地質組</name></division>
+			</department>
+			<department id="2250"><name>動物學研究所</name></department>
+			<department id="2260"><name>植物學研究所</name></department>
+			<department id="2270"><name>心理學研究所</name>
+				<division id="2271"><name>一般心理學組</name></division>
+				<division id="2272"><name>臨床心理學組</name></division>
+			</department>
+			<department id="2280"><name>地理環境資源學所</name></department>
+			<department id="2290"><name>大氣科學研究所</name></department>
+			<department id="2410"><name>海洋研究所</name>
+				<division id="2411"><name>海洋物理組</name></division>
+				<division id="2412"><name>海洋生物及漁業組</name></division>
+				<division id="2413"><name>海洋地質及地球物理組</name></division>
+				<division id="2414"><name>海洋化學組</name></division>
+			</department>
+			<department id="2440"><name>天文物理研究所</name></department>
+			<department id="2450"><name>應用物理學研究所</name></department>
+			<department id="2460"><name>應用數學科學研究所</name></department>
+		</college>
+		<college id="3M"><name>社會科學院研究所</name>
+			<department id="3220"><name>政治學研究所</name></department>
+			<department id="3230"><name>經濟學研究所</name></department>
+			<department id="3250"><name>社會學研究所</name></department>
+			<department id="3300"><name>社會工作學研究所</name></department>
+			<department id="3410"><name>國家發展研究所</name></department>
+			<department id="3420"><name>新聞研究所</name></department>
+		</college>
+		<college id="4M"><name>醫學院研究所</name>
+			<department id="4210"><name>臨床醫學研究所</name></department>
+			<department id="4220"><name>臨床牙醫學研究所</name></department>
+			<department id="4230"><name>藥學研究所</name>
+				<division id="4231"><name>藥物科技組</name></division>
+				<division id="4232"><name>分子醫藥組</name></division>
+			</department>
+			<department id="4240"><name>醫事技術學研究所</name></department>
+			<department id="4260"><name>護理學研究所</name></department>
+			<department id="4280"><name>物理治療學研究所</name></department>
+			<department id="4290"><name>職能治療學研究所</name></department>
+			<department id="4410"><name>生理學研究所</name></department>
+			<department id="4420"><name>生化學研究所</name></department>
+			<department id="4430"><name>藥理學研究所</name></department>
+			<department id="4440"><name>病理學研究所</name></department>
+			<department id="4450"><name>微生物學研究所</name>
+				<division id="4451"><name>微生物及免疫學組</name></division>
+				<division id="4452"><name>寄生蟲組</name></division>
+			</department>
+			<department id="4460"><name>解剖學研究所</name></department>
+			<department id="4470"><name>毒理學研究所</name></department>
+			<department id="4480"><name>分子醫學研究所</name></department>
+			<department id="4490"><name>免疫學研究所</name></department>
+			<department id="4500"><name>口腔生物科學研究所</name></department>
+			<department id="4510"><name>臨床藥學研究所</name></department>
+			<department id="4520"><name>法醫學研究所</name></department>
+			<department id="4530"><name>腫瘤醫學研究所</name></department>
+			<department id="4540"><name>腦與心智科學研究所</name></department>
+			<department id="4550"><name>基因體暨蛋白體醫學研究所</name></department>
+			<department id="4560"><name>轉譯醫學博士學位學程</name></department>
+			<department id="4200"><name>醫學院暨公衛學院共同課程</name></department>
+		</college>
+		<college id="5M"><name>工學院研究所</name>
+			<department id="5210"><name>土木工程學研究所</name>
+				<division id="5211"><name>大地工程組</name></division>
+				<division id="5212"><name>結構工程組</name></division>
+				<division id="5213"><name>水利工程組</name></division>
+				<division id="5215"><name>交通工程組</name></division>
+				<division id="5216"><name>電腦輔助工程組</name></division>
+				<division id="5217"><name>營建工程與管理組</name></division>
+			</department>
+			<department id="5220"><name>機械工程學研究所</name>
+				<division id="5221"><name>流體力學組</name></division>
+				<division id="5223"><name>熱學組</name></division>
+				<division id="5224"><name>航空工程組</name></division>
+				<division id="5225"><name>固體力學組</name></division>
+				<division id="5226"><name>設計組</name></division>
+				<division id="5227"><name>製造組</name></division>
+				<division id="5228"><name>系統控制組</name></division>
+			</department>
+			<department id="5240"><name>化學工程學研究所</name></department>
+			<department id="5250"><name>工程科學及海洋工程學研究所</name></department>
+			<department id="5270"><name>材料科學與工程學研究所</name></department>
+			<department id="5410"><name>環境工程學研究所</name></department>
+			<department id="5430"><name>應用力學研究所</name></department>
+			<department id="5440"><name>建築與城鄉研究所</name></department>
+			<department id="5460"><name>工業工程學研究所</name></department>
+			<department id="5480"><name>醫學工程學研究所</name></department>
+			<department id="5490"><name>高分子科學與工程學研究所</name></department>
+		</college>
+		<college id="6M"><name>生物資源暨農學院研究所</name>
+			<department id="6210"><name>農藝學研究所</name>
+				<division id="6211"><name>作物科學組</name></division>
+				<division id="6212"><name>生物統計學組</name></division>
+			</department>
+			<department id="6220"><name>生物環境系統工程學研究所</name></department>
+			<department id="6230"><name>農業化學研究所</name></department>
+			<department id="6250"><name>森林學研究所</name></department>
+			<department id="6260"><name>動物科學技術研究所</name></department>
+			<department id="6270"><name>農業經濟學研究所</name></department>
+			<department id="6280"><name>園藝學研究所</name>
+				<division id="6281"><name>園藝作物組</name></division>
+				<division id="6282"><name>園產品處理與利用組</name></division>
+				<division id="6283"><name>景觀暨休憩組</name></division>
+			</department>
+			<department id="6290"><name>獸醫學研究所</name></department>
+			<department id="6300"><name>生物產業傳播暨發展研究所</name></department>
+			<department id="6310"><name>生物產業機電工程學所</name></department>
+			<department id="6320"><name>昆蟲學研究所</name></department>
+			<department id="6330"><name>植物病理與微生物學研究所</name></department>
+			<department id="6410"><name>食品科技研究所</name></department>
+			<department id="6420"><name>生物科技研究所</name></department>
+			<department id="6430"><name>臨床動物醫學研究所</name></department>
+			<department id="6440"><name>分子暨比較病理生物學研究所</name></department>
+			<department id="6450"><name>植物醫學碩士學位學程</name></department>
+		</college>
+		<college id="7M"><name>管理學院研究所</name>
+			<department id="7220"><name>會計學研究所</name></department>
+			<department id="7230"><name>財務金融學研究所</name></department>
+			<department id="7240"><name>國際企業學研究所</name></department>
+			<department id="7250"><name>資訊管理學研究所</name></department>
+			<department id="7400"><name>高階管理碩士專班(EMBA)</name></department>
+			<department id="7410"><name>商學研究所</name></department>
+			<department id="7490"><name>管理學院企業管理碩士專班</name></department>
+		</college>
+		<college id="8M"><name>公共衛生學院研究所</name>
+			<department id="8410"><name>職業醫學與工業衛生研究所</name></department>
+			<department id="8440"><name>環境衛生研究所</name></department>
+			<department id="8470"><name>公共衛生碩士學位學程</name></department>
+			<department id="8480"><name>健康政策與管理研究所</name>
+				<division id="8481"><name>健康促進組</name></division>
+				<division id="8482"><name>健康服務與產業組</name></division>
+			</department>
+			<department id="8490"><name>流行病學與預防醫學研究所</name>
+				<division id="8491"><name>流行病學組</name></division>
+				<division id="8492"><name>生物醫學統計組</name></division>
+				<division id="8493"><name>預防醫學組</name></division>
+			</department>
+		</college>
+		<college id="9M"><name>電機資訊學院研究所</name>
+			<department id="9210"><name>電機工程學研究所</name></department>
+			<department id="9220"><name>資訊工程學研究所</name></department>
+			<department id="9410"><name>光電工程學研究所</name></department>
+			<department id="9420"><name>電信工程學研究所</name></department>
+			<department id="9430"><name>電子工程學研究所</name></department>
+			<department id="9440"><name>資訊網路與多媒體研究所</name></department>
+			<department id="9450"><name>生醫電子與資訊學研究所</name></department>
+		</college>
+		<college id="AM"><name>法律學院研究所</name>
+			<department id="A210"><name>法律研究所</name></department>
+			<department id="A410"><name>科際整合法律學研究所</name></department>
+		</college>
+		<college id="BM"><name>生命科學院研究所</name>
+			<department id="B210"><name>生命科學研究所</name></department>
+			<department id="B220"><name>生化科技研究所</name></department>
+			<department id="B420"><name>植物科學研究所</name></department>
+			<department id="B430"><name>分子與細胞生物學研究所</name></department>
+			<department id="B440"><name>生態學與演化生物學研究所</name></department>
+			<department id="B450"><name>漁業科學研究所</name></department>
+			<department id="B460"><name>生化科學研究所</name></department>
+		</college>
+	</institution>
+	<institution id="program"><name>學程</name>
+		<program id="P010"><name>師資培育中心</name></program>
+		<program id="P020"><name>地球系統科學學程</name></program>
+		<program id="P030"><name>婦女與性別研究學程</name></program>
+		<program id="P040"><name>永續資源學程</name></program>
+		<program id="P050"><name>生物技術學程</name></program>
+		<program id="P060"><name>生物產業自動化學程</name></program>
+		<program id="P070"><name>基因體與蛋白體學學程</name></program>
+		<program id="P080"><name>食品科技學程</name></program>
+		<program id="P090"><name>休閒事業管理學程</name></program>
+		<program id="P120"><name>知識管理學程</name></program>
+		<program id="P130"><name>海洋科學學程</name></program>
+		<program id="P140"><name>傳播學程</name></program>
+		<program id="P150"><name>系統生物與生物資訊學程</name></program>
+		<program id="P160"><name>奈米科技學程</name></program>
+		<program id="P180"><name>臺灣研究學程</name></program>
+		<program id="P190"><name>積體電路設計學程</name></program>
+		<program id="P200"><name>生態工程學程</name></program>
+		<program id="P210"><name>光電科技學程</name></program>
+		<program id="P230"><name>高分子科技學程</name></program>
+		<program id="P240"><name>生物統計學程</name></program>
+		<program id="P250"><name>中國大陸研究學程</name></program>
+		<program id="P260"><name>臨床護理師學程</name></program>
+		<program id="P270"><name>歐洲研究學程</name></program>
+		<program id="P280"><name>光機電學程</name></program>
+		<program id="P290"><name>分子醫藥學程</name></program>
+		<program id="P300"><name>幹細胞與再生醫學學程</name></program>
+		<program id="P310"><name>神經生物與認知科學學程</name></program>
+		<program id="P320"><name>經典人文學程</name></program>
+		<program id="P330"><name>海洋事務學程</name></program>
+		<program id="P340"><name>中草藥學程</name></program>
+		<program id="P350"><name>老人與長期照顧學程</name></program>
+		<program id="P360"><name>領導學程</name></program>
+		<program id="P370"><name>創意創業學程</name></program>
+		<program id="P380"><name>亞洲藝術學程</name></program>
+		<program id="P390"><name>藝術設計學程</name></program>
+		<program id="P400"><name>傳染病學程</name></program>
+		<program id="P420"><name>中英翻譯學程</name></program>
+		<program id="P430"><name>能源科技學程</name></program>
+		<program id="P440"><name>雲端計算趨勢學程</name></program>
+		<program id="P450"><name>保健營養學程</name></program>
+		<program id="P460"><name>人口學程</name></program>
+		<program id="P470"><name>雲端運算與商業應用學程</name></program>
+		<program id="P480"><name>日本研究學程</name></program>
+	</institution>
+</ntu>
+
