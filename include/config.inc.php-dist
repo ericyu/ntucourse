@@ -9,15 +9,16 @@ mb_regex_encoding('utf-8');
 $LogQuery = false;
 
 /* 使用於 index.php */
-$year = '103';
-$SemesterName = '103 學年下學期';
-$initday = '2015-01-18';
+$year = '104';
+$SemesterName = '104 學年上學期';
+$initday = '2015-08-02';
 $MaxStartRow = 2001; 
 $RecordsPerTable = 100;
 $GE = 'http://nol.ntu.edu.tw/nol/coursesearch/search_for_03_co.php';
 
 /* 目前有資料開放查詢的學期 */
 $SEMESTERS = array(
+			'104_1'=>'104-1',
 			'103_2'=>'103-2', '103_1'=>'103-1',
 			'102_2'=>'102-2', '102_1'=>'102-1',
 			'101_2'=>'101-2', '101_1'=>'101-1',
