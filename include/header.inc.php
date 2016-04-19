@@ -59,11 +59,10 @@ header("Cache-control: private");
 
     <!-- ###### Header ###### -->
 
-    <div class="GetFirefox">
-	建議使用瀏覽器<br>
-		<a href="http://ericyu.org/click/click.php?id=1"
-		style="padding: 2px; margin: 2px;"><img alt="get Firefox" src="images/rediscover.gif" width="178" height="60"></a>
-	</div>
+    <div class="GetFirefox">建議使用瀏覽器<br>
+		  <a href="http://moztw.org/firefox"
+		     style="padding: 2px; margin: 2px;"><img alt="get Firefox" src="images/rediscover.gif" width="178" height="60"></a>
+    </div>
 
     <div id="header">選課輔助程式</div>
 
