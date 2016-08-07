@@ -56,7 +56,7 @@ for($c = 1; $c < 16; ++$c) {	// $c = sizeof($ClassTimeName)
 ?>
 <script type="text/javascript">
 var day = new Array("1", "2", "3", "4", "5", "6");
-var classname = new Array("0","1","2","3","4","@","5","6","7","8","9","A","B","C","D");
+var classname = new Array("0","1","2","3","4","5","6","7","8","9","X","A","B","C","D");
 var occupied = "<?php echo $occupied ?>";
 for(var i=0; i<classname.length; ++i) {
 	for(var j=0; j<day.length; ++j) {

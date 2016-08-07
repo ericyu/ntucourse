@@ -41,15 +41,15 @@ header("Cache-control: private");
 
 <!-- PLACE YOUR CONTENT HERE //-->  
     <table class="time">
-    <tr><th>節次</th><th>上課時間</th>
-    <tr><td>0<td>7:10-8:00    <tr><td>1<td>8:10-9:00
-    <tr><td>2<td>9:10-10:00    <tr><td>3<td>10:20-11:10
-    <tr><td>4<td>11:20-12:10    <tr><th>@<th>12:20-13:10
-    <tr><td>5<td>13:20-14:10    <tr><td>6<td>14:20-15:10
-    <tr><td>7<td>15:30-16:20    <tr><td>8<td>16:30-17:20
-    <tr><td>9<td>17:30-18:20    <tr><th>A<th>18:30-19:20
-    <tr><td>B<td>19:25-20:15    <tr><td>C<td>20:25-21:15
-    <tr><td>D<td>21:20-22:10    </table>
+    <tr><th>節次<br/>(104年度後)</th><th>節次(103年度前)</th><th>上課時間</th>
+    <tr><td>0<td>0<td>7:10-8:00      <tr><td>1<td>1<td>8:10-9:00
+    <tr><td>2<td>2<td>9:10-10:00     <tr><td>3<td>3<td>10:20-11:10
+    <tr><td>4<td>4<td>11:20-12:10    <tr><th>5<th>@<th>12:20-13:10
+    <tr><td>6<td>5<td>13:20-14:10    <tr><td>7<td>6<td>14:20-15:10
+    <tr><td>8<td>7<td>15:30-16:20    <tr><td>9<td>8<td>16:30-17:20
+    <tr><td>X<td>9<td>17:30-18:20    <tr><th>A<th>A<th>18:30-19:20
+    <tr><td>B<td>B<td>19:25-20:15    <tr><td>C<td>C<td>20:25-21:15
+    <tr><td>D<td>D<td>21:20-22:10    </table>
 <!-- END OF CONTENT AREA //-->
   </td>
   </tr>
