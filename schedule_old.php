@@ -65,11 +65,11 @@ $subquery = makeScheduleQuery($semester, $COU, implode(",", $SelectedFields), tr
 
 if($size > 0) {
 	$query = implode(" UNION ALL ", $subquery);
-	$result = mysql_query($query, $dbh);
+	$result = $dbh->query($query);
 }
 
 for($i = 0; isset($subquery) && $i < $size; ++$i) {
-	$tmp = mysql_fetch_assoc($result);
+	$tmp = $result->fetch_assoc();
 	$row["$tmp[n]"] = $tmp;
 }
 

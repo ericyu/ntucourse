@@ -37,7 +37,7 @@ if(!isset($_POST['sch_no'])) {
 for($i=0; isset($COU) && $i<sizeof($COU); ++$i) {
 	list($s, $c, $d, $cls) = preg_split('/,/', $COU[$i]);
 	$query = "SELECT daytime FROM $semester WHERE ser_no='$s' AND cou_code='$c' AND dpt_code='$d' AND class='$cls' LIMIT 0,1";
-	$row = mysql_fetch_assoc(mysql_query($query, $dbh));
+	$row = $dbh->query($query)->fetch_assoc();
 
 	$daytime = getCourseTime($row["daytime"]);
 	foreach($daytime as $sd) {	// 將時間填入表格

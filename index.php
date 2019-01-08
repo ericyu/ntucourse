@@ -313,7 +313,7 @@ if(!empty($_POST['send'])) {			// 程式開始, 有送出時才處理
 
 // log 到資料庫
 if($LogQuery == true)
-	mysql_query("INSERT INTO querylog (ipaddr,sid,qid,query) VALUES ('".getIP()."','".session_id()."','$var[qid]','".serialize($var)."')", $dbh);
+	$dbh->query("INSERT INTO querylog (ipaddr,sid,qid,query) VALUES ('".getIP()."','".session_id()."','$var[qid]','".serialize($var)."')");
 
 // 這裡是處理使用者輸入條件的部份, see query.inc.php
 condDpt();
@@ -333,12 +333,12 @@ $query = 'SELECT SQL_CALC_FOUND_ROWS ' . implode(',', $SelectedFields) .
 (in_array('dpt_code', $SelectedFields) ? '' : ',dpt_code') .
 (in_array('class', $SelectedFields) ? '' : ',class') .
 " FROM $var[table] WHERE 1 $condition LIMIT $from,$var[number]";
-$res = mysql_query($query, $dbh) or die('Invalid Query');
+$res = $dbh->query($query) or die('Invalid Query');
 
-echo mysql_error($dbh);
-$count_result = mysql_query("SELECT FOUND_ROWS() AS count");
-$total_count = mysql_result($count_result, 0);
-$display_count = mysql_num_rows($res);
+echo $dbh->error;
+$count_result = $dbh->query("SELECT FOUND_ROWS() AS count");
+$total_count = $count_result->fetch_assoc()['count'];
+$display_count = $res->num_rows;
 
 echo "<p>全部結果共有 $total_count 筆</p>";
 if($display_count == 0) {
@@ -376,12 +376,12 @@ if(empty($var['csv'])) {
 		echo '<table border="1" width="100%">';
 		table_header($SelectedFields, false, true);
 
-		for($j = 0; ($j < $RecordsPerTable && $row = mysql_fetch_assoc($res)); ++$j)
+		for($j = 0; ($j < $RecordsPerTable && $row = $res->fetch_assoc()); ++$j)
 			displayRow($row, $var['table'], false, false, false, false, false, '', true);
 	}
 } else { // CSV here
 	table_header($SelectedFields, true);
-	for($j = 0; $row = mysql_fetch_assoc($res); ++$j)
+	for($j = 0; $row = $res->fetch_assoc(); ++$j)
 		displayRow($row, $var['table'], true);
 }
 echo (empty($var['csv']) ? '</table>' : '</pre>');
@@ -394,20 +394,6 @@ displayPager();
 $beg = explode (" ",$begin_time); 
 $end = explode (" ",microtime()); 
 echo "<p>本頁 ".(($end[1] - $beg[1])+($end[0] - $beg[0]))." 秒完成</p>";
-}
-
-if(empty($_POST['send'])) {
-	$fp = @fopen('acc.txt','r+');
-	if($fp) {
-		flock($fp,2);
-		$count = fgets($fp,1024);
-		$cnew = $count+1;
-		rewind($fp);
-		fputs($fp,$cnew);
-		echo '<br><a href="hitStats.php">今日人數: '.$cnew.'</a><br>';
-		flock($fp,3);
-		fclose($fp);
-	}
 }
 
 if(empty($_POST['send'])) {

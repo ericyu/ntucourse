@@ -3,7 +3,7 @@ $host = '';
 $user = '';
 $password = '';
 $db = '';
-$dbh = mysql_pconnect($host, $user, $password) or die("The database system is not ready.");
-mysql_select_db($db);
-mysql_query("SET NAMES 'utf8'", $dbh);
+$dbh = new mysqli('p:'.$host, $user, $password) or die("The database system is not ready.");
+$dbh->select_db($db);
+$dbh->query("SET NAMES 'utf8'");
 ?>

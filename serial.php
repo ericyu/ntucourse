@@ -32,7 +32,7 @@ $query='select ' . implode(',', $SelectedFields) .
 (in_array('dpt_code', $SelectedFields) ? '' : ',dpt_code') .
 (in_array('class', $SelectedFields) ? '' : ',class') .
 " from $var[table] where $ser_qu";
-$res=mysql_query($query,$dbh);
+$res = $dbh->query($query);
 
 echo "<p>";
 formAddToScheduleTable(true);
@@ -40,12 +40,12 @@ formAddToScheduleTable(true);
 if(empty($var['csv'])) {
 	echo '<table class="sn" border="1" width="100%">';
 	table_header($SelectedFields);
-	while($row = mysql_fetch_assoc($res))
+	while($row = $res->fetch_assoc())
 			displayRow($row, $var['table']);
 } else {
 	// CSV here
 	table_header($SelectedFields, true);
-	for($j = 0; $row = mysql_fetch_assoc($res); ++$j)
+	for($j = 0; $row = $res->fetch_assoc(); ++$j)
 		displayRow($row, $var['table'], $var['csv']);
 }
 echo (empty($var['csv']) ? '</table>' : '</pre>');
